@@ -5,6 +5,10 @@
 </template>
 
 <script>
+import 'leaflet/dist/leaflet.css'
+import L from 'leaflet'
+import 'proj4leaflet'
+
 export default {
   data () {
     return {
@@ -12,9 +16,21 @@ export default {
     }
   },
   mounted () {
-    const background = this.$L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', { attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' })
+    const background = L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', { attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' })
 
-    this.map = this.$L.map('mapid', {
+    const customCrs = new L.Proj.CRS('EPSG:32631', '+proj=utm +zone=31 +datum=WGS84 +units=m +no_defs', { resolutions: [40000, 10000, 5000, 1000, 100, 1], origin: [500000.00, 4649776.22] })
+    // const customCrs = new L.Proj.CRS(
+    //   'EPSG:2056',
+    //   '+proj=somerc +lat_0=46.95240555555556 +lon_0=7.439583333333333 +k_0=1 +x_0=2600000 +y_0=1200000 +ellps=bessel +towgs84=674.374,15.056,405.346,0,0,0,0 +units=m +no_defs',
+    //   {
+    //     resolutions: [
+    //       4000, 3750, 3500, 3250, 3000, 2750, 2500, 2250, 2000, 1750, 1500, 1250, 1000, 750, 650, 500, 250, 100, 50, 20, 10, 5, 2.5, 2, 1.5, 1, 0.5
+    //     ],
+    //     origin: [2420000, 1350000]
+    //   })
+
+    this.map = L.map('mapid', {
+      crs: customCrs,
       center: [52, 10],
       zoom: 3,
       layers: [background]
@@ -32,8 +48,8 @@ export default {
 
     domains.forEach(([id, coordinates]) => {
       console.log(id, coordinates)
-      const layer = this.$L.polygon(coordinates, { fillColor: '#33333', weight: 2, opacity: 1, color: 'white', dashArray: '3', fillOpacity: 0.7 })
-      layer.addTo(this.map)
+      const layer = L.polygon(coordinates, { fillColor: '#33333', weight: 2, opacity: 1, color: 'white', dashArray: '3', fillOpacity: 0.7 })
+      // layer.addTo(this.map)
       layer.on({
         mouseover: this.highlightFeature,
         mouseout: this.resetHighlight,
@@ -50,7 +66,7 @@ export default {
 
       layer.setStyle({ weight: 5, color: '#666', dashArray: '', fillOpacity: 0.7 })
 
-      if (!this.$L.Browser.ie && !this.$L.Browser.opera && !this.$L.Browser.edge) {
+      if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
         layer.bringToFront()
       }
     },

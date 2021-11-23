@@ -13,8 +13,10 @@
   "dependencies": {
     "@nuxt/content": "^1.14.0",
     "core-js": "^3.15.1",
+    "leaflet": "^1.7.1",
     "nuxt": "^2.15.7",
-    "nuxt-leaflet": "^0.0.27"
+    "proj4": "^2.7.5",
+    "proj4leaflet": "^1.0.2"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.14.7",
