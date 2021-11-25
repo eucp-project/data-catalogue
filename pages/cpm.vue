@@ -1,13 +1,13 @@
 <template>
   <div class="flex place-content-center">
-    <div id="mapid" style="height: 400px; width: 450px" />
+    <div id="mapid" style="height: 800px; width: 900px" />
   </div>
 </template>
 
 <script>
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'
-import 'proj4leaflet'
+// import 'proj4leaflet'
 
 export default {
   data () {
@@ -18,7 +18,7 @@ export default {
   mounted () {
     const background = L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', { attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' })
 
-    const customCrs = new L.Proj.CRS('EPSG:32631', '+proj=utm +zone=31 +datum=WGS84 +units=m +no_defs', { resolutions: [40000, 10000, 5000, 1000, 100, 1], origin: [500000.00, 4649776.22] })
+    // const customCrs = new L.Proj.CRS('EPSG:32631', '+proj=utm +zone=31 +datum=WGS84 +units=m +no_defs', { resolutions: [40000, 10000, 5000, 1000, 100, 1], origin: [500000.00, 4649776.22] })
     // const customCrs = new L.Proj.CRS(
     //   'EPSG:2056',
     //   '+proj=somerc +lat_0=46.95240555555556 +lon_0=7.439583333333333 +k_0=1 +x_0=2600000 +y_0=1200000 +ellps=bessel +towgs84=674.374,15.056,405.346,0,0,0,0 +units=m +no_defs',
@@ -30,7 +30,7 @@ export default {
     //   })
 
     this.map = L.map('mapid', {
-      crs: customCrs,
+      // crs: customCrs,
       center: [52, 10],
       zoom: 3,
       layers: [background]
@@ -49,7 +49,7 @@ export default {
     domains.forEach(([id, coordinates]) => {
       console.log(id, coordinates)
       const layer = L.polygon(coordinates, { fillColor: '#33333', weight: 2, opacity: 1, color: 'white', dashArray: '3', fillOpacity: 0.7 })
-      // layer.addTo(this.map)
+      layer.addTo(this.map)
       layer.on({
         mouseover: this.highlightFeature,
         mouseout: this.resetHighlight,
