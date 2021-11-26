@@ -51,6 +51,7 @@ export default {
       console.log(id, coordinates)
       const layer = L.polygon(coordinates, { fillColor: '#33333', weight: 2, opacity: 1, color: 'white', dashArray: '3', fillOpacity: 0.7 })
       layer.addTo(this.map)
+      layer._leaflet_id = id // rename the id of each layer
       layer.on({
         mouseover: this.highlightFeature,
         mouseout: this.resetHighlight,
@@ -88,8 +89,8 @@ export default {
         layer.bringToFront()
       }
 
-      this.info.update(layer.feature)
-      // console.log(layer.feature)
+      this.info.update(layer._leaflet_id)
+      console.log(layer._leaflet_id)
     },
     resetHighlight (e) {
       const layer = e.target
