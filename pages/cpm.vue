@@ -1,6 +1,6 @@
 <template>
   <div class="flex place-content-center">
-    <div id="mapid" style="height: 800px; width: 900px" />
+    <div id="mapid" style="height: 600px; width:500px" />
   </div>
 </template>
 
@@ -105,8 +105,23 @@ export default {
       return this._div
     },
     updateInfo (props) {
-      this._div.innerHTML = '<h1>List of groups running CP-RCM experiments</h1>'
+      this._div.innerHTML = '<h4>List of groups running CP-RCM experiments</h4>'
     }
   }
 }
 </script>
+
+<style>
+.info {
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+.info h4 {
+    margin: 0 0 5px;
+    color: #777;
+}
+</style>
