@@ -12,7 +12,8 @@ import L from 'leaflet'
 export default {
   data () {
     return {
-      map: {}
+      map: {},
+      info: {}
     }
   },
   mounted () {
@@ -56,6 +57,23 @@ export default {
         click: this.zoomToFeature
       })
     })
+
+    // groups and experiments over different regions
+    // const groups = {
+    //   NW: 'CNRM, KNMI, ETH, UKMO',
+    //   SW: 'CMCC, IPSL, ETH, UKMO',
+    //   SE: 'ICTP, ETH, UKMO',
+    //   C: 'GERICS, ETH, UKMO',
+    //   CE: 'SMHI, ICTP, ETH, UKMO',
+    //   N: 'DMI/SMHI, GERICS'
+    // }
+
+    // contro that shows source data availability info
+    this.info = L.control()
+    // Create a div with a class of info
+    this.info.onAdd = this.infoDiv
+    this.info.update = this.updateInfo
+    this.info.addTo(this.map)
   },
   methods: {
     onMapClicked (event) {
@@ -69,13 +87,25 @@ export default {
       if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
         layer.bringToFront()
       }
+
+      this.info.update(layer.feature)
+      // console.log(layer.feature)
     },
     resetHighlight (e) {
       const layer = e.target
       layer.setStyle({ fillColor: '#ffffff', weight: 2, opacity: 1, color: 'white', dashArray: '3', fillOpacity: 0.7 })
+      this.info.update()
     },
     zoomToFeature (e) {
       this.map.fitBounds(e.target.getBounds())
+    },
+    infoDiv (map) {
+      this._div = L.DomUtil.create('div', 'info') // create a div with a class "info"
+      // this.update()
+      return this._div
+    },
+    updateInfo (props) {
+      this._div.innerHTML = '<h1>List of groups running CP-RCM experiments</h1>'
     }
   }
 }
