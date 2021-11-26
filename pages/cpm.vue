@@ -13,7 +13,16 @@ export default {
   data () {
     return {
       map: {},
-      info: {}
+      info: {},
+      // groups and experiments over different regions
+      groups: {
+        NW: 'CNRM, KNMI, ETH, UKMO',
+        SW: 'CMCC, IPSL, ETH, UKMO',
+        SE: 'ICTP, ETH, UKMO',
+        C: 'GERICS, ETH, UKMO',
+        CE: 'SMHI, ICTP, ETH, UKMO',
+        N: 'DMI/SMHI, GERICS'
+      }
     }
   },
   mounted () {
@@ -59,16 +68,6 @@ export default {
       })
     })
 
-    // groups and experiments over different regions
-    // const groups = {
-    //   NW: 'CNRM, KNMI, ETH, UKMO',
-    //   SW: 'CMCC, IPSL, ETH, UKMO',
-    //   SE: 'ICTP, ETH, UKMO',
-    //   C: 'GERICS, ETH, UKMO',
-    //   CE: 'SMHI, ICTP, ETH, UKMO',
-    //   N: 'DMI/SMHI, GERICS'
-    // }
-
     // contro that shows source data availability info
     this.info = L.control()
     // Create a div with a class of info
@@ -106,7 +105,7 @@ export default {
       return this._div
     },
     updateInfo (props) {
-      this._div.innerHTML = '<h4>List of groups running CP-RCM experiments</h4>'
+      this._div.innerHTML = '<h4>CPM model&data availability</h4>' + (this.groups[props] ? this.groups[props] : 'Hover over a region')
     }
   }
 }
