@@ -26,37 +26,37 @@ export default {
         SW: {
           model: 'CMCC, IPSL, ETH, UKMO',
           SW: 'SW: 30 N, -10 E',
-          SE: 'SE: 40.4 N, 11.0 E',
-          NE: 'NE: 58.6 N, 15.2 E',
-          NW: 'NW: 58.6 N, -12.5 E'
+          SE: 'SE: 33 N, 7.4 E',
+          NE: 'NE: 48.9 N, 5.7 E',
+          NW: 'NW: 45.4 N, -15 E'
         },
         SE: {
           model: 'ICTP, ETH, UKMO',
           SW: 'SW: 34.3 N, 12.5 E',
-          SE: 'SE: 40.4 N, 11.0 E',
-          NE: 'NE: 58.6 N, 15.2 E',
-          NW: 'NW: 58.6 N, -12.5 E'
+          SE: 'SE: 34.3 N, 28.5 E',
+          NE: 'NE: 40.9 N, 29.4 E',
+          NW: 'NW: 40.9 N, 11.5 E'
         },
         C: {
           model: 'GERICS, ETH, UKMO',
           SW: 'SW: 44.5 N, 5.0 E',
-          SE: 'SE: 40.4 N, 11.0 E',
-          NE: 'NE: 58.6 N, 15.2 E',
-          NW: 'NW: 58.6 N, -12.5 E'
+          SE: 'SE: 45.5 N, 18.0 E',
+          NE: 'NE: 56.0 N, 18.0 E',
+          NW: 'NW: 53.0 N, 1.0 E'
         },
         CE: {
           model: 'SMHI, ICTP, ETH, UKMO',
           SW: 'SW : 41.5 N, 17.8 E',
-          SE: 'SE: 40.4 N, 11.0 E',
-          NE: 'NE: 58.6 N, 15.2 E',
-          NW: 'NW: 58.6 N, -12.5 E'
+          SE: 'SE: 41.5 N, 31.3 E',
+          NE: 'NE: 51.6 N, 32.8 E',
+          NW: 'NW: 51.6 N, 16.4 E'
         },
         N: {
           model: 'DMI/SMHI, GERICS',
           SW: 'SW: 50.7 N, 1 E',
-          SE: 'SE: 40.4 N, 11.0 E',
-          NE: 'NE: 58.6 N, 15.2 E',
-          NW: 'NW: 58.6 N, -12.5 E'
+          SE: 'SE: 49.7 N, 26.7 E',
+          NE: 'NE: 70.6 N, 44.1 E',
+          NW: 'NW: 72.6 N, -9.4 E'
         }
       }
     }
