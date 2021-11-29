@@ -16,4 +16,4 @@ doi:
 For more information, see: ....
 
 ### Preview image:
-![preview](eucp_logo.png)
+![shoreline_retreat](shoreline_retreat.png)
