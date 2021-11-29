@@ -16,12 +16,48 @@ export default {
       info: {},
       // groups and experiments over different regions
       groups: {
-        NW: 'CNRM, KNMI, ETH, UKMO',
-        SW: 'CMCC, IPSL, ETH, UKMO',
-        SE: 'ICTP, ETH, UKMO',
-        C: 'GERICS, ETH, UKMO',
-        CE: 'SMHI, ICTP, ETH, UKMO',
-        N: 'DMI/SMHI, GERICS'
+        NW: {
+          model: 'CNRM, KNMI, ETH, UKMO',
+          SW: 'SW: 40.4 N, -8.0 E',
+          SE: 'SE: 40.4 N, 11.0 E',
+          NE: 'NE: 58.6 N, 15.2 E',
+          NW: 'NW: 58.6 N, -12.5 E'
+        },
+        SW: {
+          model: 'CMCC, IPSL, ETH, UKMO',
+          SW: 'SW: 30 N, -10 E',
+          SE: 'SE: 40.4 N, 11.0 E',
+          NE: 'NE: 58.6 N, 15.2 E',
+          NW: 'NW: 58.6 N, -12.5 E'
+        },
+        SE: {
+          model: 'ICTP, ETH, UKMO',
+          SW: 'SW: 34.3 N, 12.5 E',
+          SE: 'SE: 40.4 N, 11.0 E',
+          NE: 'NE: 58.6 N, 15.2 E',
+          NW: 'NW: 58.6 N, -12.5 E'
+        },
+        C: {
+          model: 'GERICS, ETH, UKMO',
+          SW: 'SW: 44.5 N, 5.0 E',
+          SE: 'SE: 40.4 N, 11.0 E',
+          NE: 'NE: 58.6 N, 15.2 E',
+          NW: 'NW: 58.6 N, -12.5 E'
+        },
+        CE: {
+          model: 'SMHI, ICTP, ETH, UKMO',
+          SW: 'SW : 41.5 N, 17.8 E',
+          SE: 'SE: 40.4 N, 11.0 E',
+          NE: 'NE: 58.6 N, 15.2 E',
+          NW: 'NW: 58.6 N, -12.5 E'
+        },
+        N: {
+          model: 'DMI/SMHI, GERICS',
+          SW: 'SW: 50.7 N, 1 E',
+          SE: 'SE: 40.4 N, 11.0 E',
+          NE: 'NE: 58.6 N, 15.2 E',
+          NW: 'NW: 58.6 N, -12.5 E'
+        }
       }
     }
   },
@@ -57,7 +93,7 @@ export default {
     ]
 
     domains.forEach(([id, coordinates]) => {
-      console.log(id, coordinates)
+      // console.log(id, coordinates)
       const layer = L.polygon(coordinates, { fillColor: '#33333', weight: 2, opacity: 1, color: 'white', dashArray: '3', fillOpacity: 0.7 })
       layer.addTo(this.map)
       layer._leaflet_id = id // rename the id of each layer
@@ -89,7 +125,7 @@ export default {
       }
 
       this.info.update(layer._leaflet_id)
-      console.log(layer._leaflet_id)
+      // console.log(layer._leaflet_id)
     },
     resetHighlight (e) {
       const layer = e.target
@@ -105,7 +141,8 @@ export default {
       return this._div
     },
     updateInfo (props) {
-      this._div.innerHTML = '<h4>CPM model&data availability</h4>' + (this.groups[props] ? this.groups[props] : 'Hover over a region')
+      // to do: loop through the json file after it is put in a geojson/yaml file
+      this._div.innerHTML = '<h4>CPM model&data availability</h4>' + (this.groups[props] ? (this.groups[props].model + '<br>' + this.groups[props].SW + '<br>' + this.groups[props].SE + '<br>' + this.groups[props].NE + '<br>' + this.groups[props].NW) : 'Hover over a region')
     }
   }
 }
