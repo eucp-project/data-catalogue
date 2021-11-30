@@ -26,7 +26,7 @@
           </div>
         </NuxtLink>
         <p class="p-4">Processed data on a broad range of applications</p>
-        <img src="shoreline_retreat.png" alt="domains" class="object-contain">
+        <img src="shoreline_retreat.png" alt="shoreline retreat" class="object-contain">
       </div>
     </div>
   </div>
