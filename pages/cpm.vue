@@ -94,7 +94,7 @@ export default {
 
     domains.forEach(([id, coordinates]) => {
       // console.log(id, coordinates)
-      const layer = L.polygon(coordinates, { fillColor: '#33333', weight: 2, opacity: 1, color: 'white', dashArray: '3', fillOpacity: 0.7 })
+      const layer = L.polygon(coordinates, { fillColor: '#ffffff', weight: 2, opacity: 1, color: 'white', dashArray: '3', fillOpacity: 0.7 })
       layer.addTo(this.map)
       layer._leaflet_id = id // rename the id of each layer
       layer.on({
