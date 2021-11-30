@@ -4,6 +4,9 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
   ssr: false,
+  router: {
+    base: '/data-catalogue/'
+  },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -44,7 +47,7 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/content
-    '@nuxt/content',
+    '@nuxt/content'
   ],
 
   // Content module configuration: https://go.nuxtjs.dev/config-content
