@@ -103,6 +103,8 @@ export default {
     },
     zoomToFeature (e) {
       this.map.fitBounds(e.target.getBounds())
+      const layer = e.target
+      this.path_cpm = this.regions.regions[layer._leaflet_id] ? ('cpm_analysis/' + layer._leaflet_id) : ''
     },
     infoDiv (map) {
       this._div = L.DomUtil.create('div', 'info') // create a div with a class "info"
@@ -112,7 +114,6 @@ export default {
     updateInfo (props) {
       // to do: loop through the json file after it is put in a geojson/yaml file
       this._div.innerHTML = '<h4>CPM model&data availability</h4>' + (this.regions.regions[props] ? (this.regions.regions[props].model + '<br>' + this.regions.regions[props].SW + '<br>' + this.regions.regions[props].SE + '<br>' + this.regions.regions[props].NE + '<br>' + this.regions.regions[props].NW) : 'Hover over a region')
-      this.path_cpm = this.regions.regions[props] ? ('cpm_analysis/' + props) : ''
     }
   }
 }
