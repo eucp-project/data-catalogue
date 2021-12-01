@@ -1,5 +1,12 @@
 <template>
   <div class="flex place-content-center">
+    <div class="m-3 p-3">
+      <p>display region path</p>
+      <p class="text-red-500">
+        {{ path_cpm }}
+      </p>
+      <img src="cpm_analysis/cpm_prec.png" alt="cpm"> <!-- change the path when the figs are ready -->
+    </div>
     <div id="mapid" style="height: 600px; width:500px" />
   </div>
 </template>
@@ -14,6 +21,7 @@ export default {
     return {
       map: {},
       info: {},
+      path_cpm: [],
       // groups and experiments over different regions
       groups: {
         NW: {
@@ -143,6 +151,7 @@ export default {
     updateInfo (props) {
       // to do: loop through the json file after it is put in a geojson/yaml file
       this._div.innerHTML = '<h4>CPM model&data availability</h4>' + (this.groups[props] ? (this.groups[props].model + '<br>' + this.groups[props].SW + '<br>' + this.groups[props].SE + '<br>' + this.groups[props].NE + '<br>' + this.groups[props].NW) : 'Hover over a region')
+      this.path_cpm = this.groups[props] ? ('cpm_analysis/' + props) : ''
     }
   }
 }
