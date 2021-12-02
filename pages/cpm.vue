@@ -7,7 +7,7 @@
 <script>
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'
-// import 'proj4leaflet'
+import 'proj4leaflet'
 
 export default {
   data () {
@@ -63,7 +63,14 @@ export default {
   },
   mounted () {
     const background = L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', { attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' })
-
+    // +proj=sterea +lat_0=Latitude of natural origin
+    // +lon_0=Longitude of natural origin
+    // +k_0=Scale factor at natural origin
+    // +x_0=False Easting
+    // +y_0=False Northing
+    // resolutions (m / pixel)
+    // proj4.defs("EPSG:3995","+proj=stere +lat_0=90 +lat_ts=71 +lon_0=0 +k=1 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs");
+    const customCrs = new L.Proj.CRS('EPSG:3995', '+proj=stere +lat_0=90 +lat_ts=71 +lon_0=0 +k=1 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs', { resolutions: [40000, 10000, 5000, 1000, 100, 1], origin: [500000.00, 4649776.22] })
     // const customCrs = new L.Proj.CRS('EPSG:32631', '+proj=utm +zone=31 +datum=WGS84 +units=m +no_defs', { resolutions: [40000, 10000, 5000, 1000, 100, 1], origin: [500000.00, 4649776.22] })
     // const customCrs = new L.Proj.CRS(
     //   'EPSG:2056',
@@ -76,7 +83,7 @@ export default {
     //   })
 
     this.map = L.map('mapid', {
-      // crs: customCrs,
+      crs: customCrs,
       center: [52, 10],
       zoom: 3,
       layers: [background]
