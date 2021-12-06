@@ -8,6 +8,7 @@
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'
 import 'proj4leaflet'
+// import proj4 from 'proj4'
 
 export default {
   data () {
@@ -115,7 +116,7 @@ export default {
       layers: [wmsBKLayer]
     })
 
-    // from EPSG 4326 to EPSG 3995 via https://epsg.io/
+    // from EPSG 4326 (WGS84) to EPSG 3995 via proj4
     const domains = [
       ['NW', [[40.4, -8], [40.4, 11], [58.6, 15.2], [58.6, -12.5]]],
       ['SW', [[30, -10], [33, 7.4], [48.9, 5.7], [45.5, -15]]],
@@ -124,6 +125,10 @@ export default {
       ['CE', [[41.5, 17.8], [41.5, 31.3], [51.6, 32.8], [51.6, 16.4]]],
       ['N', [[50.7, 1], [49.7, 26.7], [70.6, 44.1], [72.6, -9.4]]]
     ]
+
+    // domains = domains.map(([id, coordinates]) => (
+    //   [id, coordinates.map(coordinate => proj4('WGS84', 'EPSG:3995', coordinate))]
+    // ))
 
     domains.forEach(([id, coordinates]) => {
       // console.log(id, coordinates)
