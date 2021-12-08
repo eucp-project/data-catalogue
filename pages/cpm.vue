@@ -82,9 +82,6 @@ export default {
         bounds: L.bounds([-10403632.820, 17760.815, 12417841.080, -13082466.960])
       })
 
-    // using default EPGS in leaflet
-    // const background = L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', { attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' })
-
     const wmsBKLayer = L.tileLayer.wms('http://eumetview.eumetsat.int/geoserv/wms', {
       layers: 'bkg-raster:bkg-raster',
       format: 'image/png',
@@ -97,14 +94,6 @@ export default {
     //   format: 'image/png',
     //   transparent: true
     // })
-
-    // this.map = L.map('mapid', {
-    //   crs: customCrs,
-    //   center: [52, 10],
-    //   zoom: 3,
-    //   layers: [background]
-    // }
-    // )
 
     this.map = L.map('mapid', {
       center: L.latLng(52, 10),
@@ -126,12 +115,7 @@ export default {
       ['N', [[50.7, 1], [49.7, 26.7], [70.6, 44.1], [72.6, -9.4]]]
     ]
 
-    // domains = domains.map(([id, coordinates]) => (
-    //   [id, coordinates.map(coordinate => proj4('WGS84', 'EPSG:3995', coordinate))]
-    // ))
-
     domains.forEach(([id, coordinates]) => {
-      // console.log(id, coordinates)
       const layer = L.polygon(coordinates, { fillColor: '#ffffff', weight: 2, opacity: 1, color: 'white', dashArray: '3', fillOpacity: 0.7 })
       layer.addTo(this.map)
       layer._leaflet_id = id // rename the id of each layer
@@ -163,7 +147,6 @@ export default {
       }
 
       this.info.update(layer._leaflet_id)
-      // console.log(layer._leaflet_id)
     },
     resetHighlight (e) {
       const layer = e.target
