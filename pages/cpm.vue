@@ -4,7 +4,7 @@
       Disclaimer: This page is a work in progress and does not currently contain dependable climate information!
     </h1>
     <div class="flex gap-4 m-4">
-      <Map />
+      <Map v-model="domain" />
       <div class="border-4 flex-grow">
         <div class="flex bg-gray-100">
           <button
@@ -18,6 +18,7 @@
           </button>
         </div>
         <img src="cpm_analysis/cpm_prec.png" alt="cpm"> <!-- change the path when the figs are ready -->
+        <p> You select the following: {{ domain }}</p>
       </div>
     </div>
   </div>
@@ -27,6 +28,7 @@
 export default {
   data () {
     return {
+      domain: '',
       tab: {},
       tabs: [
         { isActive: true, body: 'lorem' },

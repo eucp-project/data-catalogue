@@ -8,6 +8,7 @@ import L from 'leaflet'
 import 'proj4leaflet'
 
 export default {
+  props: ['value'],
   data () {
     return {
       map: {},
@@ -70,7 +71,7 @@ export default {
       layer.on({
         mouseover: this.highlightFeature,
         mouseout: this.resetHighlight,
-        click: this.zoomToFeature
+        click: this.onMapClicked
       })
     })
 
@@ -83,7 +84,9 @@ export default {
   },
   methods: {
     onMapClicked (event) {
-      console.log(event.sourceTarget.feature.properties)
+      this.domain = event.target._leaflet_id
+      this.zoomToFeature(event)
+      this.$emit('input', this.domain)
     },
     highlightFeature (e) {
       const layer = e.target
@@ -103,8 +106,6 @@ export default {
     },
     zoomToFeature (e) {
       this.map.fitBounds(e.target.getBounds())
-      const layer = e.target
-      this.path_cpm = this.regions.regions[layer._leaflet_id] ? ('You select region ' + layer._leaflet_id) : ''
     },
     infoDiv (map) {
       this._div = L.DomUtil.create('div', 'info bg-white bg-opacity-75 text-base p-2 rounded-md') // create a div with a class "info"
