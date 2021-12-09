@@ -14,7 +14,8 @@
 <script>
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'
-// import 'proj4leaflet'
+import 'proj4leaflet'
+// import proj4 from 'proj4'
 
 export default {
   data () {
@@ -31,27 +32,49 @@ export default {
     this.regions = regions
   },
   mounted () {
-    const background = L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', { attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' })
+    // use WGS 84 / Arctic Polar Stereographic EPSG 3995 projection
+    // -------- explanation of the projection parameters in proj --------
+    // +proj=sterea +lat_0=Latitude of natural origin
+    // +lon_0=Longitude of natural origin
+    // +k_0=Scale factor at natural origin
+    // +x_0=False Easting
+    // +y_0=False Northing
+    // resolutions (m / pixel)
+    // !! note: the resolution can be calculated using GeoServer (http://geoserver.org/)
+    // -------------------------------------------------------------------
+    const customCrs = new L.Proj.CRS(
+      'EPSG:3995',
+      '+proj=stere +lat_0=90 +lat_ts=71 +lon_0=0 +k=1 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs',
+      {
+        resolutions: [22600, 11300, 5650, 2825, 1412.5, 706.25, 353.125, 176.5625, 88.28125, 44.140625],
+        origin: [-12403632.820000000298023, 17760.814940000000206],
+        bounds: L.bounds([-10403632.820, 17760.815, 12417841.080, -13082466.960])
+      })
 
-    // const customCrs = new L.Proj.CRS('EPSG:32631', '+proj=utm +zone=31 +datum=WGS84 +units=m +no_defs', { resolutions: [40000, 10000, 5000, 1000, 100, 1], origin: [500000.00, 4649776.22] })
-    // const customCrs = new L.Proj.CRS(
-    //   'EPSG:2056',
-    //   '+proj=somerc +lat_0=46.95240555555556 +lon_0=7.439583333333333 +k_0=1 +x_0=2600000 +y_0=1200000 +ellps=bessel +towgs84=674.374,15.056,405.346,0,0,0,0 +units=m +no_defs',
-    //   {
-    //     resolutions: [
-    //       4000, 3750, 3500, 3250, 3000, 2750, 2500, 2250, 2000, 1750, 1500, 1250, 1000, 750, 650, 500, 250, 100, 50, 20, 10, 5, 2.5, 2, 1.5, 1, 0.5
-    //     ],
-    //     origin: [2420000, 1350000]
-    //   })
+    const wmsBKLayer = L.tileLayer.wms('http://eumetview.eumetsat.int/geoserv/wms', {
+      layers: 'bkg-raster:bkg-raster',
+      format: 'image/png',
+      transparent: true
+    })
+
+    // add country borders to the wms layer
+    // const wmsCountryBorders = L.tileLayer.wms('http://eumetview.eumetsat.int/geoserv/wms', {
+    //   layers: 'overlay:vector-overlay',
+    //   format: 'image/png',
+    //   transparent: true
+    // })
 
     this.map = L.map('mapid', {
-      // crs: customCrs,
-      center: [52, 10],
-      zoom: 3,
-      layers: [background]
-    }
-    )
+      center: L.latLng(52, 10),
+      zoom: 1,
+      tileSize: 256,
+      continuousWorld: true,
+      worldCopyJump: false,
+      crs: customCrs,
+      layers: [wmsBKLayer]
+    })
 
+    // from EPSG 4326 (WGS84) to EPSG 3995 via proj4
     const domains = [
       ['NW', [[40.4, -8], [40.4, 11], [58.6, 15.2], [58.6, -12.5]]],
       ['SW', [[30, -10], [33, 7.4], [48.9, 5.7], [45.5, -15]]],
@@ -62,7 +85,6 @@ export default {
     ]
 
     domains.forEach(([id, coordinates]) => {
-      // console.log(id, coordinates)
       const layer = L.polygon(coordinates, { fillColor: '#ffffff', weight: 2, opacity: 1, color: 'white', dashArray: '3', fillOpacity: 0.7 })
       layer.addTo(this.map)
       layer._leaflet_id = id // rename the id of each layer
@@ -94,7 +116,6 @@ export default {
       }
 
       this.info.update(layer._leaflet_id)
-      // console.log(layer._leaflet_id)
     },
     resetHighlight (e) {
       const layer = e.target
