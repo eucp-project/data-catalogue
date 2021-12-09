@@ -1,13 +1,17 @@
 <template>
-  <div class="flex place-content-center">
-    <div class="m-3 p-3">
-      <p>display region path</p>
-      <p class="text-red-500">
-        {{ path_cpm }}
-      </p>
-      <img src="cpm_analysis/cpm_prec.png" alt="cpm"> <!-- change the path when the figs are ready -->
+  <div>
+    <h1 class="text-xl">
+      Disclaimer: This page is a work in progress and does not currently contain dependable climate information!
+    </h1>
+    <div class="flex place-content-center">
+      <div class="m-3 p-3">
+        <p class="text-red-500">
+          {{ path_cpm }}
+        </p>
+        <img src="cpm_analysis/cpm_prec.png" alt="cpm"> <!-- change the path when the figs are ready -->
+      </div>
+      <div id="mapid" style="height: 600px; width:500px" />
     </div>
-    <div id="mapid" style="height: 600px; width:500px" />
   </div>
 </template>
 
