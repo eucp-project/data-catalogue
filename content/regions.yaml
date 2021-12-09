@@ -40,3 +40,10 @@ regions:
     SE: 'SE: 49.7 N, 26.7 E'
     NE: 'NE: 70.6 N, 44.1 E'
     NW: 'NW: 72.6 N, -9.4 E'
+
+  AL:
+    model: 'All (FPS convection)'
+    SW: 'SW: 40 N, 1 E'
+    SE: 'SE: 40 N, 17 E'
+    NE: 'NE: 50 N, 17 E'
+    NW: 'NW: 50 N, 1 E'
