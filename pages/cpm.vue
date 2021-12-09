@@ -1,16 +1,16 @@
 <template>
   <div>
-    <h1 class="text-xl">
+    <h1 class="text-2xl m-4">
       Disclaimer: This page is a work in progress and does not currently contain dependable climate information!
     </h1>
-    <div class="flex place-content-center">
-      <div class="m-3 p-3">
+    <div class="flex gap-4 m-4">
+      <div id="mapid" style="height: 600px; width:500px" class="border-4" />
+      <div class="p-3 border-4 flex-grow">
         <p class="text-red-500">
           {{ path_cpm }}
         </p>
         <img src="cpm_analysis/cpm_prec.png" alt="cpm"> <!-- change the path when the figs are ready -->
       </div>
-      <div id="mapid" style="height: 600px; width:500px" />
     </div>
   </div>
 </template>
