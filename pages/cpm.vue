@@ -125,10 +125,10 @@ export default {
     zoomToFeature (e) {
       this.map.fitBounds(e.target.getBounds())
       const layer = e.target
-      this.path_cpm = this.regions.regions[layer._leaflet_id] ? ('cpm_analysis/' + layer._leaflet_id) : ''
+      this.path_cpm = this.regions.regions[layer._leaflet_id] ? ('You select region ' + layer._leaflet_id) : ''
     },
     infoDiv (map) {
-      this._div = L.DomUtil.create('div', 'info') // create a div with a class "info"
+      this._div = L.DomUtil.create('div', 'info bg-white bg-opacity-75 text-base p-2 rounded-md') // create a div with a class "info"
       // this.update()
       return this._div
     },
@@ -139,18 +139,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.info {
-    padding: 6px 8px;
-    font: 14px/16px Arial, Helvetica, sans-serif;
-    background: white;
-    background: rgba(255,255,255,0.8);
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    border-radius: 5px;
-}
-.info h4 {
-    margin: 0 0 5px;
-    color: #777;
-}
-</style>
