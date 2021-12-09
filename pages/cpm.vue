@@ -1,16 +1,27 @@
 <template>
   <div>
-    <h1 class="text-xl">
+    <h1 class="text-2xl m-4">
       Disclaimer: This page is a work in progress and does not currently contain dependable climate information!
     </h1>
-    <div class="flex place-content-center">
-      <div class="m-3 p-3">
+    <div class="flex gap-4 m-4">
+      <div id="mapid" style="height: 600px; width:500px" class="border-4" />
+      <div class="border-4 flex-grow">
+        <div class="flex bg-gray-100">
+          <button
+            v-for="(item, i) in tabs"
+            :key="i"
+            class="text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none"
+            :class="item.isActive ? 'text-blue-500 border-b-2 font-medium border-blue-500' : ''"
+            @click="toggle(i)"
+          >
+            {{ item.body }}
+          </button>
+        </div>
         <p class="text-red-500">
           {{ path_cpm }}
         </p>
         <img src="cpm_analysis/cpm_prec.png" alt="cpm"> <!-- change the path when the figs are ready -->
       </div>
-      <div id="mapid" style="height: 600px; width:500px" />
     </div>
   </div>
 </template>
@@ -27,7 +38,15 @@ export default {
       map: {},
       info: {},
       path_cpm: [],
-      regions: []
+      regions: [],
+      tab: {},
+      tabs: [
+        { isActive: true, body: 'lorem' },
+        { isActive: true, body: 'ipsum' },
+        { isActive: true, body: 'dolar' },
+        { isActive: true, body: 'sit' },
+        { isActive: true, body: 'amet' }
+      ]
     }
   },
   async fetch () {
@@ -36,6 +55,7 @@ export default {
     this.regions = regions
   },
   mounted () {
+    this.toggle(0)
     // use WGS 84 / Arctic Polar Stereographic EPSG 3995 projection
     // -------- explanation of the projection parameters in proj --------
     // +proj=sterea +lat_0=Latitude of natural origin
@@ -139,6 +159,12 @@ export default {
     updateInfo (props) {
       // to do: loop through the json file after it is put in a geojson/yaml file
       this._div.innerHTML = '<h4>CPM model&data availability</h4>' + (this.regions.regions[props] ? (this.regions.regions[props].model + '<br>' + this.regions.regions[props].SW + '<br>' + this.regions.regions[props].SE + '<br>' + this.regions.regions[props].NE + '<br>' + this.regions.regions[props].NW) : 'Hover over a region')
+    },
+    toggle (i) {
+      this.tab = this.tabs[i]
+      // eslint-disable-next-line no-return-assign
+      this.tabs.map(obj => obj.isActive = false)
+      this.tabs[i].isActive = true
     }
   }
 }
