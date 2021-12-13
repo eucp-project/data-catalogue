@@ -1,30 +1,30 @@
 stories:
   NW:
-  - title: Attribution of a small scale, heavy flash flood event to climate change
-    link: https://eucp-project.github.io/storyboards/flood/1_intro
-
-  - title: Alpine flash floods
-    link: https://eucp-project.github.io/storyboards/flashflood/1_intro_eucp
+  - title: TBA
+    link: https://eucp-project.github.io/storyboards
 
   SW:
-  - title: Attribution of a small scale, heavy flash flood event to climate change
-    link: https://eucp-project.github.io/storyboards/flood/1_intro
+  - title: TBA
+    link: https://eucp-project.github.io/storyboards
 
   SE:
-  - title: Attribution of a small scale, heavy flash flood event to climate change
-    link: https://eucp-project.github.io/storyboards/flood/1_intro
+  - title: TBA
+    link: https://eucp-project.github.io/storyboards
 
   C:
-  - title: Attribution of a small scale, heavy flash flood event to climate change
-    link: https://eucp-project.github.io/storyboards/flood/1_intro
+  - title: TBA
+    link: https://eucp-project.github.io/storyboards
 
   CE:
-  - title: Attribution of a small scale, heavy flash flood event to climate change
-    link: https://eucp-project.github.io/storyboards/flood/1_intro
+  - title: TBA
+    link: https://eucp-project.github.io/storyboards
 
   N:
   - title: Attribution of a small scale, heavy flash flood event to climate change
     link: https://eucp-project.github.io/storyboards/flood/1_intro
+
+  - title: Benefits and added value of convection-permitting climate modeling over Fenno-Scandinavia
+    link: https://eucp-project.github.io/storyboards/cp_benefits/1_intro
 
   AL:
   - title: Alpine flash floods

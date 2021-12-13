@@ -26,7 +26,7 @@
           <div
             v-for="(story, i) in storyboards[domain]"
             :key="i"
-            class="m-3 p-3 hover:underline italic font-medium"
+            class="m-3 p-2 hover:underline italic font-medium"
           >
             <p>
               <a :href="story.link" target="_blank">{{ story.title }}</a>
