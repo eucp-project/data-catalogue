@@ -22,7 +22,16 @@
           <img src="cpm_analysis/cpm_prec.png" alt="cpm"> <!-- change the path when the figs are ready -->
         </div>
         <div v-if="tab.body == 'Storyboards'">
-          <p>links to storyboards</p>
+          <p>Click the following links to read more about the stroies in this region:</p>
+          <div
+            v-for="(story, i) in storyboards[domain]"
+            :key="i"
+            class="m-3"
+          >
+            <p>
+              <a :href="story.link" target="_blank">{{ story.title }}</a>
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -48,7 +57,8 @@ export default {
   async mounted () {
     this.toggle(0)
 
-    this.storyboards = await this.$content('storyboards').sortBy('sort').fetch()
+    const storyboards = await this.$content('storyboards').sortBy('sort').fetch()
+    this.storyboards = storyboards.stories
   },
   methods: {
     toggle (i) {
