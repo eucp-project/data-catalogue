@@ -1,5 +1,5 @@
 ---
-title: CNRS/ISPL-EPOC Increased resolution hindcasts
+title: CNRS/IPSL-EPOC Increased resolution hindcasts
 contact:
   - name: Didier Swingedouw
     orcid: 0000-0002-0583-0850
