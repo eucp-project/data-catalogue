@@ -17,16 +17,16 @@
             {{ item.body }}
           </button>
         </div>
-        <div v-if="tab.body == 'Overview'">
+        <div v-if="tab.body == 'Overview'" class="p-3">
           <p> You select the following: {{ domain }}</p>
           <img src="cpm_analysis/cpm_prec.png" alt="cpm"> <!-- change the path when the figs are ready -->
         </div>
-        <div v-if="tab.body == 'Storyboards'">
-          <p>Click the following links to read more about the stroies in this region:</p>
+        <div v-if="tab.body == 'Storyboards'" class="p-3">
+          <p>Read more about the stroies in this region:</p>
           <div
             v-for="(story, i) in storyboards[domain]"
             :key="i"
-            class="m-3"
+            class="m-3 p-3 hover:underline italic font-medium"
           >
             <p>
               <a :href="story.link" target="_blank">{{ story.title }}</a>
