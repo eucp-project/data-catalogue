@@ -17,8 +17,13 @@
             {{ item.body }}
           </button>
         </div>
-        <img src="cpm_analysis/cpm_prec.png" alt="cpm"> <!-- change the path when the figs are ready -->
-        <p> You select the following: {{ domain }}</p>
+        <div v-if="tab.body == 'Overview'">
+          <p> You select the following: {{ domain }}</p>
+          <img src="cpm_analysis/cpm_prec.png" alt="cpm"> <!-- change the path when the figs are ready -->
+        </div>
+        <div v-if="tab.body == 'Storyboards'">
+          <p>links to storyboards</p>
+        </div>
       </div>
     </div>
   </div>
@@ -31,16 +36,19 @@ export default {
       domain: '',
       tab: {},
       tabs: [
-        { isActive: true, body: 'lorem' },
-        { isActive: true, body: 'ipsum' },
-        { isActive: true, body: 'dolar' },
-        { isActive: true, body: 'sit' },
-        { isActive: true, body: 'amet' }
-      ]
+        { isActive: true, body: 'Overview' },
+        { isActive: true, body: 'Storyboards' },
+        { isActive: true, body: 'Lines of evidence' },
+        { isActive: true, body: 'Demonstrator' },
+        { isActive: true, body: 'TBA' }
+      ],
+      storyboards: []
     }
   },
-  mounted () {
+  async mounted () {
     this.toggle(0)
+
+    this.storyboards = await this.$content('storyboards').sortBy('sort').fetch()
   },
   methods: {
     toggle (i) {
