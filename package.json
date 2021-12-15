@@ -17,7 +17,10 @@
     "leaflet": "^1.7.1",
     "nuxt": "^2.15.7",
     "proj4": "^2.7.5",
-    "proj4leaflet": "^1.0.2"
+    "proj4leaflet": "^1.0.2",
+    "vega": "^5.21.0",
+    "vega-embed": "^6.20.5",
+    "vega-lite": "^5.2.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.14.7",
