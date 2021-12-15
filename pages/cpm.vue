@@ -22,15 +22,32 @@
           <img src="cpm_analysis/cpm_prec.png" alt="cpm"> <!-- change the path when the figs are ready -->
         </div>
         <div v-if="tab.body == 'Storyboards'" class="p-3">
-          <p>Read more about the stroies in this region:</p>
-          <div
-            v-for="(story, i) in storyboards[domain]"
-            :key="i"
-            class="m-3 p-2 hover:underline italic font-medium"
-          >
-            <p>
-              <a :href="story.link" target="_blank">{{ story.title }}</a>
-            </p>
+          <div v-if="domain == 'default'">
+            <p>Read more about the stories in the regions highlighted on the map:</p>
+            <div
+              v-for="(stories, i) in storyboards"
+              :key="i"
+            >
+              <p
+                v-for="(story, j) in stories"
+                :key="j"
+                class="m-3 p-2 hover:underline italic font-medium"
+              >
+                <a :href="story.link" target="_blank">{{ story.title }}</a>
+              </p>
+            </div>
+          </div>
+          <div v-else>
+            <p>Read more about the stories in this region:</p>
+            <div
+              v-for="(story, i) in storyboards[domain]"
+              :key="i"
+              class="m-3 p-2 hover:underline italic font-medium"
+            >
+              <p>
+                <a :href="story.link" target="_blank">{{ story.title }}</a>
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -42,7 +59,7 @@
 export default {
   data () {
     return {
-      domain: '',
+      domain: 'default', // default value for domain to display all storyboards
       tab: {},
       tabs: [
         { isActive: true, body: 'Overview' },
