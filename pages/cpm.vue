@@ -50,6 +50,9 @@
             </div>
           </div>
         </div>
+        <div v-if="tab.body == 'Lines of evidence'">
+          <DataInContext />
+        </div>
       </div>
     </div>
   </div>
