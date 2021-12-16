@@ -78,7 +78,7 @@
      0
     ]
    },
-   "field": "jitter",
+   "field": "xloc",
    "scale": {},
    "title": null
   },
@@ -88,12 +88,6 @@
    "title": "Temperature change (K)"
   }
  },
- "transform": [
-  {
-   "calculate": "5*sqrt(-2*log(random()))*cos(2*PI*random())",
-   "as": "jitter"
-  }
- ],
  "width": 75,
  "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"
 }

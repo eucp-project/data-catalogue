@@ -17,6 +17,7 @@ export default {
   },
   async mounted () {
     this.data = await fetch('cpm_context_data.json').then(res => res.json())
+    this.addManualJitter()
     this.spec = await fetch('context_chart_spec.json').then(res => res.json())
 
     // Link the plotted data to an object we can access in JS
@@ -52,7 +53,13 @@ export default {
       this.view.remove('myData', d => true).run() // remove all previous entries
       this.view.insert('myData', this.data).run()
       this.view.resize().run()
-      // TODO this also re-calculates the jitter which is distracting
+    },
+    addManualJitter () {
+      // Workaroud to fix xloc for data when view is re-rendered.
+      this.data.forEach((datum) => {
+        // Generate Gaussian jitter with a Box-Muller transform
+        datum.xloc = 5 * Math.sqrt(-2 * Math.log(Math.random())) * Math.cos(2 * Math.PI * Math.random())
+      })
     }
   }
 }
