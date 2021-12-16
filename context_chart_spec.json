@@ -1,0 +1,93 @@
+{
+ "config": {
+  "view": {
+   "continuousWidth": 400,
+   "continuousHeight": 300,
+   "stroke": null
+  },
+  "facet": {
+   "spacing": 10
+  }
+ },
+ "data": {
+  "url": "cpm_context_data.json"
+ },
+ "mark": {
+  "type": "point",
+  "size": 100
+ },
+ "encoding": {
+  "color": {
+   "value": "k"
+  },
+  "column": {
+   "type": "nominal",
+   "field": "project",
+   "sort": [
+    "CPM",
+    "CORDEX",
+    "CMIP5",
+    "CMIP6",
+    "UKCP_gcm",
+    "UKCP_rcm"
+   ]
+  },
+  "fill": {
+   "type": "nominal",
+   "field": "project",
+   "legend": null
+  },
+  "opacity": {
+   "condition": {
+    "value": 0.9,
+    "test": "(datum.highlight === true)"
+   },
+   "value": 0.3
+  },
+  "size": {
+   "condition": {
+    "value": 150,
+    "test": "(datum.highlight === true)"
+   },
+   "value": 100
+  },
+  "strokeWidth": {
+   "condition": {
+    "value": 2,
+    "test": "(datum.highlight === true)"
+   },
+   "value": 0
+  },
+  "tooltip": [
+   {
+    "type": "quantitative",
+    "field": "tas"
+   },
+   {
+    "type": "nominal",
+    "field": "model"
+   }
+  ],
+  "x": {
+   "type": "quantitative",
+   "axis": {
+    "grid": false,
+    "labels": false,
+    "ticks": true,
+    "values": [
+     0
+    ]
+   },
+   "field": "xloc",
+   "scale": {},
+   "title": null
+  },
+  "y": {
+   "type": "quantitative",
+   "field": "tas",
+   "title": "Temperature change (K)"
+  }
+ },
+ "width": 75,
+ "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json"
+}
