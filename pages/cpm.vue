@@ -53,6 +53,9 @@
         <div v-if="tab.body == 'Lines of evidence'">
           <DataInContext />
         </div>
+        <div v-if="tab.body == 'Demonstrator'" class="p-3">
+          <CPManalysis />
+        </div>
       </div>
     </div>
   </div>
