@@ -23,3 +23,19 @@ import xarray as xr
 # Generate images without having a window appear
 matplotlib.use('Agg')
 
+#####################################################################
+## This script is intended for batch processing of maps
+## will be complete when the choices of cpm images were made.
+#####################################################################
+
+if __name__ == "__main__":
+    # define command line arguments
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-i', '--inputdir', required=True, type=str, default="./",
+                        help="directory containing preprocessed netCDF files [default current location]")
+    parser.add_argument('-o', '--outputdir', required=True, type=str, default="./",
+                        help="directory for output [default current location]")
+    # get arguments
+    args = parser.parse_args()
+    # call plot()
+    files(args.inputdir, args.outputdir)
