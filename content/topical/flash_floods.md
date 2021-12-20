@@ -4,7 +4,7 @@ contact:
   - name: Frederiek Sperna Weiland
     orcid:
 work_package: 4
-licencse: CC-BY
+license: CC-BY
 format: NetCDF
 size: 100 GB
 doi:

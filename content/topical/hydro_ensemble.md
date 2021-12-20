@@ -4,7 +4,7 @@ contact:
   - name: Peter Greve
     orcid:
 work_package: 4
-licencse:
+license:
 format: NetCDF
 size: 100 GB
 doi:
