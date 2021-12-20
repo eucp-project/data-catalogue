@@ -19,5 +19,6 @@ also provided.
 
 For more information, see the publication linked to this dataset:
 [Athanasiou, P., Van Dongeren, A., Giardino, A., Vousdoukas, M., Gaytan-Aguilar, S., & Ranasinghe, R. (2019). Global distribution of nearshore slopes with implications for coastal retreat. Earth system science data, 11(4), 1515-1529.](https://doi.org/10.5194/essd-11-1515-2019)
+
 ### Preview image:
 ![shore_slopes](shore_slopes.png)
