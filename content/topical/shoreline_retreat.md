@@ -7,7 +7,7 @@ work_package: 4
 license: CC-BY-4.0
 format: NetCDF
 size: 150 MB
-doi: https://data.4tu.nl/articles/dataset/Projections_of_sea_level_rise_induced_shoreline_retreat_in_Europe/12764789
+doi: https://doi.org/10.4121/uuid:8e73cab0-960b-46a8-bf67-ee0eadcc1e7d
 ---
 Probabilistic projections of sea level rise (SLR) induced in Europe using the Bruun rule model and regional probabilistic SLR projections under RCP 4.5 and a high-end RCP 8.5 scenarios. Four different combinations of sandy beach location and nearshore slope data result in four different projections of shoreline retreat along the European coastline.
 
