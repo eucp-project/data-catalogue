@@ -4,7 +4,7 @@ contact:
   - name: Ben Booth
     orcid:
 work_package: 2
-licencse: CC-BY 4.0
+license: CC-BY-4.0
 format: NetCDF
 size: 70 MB
 doi: https://doi.org/10.5281/zenodo.5645153

@@ -10,7 +10,9 @@
         <li>Contact: {{ dataset.contact[0].name }}</li>
         <li>License: {{ dataset.license }}</li>
         <li>Format: {{ dataset.format }}</li>
-        <li>Data access: <a :href="dataset.doi" target="blank">{{ dataset.doi }}</a></li>
+        <li class="break-words">
+          Data access: <a :href="dataset.doi" target="blank">{{ dataset.doi }}</a>
+        </li>
       </ul>
       <h3>Description</h3>
       <nuxt-content :document="dataset" />
