@@ -5,7 +5,9 @@
       :key="dataset.title"
       class="border-4 p-4 prose"
     >
-      <h2>{{ dataset.title }}</h2>
+      <h2 @click="showModal = true">
+        {{ dataset.title }}
+      </h2>
       <ul>
         <li>Contact: {{ dataset.contact[0].name }}</li>
         <li>License: {{ dataset.license }}</li>
@@ -17,6 +19,12 @@
       <h3>Description</h3>
       <nuxt-content :document="dataset" />
     </div>
+    <div id="save-btn">
+      <button @click="showModal = true">
+        Save
+      </button>
+    </div>
+    <ModalDialog v-show="showModal" @close-modal="showModal = false" />
   </div>
 </template>
 
@@ -24,7 +32,8 @@
 export default {
   data () {
     return {
-      datasets: []
+      datasets: [],
+      showModal: false
     }
   },
   async mounted () {
