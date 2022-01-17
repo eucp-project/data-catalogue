@@ -4,8 +4,9 @@
       v-for="dataset in datasets"
       :key="dataset.title"
       class="border-4 p-4 prose"
+      @click="showModal = true"
     >
-      <h2 @click="showModal = true">
+      <h2>
         {{ dataset.title }}
       </h2>
       <ul>
@@ -16,15 +17,14 @@
           Data access: <a :href="dataset.doi" target="blank">{{ dataset.doi }}</a>
         </li>
       </ul>
-      <h3>Description</h3>
-      <nuxt-content :document="dataset" />
     </div>
-    <div id="save-btn">
-      <button @click="showModal = true">
-        Save
-      </button>
-    </div>
-    <ModalDialog v-show="showModal" @close-modal="showModal = false" />
+    <ModalDialog
+      v-for="dataset, idx in datasets"
+      v-show="showModal"
+      :key="idx"
+      :dataset="dataset"
+      @close-modal="showModal = false"
+    />
   </div>
 </template>
 

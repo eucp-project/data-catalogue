@@ -1,8 +1,9 @@
 <template>
   <div class="modal-overlay" @click="$emit('close-modal')">
     <div class="modal" @click.stop>
-      <h6>Dataset info</h6>
-      <p>Display details of dataset</p>
+      <h6>{{ dataset.title }}</h6>
+      <p>Description</p>
+      <nuxt-content :document="dataset" />
       <button @click="$emit('close-modal')">
         Close
       </button>
@@ -12,6 +13,13 @@
 
 <script>
 export default {
+  props: {
+    dataset: {
+      type: Object,
+      default: null,
+      required: false
+    }
+  }
 }
 </script>
 

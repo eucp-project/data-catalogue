@@ -14,5 +14,8 @@ Large ensemble climate modelling time series for the Rhine catchment. The datase
 
 Additionally, three sets of storylines of droughts similar to the western European drought of 2018 are included. These are the simulated events selected from the large ensembles, using metrics 1, 2 and 3 of Van der Wiel et al. ([2021, DOI 10.1016/j.wace.2021.100350](https://www.sciencedirect.com/science/article/pii/S2212094721000438)).
 
+For more information, see the corresponding
+[storyboard](https://eucp-project.github.io/storyboards/drought/1_ensemble).
+
 ### Preview image:
 ![preview](drought.png)
