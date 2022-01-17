@@ -1,6 +1,6 @@
 <template>
-  <div class="modal-overlay">
-    <div class="modal">
+  <div class="modal-overlay" @click="$emit('close-modal')">
+    <div class="modal" @click.stop>
       <h6>Dataset info</h6>
       <p>Display details of dataset</p>
       <button @click="$emit('close-modal')">
