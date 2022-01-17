@@ -4,7 +4,7 @@
       v-for="dataset in datasets"
       :key="dataset.title"
       class="border-4 p-4 prose"
-      @click="showModal = true"
+      @click="updateModal(dataset)"
     >
       <h2>
         {{ dataset.title }}
@@ -18,13 +18,7 @@
         </li>
       </ul>
     </div>
-    <ModalDialog
-      v-for="dataset, idx in datasets"
-      v-show="showModal"
-      :key="idx"
-      :dataset="dataset"
-      @close-modal="showModal = false"
-    />
+    <ModalDialog v-show="showModal" :dataset="datacard" @close-modal="showModal = false" />
   </div>
 </template>
 
@@ -33,11 +27,19 @@ export default {
   data () {
     return {
       datasets: [],
+      datacard: {},
       showModal: false
     }
   },
   async mounted () {
     this.datasets = await this.$content('topical').fetch()
+  },
+  methods: {
+    updateModal (item) {
+      this.datacard = item
+      console.log(item)
+      this.showModal = true
+    }
   }
 }
 </script>
