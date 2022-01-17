@@ -2,6 +2,14 @@
   <div class="modal-overlay" @click="$emit('close-modal')">
     <div class="modal" @click.stop>
       <h6>{{ dataset.title }}</h6>
+      <ul>
+        <li>Contact: {{ dataset.contact }}</li>
+        <li>License: {{ dataset.license }}</li>
+        <li>Format: {{ dataset.format }}</li>
+        <li class="break-words">
+          Data access: <a :href="dataset.doi" target="blank">{{ dataset.doi }}</a>
+        </li>
+      </ul>
       <p>Description</p>
       <nuxt-content :document="dataset" />
       <button @click="$emit('close-modal')">
@@ -39,8 +47,8 @@ export default {
 .modal {
   text-align: center;
   background-color: white;
-  height: 500px;
-  width: 500px;
+  height: 1000px;
+  width: 1000px;
   margin-top: 10%;
   padding: 60px 0;
   border-radius: 20px;

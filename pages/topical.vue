@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full w-full flex flex-wrap gap-4 m-8">
+  <div class="w-full flex flex-wrap gap-4 m-8">
     <div
       v-for="dataset in datasets"
       :key="dataset.title"
@@ -37,8 +37,8 @@ export default {
   methods: {
     updateModal (item) {
       this.datacard = item
-      console.log(item)
       this.showModal = true
+      // console.log(this.datacard)
     }
   }
 }
