@@ -1,7 +1,13 @@
 <template>
-  <div class="modal-overlay" @click="$emit('close-modal')">
-    <div class="modal" @click.stop>
-      <h6>{{ dataset.title }}</h6>
+  <div
+    class="fixed top-0 right-0 bottom-0 left-0 flex justify-center bg-gray-900 bg-opacity-80"
+    @click="$emit('close-modal')"
+  >
+    <div
+      class="justify-center text-left overflow-auto m-10 p-10 rounded-xl mt-10 bg-white prose"
+      @click.stop
+    >
+      <h2>{{ dataset.title }}</h2>
       <ul>
         <li>Contact: {{ dataset.contact }}</li>
         <li>License: {{ dataset.license }}</li>
@@ -10,9 +16,12 @@
           Data access: <a :href="dataset.doi" target="blank">{{ dataset.doi }}</a>
         </li>
       </ul>
-      <p>Description</p>
+      <h4>Description</h4>
       <nuxt-content :document="dataset" />
-      <button @click="$emit('close-modal')">
+      <button
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+        @click="$emit('close-modal')"
+      >
         Close
       </button>
     </div>
@@ -30,48 +39,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  background-color: #000000da;
-}
-
-.modal {
-  text-align: center;
-  background-color: white;
-  height: 1000px;
-  width: 1000px;
-  margin-top: 10%;
-  padding: 60px 0;
-  border-radius: 20px;
-}
-
-h6 {
-  font-weight: 500;
-  font-size: 28px;
-  margin: 20px 0;
-}
-
-p {
-  font-size: 16px;
-  margin: 20px 0;
-}
-
-button {
-  background-color: #ac003e;
-  width: 150px;
-  height: 40px;
-  color: white;
-  font-size: 14px;
-  border-radius: 16px;
-  margin-top: 50px;
-}
-</style>

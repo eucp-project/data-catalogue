@@ -38,7 +38,6 @@ export default {
     updateModal (item) {
       this.datacard = item
       this.showModal = true
-      // console.log(this.datacard)
     }
   }
 }
