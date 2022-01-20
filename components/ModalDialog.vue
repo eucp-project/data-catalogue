@@ -9,7 +9,7 @@
     >
       <h2>{{ dataset.title }}</h2>
       <ul>
-        <li>Contact: {{ dataset.contact }}</li>
+        <li>Contact: {{ dataset.contact[0].name }}</li>
         <li>License: {{ dataset.license }}</li>
         <li>Format: {{ dataset.format }}</li>
         <li class="break-words">

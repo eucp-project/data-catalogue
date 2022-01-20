@@ -24,15 +24,17 @@
 
 <script>
 export default {
+  async asyncData (context) {
+    const datasets = await context.$content('topical').fetch()
+    const datacard = datasets[0]
+    return { datasets, datacard }
+  },
   data () {
     return {
-      datasets: [],
-      datacard: {},
       showModal: false
     }
   },
   async mounted () {
-    this.datasets = await this.$content('topical').fetch()
   },
   methods: {
     updateModal (item) {
