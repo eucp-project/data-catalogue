@@ -4,7 +4,7 @@
     @click="$emit('close-modal')"
   >
     <div
-      class="justify-center text-left overflow-auto m-10 p-10 rounded-xl mt-10 bg-white prose"
+      class="justify-center text-left overflow-auto m-10 p-10 rounded-xl mt-10 bg-white prose max-w-none"
       @click.stop
     >
       <h2>{{ dataset.title }}</h2>
@@ -16,7 +16,7 @@
           Data access: <a :href="dataset.doi" target="blank">{{ dataset.doi }}</a>
         </li>
       </ul>
-      <h4>Description</h4>
+      <h3>Description</h3>
       <nuxt-content :document="dataset" />
       <button
         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
