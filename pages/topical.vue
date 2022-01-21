@@ -1,6 +1,7 @@
 <template>
   <div class="h-full w-full">
     <!-- search -->
+    <!-- eslint-disable vue/no-parsing-error -->
     <input
       v-model="query"
       type="search"
@@ -8,6 +9,7 @@
       placeholder="search"
     >
     </input>
+    <!-- eslint-enable -->
     <!-- flashcard -->
     <div class="flex flex-wrap gap-4 m-8">
       <div

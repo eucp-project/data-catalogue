@@ -52,7 +52,7 @@ export default {
 
   // Content module configuration: https://go.nuxtjs.dev/config-content
   content: {
-    fullTextSearchFields: ['id', 'slug', 'title', 'author', 'thumbnail', 'category']
+    fullTextSearchFields: ['title', 'description', 'slug', 'text']
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
