@@ -7,11 +7,11 @@ work_package: 4
 license:
 format: NetCDF
 size: 100 GB
-doi:
+doi: TBA
 ---
 
 Ensembles of hydrological simulations using the Community Water Model (CWatM)
-based on different EURO-CORDEX forcing. Different model en-sembles for natural
+based on different EURO-CORDEX forcing. <!--more-->Different model en-sembles for natural
 and human water use conditions. Model: Community Water Model (CWatM) Model
 setup: (i) natural, (ii) human water use Forc-ing: 25 EURO-CORDEX ensemble
 members Variables: discharge, runoff, ET, water use: agricultural, industrial,

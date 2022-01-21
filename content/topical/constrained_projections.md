@@ -11,7 +11,7 @@ doi: https://doi.org/10.5281/zenodo.5645153
 ---
 
 Outputs from the probabilistic projection methods developed or assessed in the
-European Climate Projection system (EUCP) Horizon2020 project. The data can be
+European Climate Projection system (EUCP) Horizon2020 project. <!--more-->The data can be
 previewed through our [interactive
 atlas](https://eucp-project.github.io/atlas/).
 
