@@ -3,7 +3,7 @@
     <div
       v-for="dataset in datasets"
       :key="dataset.title"
-      class="border-4 p-4 prose"
+      class="border-4 p-4 prose space-y-0.5"
       @click="updateModal(dataset)"
     >
       <h2>
@@ -12,7 +12,7 @@
       <p>
         {{ dataset.description }}
       </p>
-      <ul>
+      <ul class="space-y-0.5">
         <li>Contact: {{ dataset.contact[0].name }}</li>
         <li class="break-words">
           Data access: <a :href="dataset.doi" target="blank">{{ dataset.doi }}</a>
