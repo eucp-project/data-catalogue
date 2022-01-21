@@ -17,7 +17,7 @@
         </li>
       </ul>
       <h3>Description</h3>
-      <nuxt-content :document="dataset" />
+      <nuxt-content class="break-words" :document="dataset" />
       <button
         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
         @click="$emit('close-modal')"

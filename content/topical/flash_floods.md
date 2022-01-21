@@ -7,10 +7,12 @@ work_package: 4
 license: CC-BY
 format: NetCDF
 size: 100 GB
-doi:
+doi: TBA
 ---
 
-Ensembles of hydrological simulations Model: Wflow. Forcing: CP-RCM simulations
+Ensembles of hydrological simulations.
+<!--more-->
+Model: Wflow. Forcing: CP-RCM simulations
 from WP3 for current and future periods Variables: discharge. Resolution: 1 km,
 monthly Domain: Alpine part of the Rhone, Rhine, Dan-ube, Po and Adige.
 
