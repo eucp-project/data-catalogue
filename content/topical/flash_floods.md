@@ -7,7 +7,7 @@ work_package: 4
 license: CC-BY
 format: NetCDF
 size: 100 GB
-doi: TBA
+doi:
 ---
 
 Ensembles of hydrological simulations.

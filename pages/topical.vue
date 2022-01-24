@@ -11,11 +11,12 @@
     </input>
     <!-- eslint-enable -->
     <!-- flashcard -->
-    <div class="flex flex-wrap gap-4 m-8">
+    <div class="w-full flex flex-wrap gap-4 m-8">
       <div
         v-for="dataset in datasets"
         :key="dataset.title"
         class="border-4 p-4 prose space-y-0.5"
+        role="button"
         @click="updateModal(dataset)"
       >
         <h2>
@@ -32,7 +33,11 @@
         </ul>
       </div>
     </div>
-    <ModalDialog v-show="showModal" :dataset="datacard" @close-modal="showModal = false" />
+    <Modal
+      v-show="showModal"
+      :dataset="datacard"
+      @close-modal="showModal = false"
+    />
   </div>
 </template>
 
