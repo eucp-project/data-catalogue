@@ -4,6 +4,7 @@
       v-for="dataset in datasets"
       :key="dataset.title"
       class="border-4 p-4 prose space-y-0.5"
+      role="button"
       @click="updateModal(dataset)"
     >
       <h2>
@@ -19,7 +20,11 @@
         </li>
       </ul>
     </div>
-    <ModalDialog v-show="showModal" :dataset="datacard" @close-modal="showModal = false" />
+    <Modal
+      v-show="showModal"
+      :dataset="datacard"
+      @close-modal="showModal = false"
+    />
   </div>
 </template>
 
