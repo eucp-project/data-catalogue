@@ -51,7 +51,10 @@ export default {
   ],
 
   // Content module configuration: https://go.nuxtjs.dev/config-content
-  content: {},
+  content: {
+    fullTextSearchFields: ['title', 'description', 'slug', 'text', 'doi'],
+    nestedProperties: ['contact.name', 'contact.orcid']
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
