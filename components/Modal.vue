@@ -36,6 +36,14 @@ export default {
       default: null,
       required: false
     }
+  },
+  mounted () {
+    // Close modal with 'esc' key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        this.$emit('close-modal')
+      }
+    })
   }
 }
 </script>
