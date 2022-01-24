@@ -11,8 +11,9 @@ doi: https://doi.org/10.4121/uuid:a8297dcd-c34e-4e6d-bf66-9fb8913d983d
 ---
 
 Global nearshore slope estimations using an interpolated MERIT+GEBCO merged
-dataset with the Open Street Maps (OSM) coastline as Mean Sea Level (MSL). The
-slope was calculated from elevation profiles that were created by transects
+dataset with the Open Street Maps (OSM) coastline as Mean Sea Level (MSL). 
+<!--more-->
+The slope was calculated from elevation profiles that were created by transects
 perpendicular to the OSM coastline, positioned every 1 km in the alongshore
 direction. The depths of closure that were used for the slope estimation are
 also provided.
