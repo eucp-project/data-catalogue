@@ -1,19 +1,15 @@
 <template>
-  <div class="h-full w-full flex flex-wrap gap-4 m-8">
-    <div
-      v-for="dataset in datasets"
-      :key="dataset.title"
-      class="border-4 p-4 prose"
-    >
-      <h2>{{ dataset.title }}</h2>
-      <ul>
-        <li>Contact: <span v-for="person in dataset.contact" :key="person.name"><a target="blank" :href="getOrcid(person)">{{ person.name }}</a>, </span></li>
-        <li>License: {{ dataset.license }}</li>
-        <li>Format: {{ dataset.format }}</li>
-        <li>Data access: <a :href="dataset.doi" target="blank">{{ dataset.doi }}</a></li>
-      </ul>
-      <h3>Description</h3>
-      <nuxt-content :document="dataset" />
+  <div class="h-full">
+    <div class="flex bg-gray-100 m-8">
+      <button
+        v-for="(tag, i) in tabs"
+        :key="i"
+        class="text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none"
+        :class="tag.isActive ? 'text-blue-500 border-b-2 font-medium border-blue-500' : ''"
+        @click="toggle(i)"
+      >
+        {{ tag.tag }}
+      </button>
     </div>
   </div>
 </template>
@@ -22,15 +18,20 @@
 export default {
   data () {
     return {
-      datasets: []
+      tabs: [],
+      tab: {}
     }
   },
   async mounted () {
-    this.datasets = await this.$content('decadal').fetch()
+    const tabs = await this.$content('decadal').fetch()
+    this.tabs = tabs.map(obj => ({ ...obj, isActive: false }))
   },
   methods: {
-    getOrcid (person) {
-      return 'https://orcid.org/' + person.orcid
+    toggle (i) {
+      this.tab = this.tabs[i]
+      // eslint-disable-next-line no-return-assign
+      this.tabs.map(obj => obj.isActive = false)
+      this.tabs[i].isActive = true
     }
   }
 }
