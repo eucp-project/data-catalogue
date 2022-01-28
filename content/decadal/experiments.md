@@ -3,8 +3,8 @@ tag: Experiments
 title: Story about experiments (also part of DCPP-A/B?).
 img: lead_center.png
 caption: The Lead Centre for Annual-to-Decadal Climate Prediction
-dataset:
-  - title:
+datasets:
+  - title: IPSL DCPP-A data for CMIP5 and CMIP6
     contact:
       - name: Didier Swingedouw
         orcid: 0000-0002-0583-0850
@@ -14,7 +14,7 @@ dataset:
     licencse: CMIP6 (https://pcmdi.llnl.gov/CMIP6/TermsOfUse)
     format: NetCDF
     size: ~20 TB
-    doi: www.doi.org/10.22033/ESGF/CMIP6.5137
+    doi: https://www.doi.org/10.22033/ESGF/CMIP6.5137
     details: DCPP-A from CMIP5, using IPSL-CM5A-LR, initialized from nudged simulation using SST nudging only. Start dates every year from 1960 to 2015, 3 members. De-biased data from CMIP5. Using CDFt technique (quantile-quantile approach), the CMIP5 data have been debiased.
 
   - title: BSC Volcanic aerosol experiments

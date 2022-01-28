@@ -25,7 +25,7 @@ datasets:
     licencse: CMIP6 (https://pcmdi.llnl.gov/CMIP6/TermsOfUse)
     format: NetCDF
     size: ~50 TB
-    doi: www.doi.org/10.22033/ESGF/CMIP6.5137
+    doi: https://www.doi.org/10.22033/ESGF/CMIP6.5137
     details: Decadal hindcasts with improved initialization strategy and increased resolution using IPSL-CM6A-LR at about 1° resolution. Initialized every year from 1960 to present. 10 members, 10-year-long simulations.
 
   - title: SMHI Increased resolution hindcasts

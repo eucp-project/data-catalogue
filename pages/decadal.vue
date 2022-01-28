@@ -17,7 +17,18 @@
           {{ tab.title }}
         </h1>
         <nuxt-content class="break-words" :document="tab" />
-        <h1>List of datasets</h1>
+        <h1 class="text-xl">
+          List of datasets
+        </h1>
+        <ul
+          v-for="(dataset, i) in tab.datasets"
+          :key="i"
+        >
+          <li>{{ dataset.title }}</li>
+          <li class="break-words italic">
+            Data access: <a :href="dataset.doi" target="blank">{{ dataset.doi }}</a>
+          </li>
+        </ul>
       </div>
       <div class="bg-blue-100 flex flex-col items-center p-4">
         <img :src="tab.img" alt="topic picture" class="object-contain rounded-full">
@@ -31,17 +42,17 @@
 
 <script>
 export default {
-  data () {
-    return {
-      tabs: [],
-      tab: {}
-    }
+  async asyncData (context) {
+    const tabs = await context.$content('decadal').fetch()
+    const tab = tabs[0]
+    return { tabs, tab }
   },
-  async mounted () {
-    const tabs = await this.$content('decadal').fetch()
-    this.tabs = tabs.map(obj => ({ ...obj, isActive: false }))
+  data () {
+    return {}
+  },
+  mounted () {
+    this.tabs = this.tabs.map(obj => ({ ...obj, isActive: false }))
     // default tab
-    this.tab = this.tabs[0]
     this.tab.isActive = true
   },
   methods: {
