@@ -12,11 +12,11 @@
       </button>
     </div>
     <div class="flex gap-8 m-8">
-      <div class="flex flex-col gap-4 w-2/3">
+      <div class="flex flex-col gap-4 min-w-2/3">
         <h1 class="text-xl">
           {{ tab.title }}
         </h1>
-        <nuxt-content class="break-words" :document="tab" />
+        <nuxt-content class="break-words prose" :document="tab" />
         <h1 class="text-xl">
           List of datasets
         </h1>
@@ -30,7 +30,7 @@
           </li>
         </ul>
       </div>
-      <div class="bg-blue-100 flex flex-col items-center p-4">
+      <div class="flex flex-col items-center p-4">
         <img :src="tab.img" alt="topic picture" class="object-contain rounded-full">
         <h2 class="italic">
           {{ tab.caption }}
