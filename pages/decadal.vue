@@ -25,9 +25,12 @@
           :key="i"
         >
           <li>{{ dataset.title }}</li>
-          <li class="break-words italic">
-            Data access: <a :href="dataset.doi" target="blank">{{ dataset.doi }}</a>
+          <li>Contact: {{ dataset.contact[0].name }}</li>
+          <li>Data access:</li>
+          <li class="break-words italic underline">
+            <a :href="dataset.doi" target="blank">{{ dataset.doi }}</a>
           </li>
+          <li>---------------------------------------------</li>
         </ul>
       </div>
       <div class="flex flex-col items-center p-4">
