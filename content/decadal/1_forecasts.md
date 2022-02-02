@@ -1,6 +1,6 @@
 ---
 tag: Forecasts
-title: Story about forecasts and the lead center.
+title: Decadal climate predictions in EUCP
 img: lead_center.png
 caption: The Lead Centre for Annual-to-Decadal Climate Prediction
 datasets:

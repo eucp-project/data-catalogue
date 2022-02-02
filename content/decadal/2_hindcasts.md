@@ -1,6 +1,6 @@
 ---
 tag: Hindcasts
-title: Story about EUCP contributions to DCPP.
+title: Decadal hindcasts in EUCP
 img: lead_center.png
 caption: The Lead Centre for Annual-to-Decadal Climate Prediction
 datasets:
@@ -40,6 +40,6 @@ datasets:
     details: Increased resolution decadal hindcasts with EC-Earth3 at T511/ORCA025. Initialized 1 Nov 1990-2004, 10 members each, integrated for 5 years + 2 months. Output as described in CMIP6 DCPP-A (Tier 1). 
 ---
 
-Hindcasts are forecasts for the past performed with the same forecast system. They can be used to describe the climatology  of the model, and thus identify systematic errors (i.e. biases) and estimate their magnitude, as well as the performance of the forecast system, from a variety of perspectives.
+Hindcasts are forecasts for the past performed with the same forecast system. They can be used to describe the climatology of the model, and thus identify systematic errors (i.e. biases) and estimate their magnitude, as well as the performance of the forecast system, from a variety of perspectives.
 
-Despite of the high expense, in EUCP project, sets of hindcasts are performed over a period in the past to test the forecast systems.
+Despite of the high expense, in EUCP project, sets of hindcasts are performed over a period in the past to test the forecast systems. These hindcasts contribute to the [Decadal Climate Prediction Project](https://www.wcrp-climate.org/modelling-wgcm-mip-catalogue/cmip6-endorsed-mips-article/1065-modelling-cmip6-dcpp).

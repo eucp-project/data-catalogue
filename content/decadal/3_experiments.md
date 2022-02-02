@@ -1,6 +1,6 @@
 ---
 tag: Experiments
-title: Story about experiments (also part of DCPP-A/B?).
+title: Experiments contributing to the Decadal Climate Prediction Project
 img: lead_center.png
 caption: The Lead Centre for Annual-to-Decadal Climate Prediction
 datasets:
