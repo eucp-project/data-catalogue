@@ -43,7 +43,7 @@
 <script>
 export default {
   async asyncData (context) {
-    const tabs = await context.$content('decadal').fetch()
+    const tabs = await context.$content('decadal').sortBy('slug').fetch()
     const tab = tabs[0]
     return { tabs, tab }
   },
