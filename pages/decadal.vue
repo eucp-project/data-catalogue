@@ -11,23 +11,8 @@
         {{ tag.tag }}
       </button>
     </div>
-    <div class="ml-8">
-      <ul
-        v-for="(crumb, i) in crumbs"
-        :key="i"
-        class="inline-block "
-      >
-        <li v-if="i==0" class="underline">
-          <nuxt-link :to="`/`">
-            {{ crumb }}&nbsp;
-          </nuxt-link>
-        </li>
-        <li v-else>
-          > {{ crumb }}&nbsp;
-        </li>
-      </ul>
-    </div>
-
+    <!-- breadcrumbs -->
+    <Breadcrumbs :crumbs="crumbs" />
     <div class="flex gap-8 m-8">
       <div class="flex flex-col gap-4 min-w-2/3">
         <h1 class="text-xl">
@@ -72,7 +57,9 @@ export default {
   },
   computed: {
     crumbs () {
+      // assembly full path of current page, including the tag
       const fullPath = ('/data-catalogue' + this.$route.fullPath + '/' + this.tab.tag).toLowerCase()
+      // break full path into crumbs for breadcrumbs view
       const crumbs = fullPath.substring(1).split('/')
 
       return crumbs

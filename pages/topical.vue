@@ -1,5 +1,8 @@
 <template>
   <div class="h-full w-full">
+    <!-- brief summary -->
+    <!-- breadcrumbs -->
+    <Breadcrumbs :crumbs="crumbs" />
     <!-- search -->
     <!-- eslint-disable vue/no-parsing-error -->
     <input
@@ -52,6 +55,16 @@ export default {
     return {
       query: '',
       showModal: false
+    }
+  },
+  computed: {
+    crumbs () {
+      // assembly full path of current page, including the tag
+      const fullPath = ('/data-catalogue' + this.$route.fullPath)
+      // break full path into crumbs for breadcrumbs view
+      const crumbs = fullPath.substring(1).split('/')
+
+      return crumbs
     }
   },
   watch: {

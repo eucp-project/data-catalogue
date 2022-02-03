@@ -3,6 +3,8 @@
     <h1 class="text-2xl m-4">
       Disclaimer: This page is a work in progress and does not currently contain dependable climate information!
     </h1>
+    <!-- breadcrumbs -->
+    <Breadcrumbs :crumbs="crumbs" />
     <div class="flex gap-4 m-4">
       <Map v-model="domain" />
       <div class="border-4 flex-grow">
@@ -75,6 +77,16 @@ export default {
         { isActive: true, body: 'TBA' }
       ],
       storyboards: []
+    }
+  },
+  computed: {
+    crumbs () {
+      // assembly full path of current page, including the tag
+      const fullPath = ('/data-catalogue' + this.$route.fullPath)
+      // break full path into crumbs for breadcrumbs view
+      const crumbs = fullPath.substring(1).split('/')
+
+      return crumbs
     }
   },
   async mounted () {
