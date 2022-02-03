@@ -1,11 +1,15 @@
 <template>
   <div>
-    <h1 class="text-2xl m-4">
-      Disclaimer: This page is a work in progress and does not currently contain dependable climate information!
-    </h1>
     <!-- breadcrumbs -->
-    <Breadcrumbs :crumbs="crumbs" />
-    <div class="flex gap-4 m-4">
+    <div class="m-4 ml-8 text-lg">
+      <Breadcrumbs :crumbs="crumbs" />
+    </div>
+    <!-- brief summary -->
+    <p class="m-2 ml-8 text-lg">
+      Select a region on the map to check the CPM model & data availability and explore the datasets in the panels.
+    </p>
+    <!-- map and tabs -->
+    <div class="flex gap-4 m-8">
       <Map v-model="domain" />
       <div class="border-4 flex-grow">
         <div class="flex bg-gray-100">

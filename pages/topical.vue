@@ -1,14 +1,19 @@
 <template>
   <div class="h-full w-full">
-    <!-- brief summary -->
     <!-- breadcrumbs -->
-    <Breadcrumbs :crumbs="crumbs" />
+    <div class="m-4 ml-9 text-lg">
+      <Breadcrumbs :crumbs="crumbs" />
+    </div>
+    <!-- brief summary -->
+    <p class="m-2 ml-9 text-lg">
+      Type in the search bar to explore the datasets based on the research topic.
+    </p>
     <!-- search -->
     <!-- eslint-disable vue/no-parsing-error -->
     <input
       v-model="query"
       type="search"
-      class="border-2 border-gray-400 rounded-l w-1/3 m-8 p-2"
+      class="border-2 border-gray-400 rounded-l w-1/3 m-3 ml-8 p-2"
       placeholder="search"
     >
     </input>

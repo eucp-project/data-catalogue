@@ -1,5 +1,14 @@
 <template>
   <div class="h-full w-full">
+    <!-- breadcrumbs -->
+    <div class="m-4 ml-9 text-lg">
+      <Breadcrumbs :crumbs="crumbs" />
+    </div>
+    <!-- brief summary -->
+    <p class="m-2 ml-9 text-lg">
+      Select a tab and explore the available decadal forecasts.
+    </p>
+    <!-- tab view -->
     <div class="flex bg-gray-100 m-4 ml-8">
       <button
         v-for="(tag, i) in tabs"
@@ -11,8 +20,6 @@
         {{ tag.tag }}
       </button>
     </div>
-    <!-- breadcrumbs -->
-    <Breadcrumbs :crumbs="crumbs" />
     <div class="flex gap-8 m-8">
       <div class="flex flex-col gap-4 min-w-2/3">
         <h1 class="text-xl">
