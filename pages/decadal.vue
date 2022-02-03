@@ -11,6 +11,9 @@
         {{ tag.tag }}
       </button>
     </div>
+    <p>
+      {{ crumbs }}
+    </p>
     <div class="flex gap-8 m-8">
       <div class="flex flex-col gap-4 min-w-2/3">
         <h1 class="text-xl">
@@ -52,6 +55,18 @@ export default {
   },
   data () {
     return {}
+  },
+  computed: {
+    crumbs () {
+      const fullPath = ('/data-catalogue' + this.$route.fullPath + '/' + this.tab.tag).toLowerCase()
+      const params = fullPath.substring(1).split('/')
+      // const crumbs = []
+
+      console.log(fullPath)
+
+      console.log(params)
+      return fullPath
+    }
   },
   mounted () {
     this.tabs = this.tabs.map(obj => ({ ...obj, isActive: false }))
