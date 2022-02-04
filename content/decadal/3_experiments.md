@@ -28,7 +28,6 @@ datasets:
     doi:
     details: "2 experiments targeting to assess the impact of stochastic physics (SPPT) on sub-decadal time-scales. General settings: Model: IFS CY46R1; Resolution: TCo199; 1deg Ocean; Initialization: November 1981-2014; Hindcast length: 28 months; Ensemble size: 25 (first 7 months); 10 (8-28 months). Specific settings: Experiment #1: w/ SPPT; Experiment #2: w/o SPPT"
 ---
+The EUCP project also contributed to the [Decadal Climate Prediction Project](https://www.wcrp-climate.org/modelling-wgcm-mip-catalogue/cmip6-endorsed-mips-article/1065-modelling-cmip6-dcpp) (DCPP), component A, B and C. More details about these experiments can be found in the [experiment protocol](https://www.wcrp-climate.org/experimental-protocol) of DCPP.
 
-In EUCP project, we explore avenues to improve the next generation of climate predictions with experiments on the impact of resolution, initialisation, forecast drift reduction and short-lived climate forcings. 
-
-These experiments contribute to the [Decadal Climate Prediction Project](https://www.wcrp-climate.org/modelling-wgcm-mip-catalogue/cmip6-endorsed-mips-article/1065-modelling-cmip6-dcpp) (DCPP), component A, B and C. More details about these experiments can be found in the [experiment protocal](https://www.wcrp-climate.org/experimental-protocol) of DCPP.
+In EUCP project, we explore avenues to improve the next generation of climate predictions with experiments on the impact of resolution, initialisation, forecast drift reduction and short-lived climate forcings.
