@@ -34,7 +34,7 @@
         </ul>
       </div>
       <div class="flex flex-col items-center p-4">
-        <img :src="tab.img" alt="topic picture" class="object-contain rounded-full">
+        <img :src="tab.img" alt="topic picture" class="object-contain">
         <h2 class="italic">
           {{ tab.caption }}
         </h2>

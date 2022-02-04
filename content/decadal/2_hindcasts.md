@@ -1,8 +1,8 @@
 ---
 tag: Hindcasts
 title: Decadal hindcasts in EUCP
-img: lead_center.png
-caption: The Lead Centre for Annual-to-Decadal Climate Prediction
+img: decadal_hindcast.png
+caption: Timeseries for Global Mean Near Surface Temperature
 datasets:
   - title: BSC Increased resolution hindcasts
     contact:
@@ -28,6 +28,19 @@ datasets:
     doi: https://www.doi.org/10.22033/ESGF/CMIP6.5137
     details: Decadal hindcasts with improved initialization strategy and increased resolution using IPSL-CM6A-LR at about 1° resolution. Initialized every year from 1960 to present. 10 members, 10-year-long simulations.
 
+  - title: IPSL DCPP-A data for CMIP5 and CMIP6
+    contact:
+      - name: Didier Swingedouw
+        orcid: 0000-0002-0583-0850
+      - name: Juliette Mignot
+        orcid: 0000-0002-4894-898X
+    workpackage: 1, 5
+    licencse: CMIP6 (https://pcmdi.llnl.gov/CMIP6/TermsOfUse)
+    format: NetCDF
+    size: ~20 TB
+    doi: https://www.doi.org/10.22033/ESGF/CMIP6.5137
+    details: DCPP-A from CMIP5, using IPSL-CM5A-LR, initialized from nudged simulation using SST nudging only. Start dates every year from 1960 to 2015, 3 members. De-biased data from CMIP5. Using CDFt technique (quantile-quantile approach), the CMIP5 data have been debiased.
+
   - title: SMHI Increased resolution hindcasts
     contact:
       - name: Tim Kruschke
@@ -37,7 +50,7 @@ datasets:
     format: NetCDF (and maybe GRIB)
     size: ~35 TB
     doi:
-    details: Increased resolution decadal hindcasts with EC-Earth3 at T511/ORCA025. Initialized 1 Nov 1990-2004, 10 members each, integrated for 5 years + 2 months. Output as described in CMIP6 DCPP-A (Tier 1). 
+    details: Increased resolution decadal hindcasts with EC-Earth3 at T511/ORCA025. Initialized 1 Nov 1990-2004, 10 members each, integrated for 5 years + 2 months. Output as described in CMIP6 DCPP-A (Tier 1).
 ---
 
 Hindcasts are forecasts for the past performed with the same forecast system. They can be used to describe the climatology of the model, and thus identify systematic errors (i.e. biases) and estimate their magnitude, as well as the performance of the forecast system, from a variety of perspectives.
