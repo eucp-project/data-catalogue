@@ -27,7 +27,7 @@
         </h1>
         <nuxt-content class="break-words prose" :document="tab" />
         <h1 class="text-xl">
-          List of datasets
+          Data access
         </h1>
         <ul
           v-for="(dataset, i) in tab.datasets"
@@ -36,14 +36,14 @@
           <li>{{ dataset.title }}</li>
           <li>Contact: {{ dataset.contact[0].name }}</li>
           <li>Data access:</li>
-          <li class="break-words italic underline">
-            <a :href="dataset.doi" target="blank">{{ dataset.doi }}</a>
+          <li class="prose">
+            <a :href="`https://www.doi.org/` + dataset.doi" target="blank">{{ dataset.doi }}</a>
           </li>
           <li>---------------------------------------------</li>
         </ul>
       </div>
       <div class="flex flex-col items-center p-4">
-        <img :src="tab.img" alt="topic picture" class="object-contain rounded-full">
+        <img :src="tab.img" alt="topic picture" class="object-contain">
         <h2 class="italic">
           {{ tab.caption }}
         </h2>

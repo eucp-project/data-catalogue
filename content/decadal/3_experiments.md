@@ -1,22 +1,9 @@
 ---
 tag: Experiments
 title: Experiments contributing to the Decadal Climate Prediction Project
-img: lead_center.png
-caption: The Lead Centre for Annual-to-Decadal Climate Prediction
+img: calibration.png
+caption: An example showing the steps of the full calibration methods and calibration of the dynamically decomposed variables (doi:10.5194/esd-11-1033-2020)
 datasets:
-  - title: IPSL DCPP-A data for CMIP5 and CMIP6
-    contact:
-      - name: Didier Swingedouw
-        orcid: 0000-0002-0583-0850
-      - name: Juliette Mignot
-        orcid: 0000-0002-4894-898X
-    workpackage: 1, 5
-    licencse: CMIP6 (https://pcmdi.llnl.gov/CMIP6/TermsOfUse)
-    format: NetCDF
-    size: ~20 TB
-    doi: https://www.doi.org/10.22033/ESGF/CMIP6.5137
-    details: DCPP-A from CMIP5, using IPSL-CM5A-LR, initialized from nudged simulation using SST nudging only. Start dates every year from 1960 to 2015, 3 members. De-biased data from CMIP5. Using CDFt technique (quantile-quantile approach), the CMIP5 data have been debiased.
-
   - title: BSC Volcanic aerosol experiments
     contact:
       - name: Roberto Bilbao
@@ -41,7 +28,6 @@ datasets:
     doi:
     details: "2 experiments targeting to assess the impact of stochastic physics (SPPT) on sub-decadal time-scales. General settings: Model: IFS CY46R1; Resolution: TCo199; 1deg Ocean; Initialization: November 1981-2014; Hindcast length: 28 months; Ensemble size: 25 (first 7 months); 10 (8-28 months). Specific settings: Experiment #1: w/ SPPT; Experiment #2: w/o SPPT"
 ---
+The EUCP project also contributed to the [Decadal Climate Prediction Project](https://www.wcrp-climate.org/modelling-wgcm-mip-catalogue/cmip6-endorsed-mips-article/1065-modelling-cmip6-dcpp) (DCPP), component A, B and C. More details about these experiments can be found in the [experiment protocol](https://www.wcrp-climate.org/experimental-protocol) of DCPP.
 
-In EUCP project, we explore avenues to improve the next generation of climate predictions with experiments on the impact of resolution, initialisation, forecast drift reduction and short-lived climate forcings. 
-
-These experiments contribute to the [Decadal Climate Prediction Project](https://www.wcrp-climate.org/modelling-wgcm-mip-catalogue/cmip6-endorsed-mips-article/1065-modelling-cmip6-dcpp) (DCPP), component A, B and C. More details about these experiments can be found in the [experiment protocal](https://www.wcrp-climate.org/experimental-protocol) of DCPP.
+In EUCP project, we explore avenues to improve the next generation of climate predictions with experiments on the impact of resolution, initialisation, forecast drift reduction and short-lived climate forcings.
