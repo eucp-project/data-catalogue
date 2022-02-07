@@ -5,8 +5,8 @@
       <Breadcrumbs :crumbs="crumbs" />
     </div>
     <!-- brief summary -->
-    <p class="m-2 ml-9 text-lg">
-      Select a tab and explore the available decadal forecasts.
+    <p class="m-2 ml-9 text-lg prose">
+      Select a tab and explore the available decadal predictions.
     </p>
     <!-- tab view -->
     <div class="flex bg-gray-100 m-4 ml-8">

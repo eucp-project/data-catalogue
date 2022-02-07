@@ -5,8 +5,8 @@
       <Breadcrumbs :crumbs="crumbs" />
     </div>
     <!-- brief summary -->
-    <p class="m-2 ml-9 text-lg">
-      Type in the search bar to explore the datasets based on the research topic.
+    <p class="m-2 ml-9 text-lg prose max-w-none">
+      This page provides an overview of datasets that have been produced in EUCP on a variety of applications.
     </p>
     <!-- search -->
     <!-- eslint-disable vue/no-parsing-error -->
