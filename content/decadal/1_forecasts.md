@@ -1,8 +1,8 @@
 ---
 tag: Forecasts
 title: Decadal climate predictions in EUCP
-img: lead_center.png
-caption: The Lead Centre for Annual-to-Decadal Climate Prediction
+img: decadal_forecast.png
+caption: Predictions for 2021-2025 Temperature from 2020 (www.wmolc-adcp.org)
 datasets:
   - title: TBA
     contact:

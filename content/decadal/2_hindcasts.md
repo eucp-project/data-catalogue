@@ -2,7 +2,7 @@
 tag: Hindcasts
 title: Decadal hindcasts in EUCP
 img: decadal_hindcast.png
-caption: Timeseries for Global Mean Near Surface Temperature
+caption: Timeseries for Global Mean Near Surface Temperature (www.wmolc-adcp.org)
 datasets:
   - title: BSC Increased resolution hindcasts
     contact:
@@ -25,7 +25,7 @@ datasets:
     licencse: CMIP6 (https://pcmdi.llnl.gov/CMIP6/TermsOfUse)
     format: NetCDF
     size: ~50 TB
-    doi: https://www.doi.org/10.22033/ESGF/CMIP6.5137
+    doi: 10.22033/ESGF/CMIP6.5137
     details: Decadal hindcasts with improved initialization strategy and increased resolution using IPSL-CM6A-LR at about 1° resolution. Initialized every year from 1960 to present. 10 members, 10-year-long simulations.
 
   - title: IPSL DCPP-A data for CMIP5 and CMIP6
@@ -38,7 +38,7 @@ datasets:
     licencse: CMIP6 (https://pcmdi.llnl.gov/CMIP6/TermsOfUse)
     format: NetCDF
     size: ~20 TB
-    doi: https://www.doi.org/10.22033/ESGF/CMIP6.5137
+    doi: 10.22033/ESGF/CMIP6.5137
     details: DCPP-A from CMIP5, using IPSL-CM5A-LR, initialized from nudged simulation using SST nudging only. Start dates every year from 1960 to 2015, 3 members. De-biased data from CMIP5. Using CDFt technique (quantile-quantile approach), the CMIP5 data have been debiased.
 
   - title: SMHI Increased resolution hindcasts
