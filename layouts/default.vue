@@ -20,9 +20,10 @@ export default {
   computed: {
     crumbs () {
       // assembly full path of current page, including the tag
-      const fullPath = ('/data-catalogue' + this.$route.fullPath)
+      const fullPath = this.$route.fullPath
       // break full path into crumbs for breadcrumbs view
-      const crumbs = fullPath.substring(1).split('/')
+      const crumbs = fullPath.substring(1).split('#')
+      crumbs.unshift('data-catalogue')
 
       return crumbs
     }
