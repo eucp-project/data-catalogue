@@ -7,7 +7,25 @@
       <h1 class="text-2xl">
         Data Catalogue
       </h1>
+      <div class="m-4 ml-8 text-lg">
+        <Breadcrumbs :crumbs="crumbs" />
+      </div>
     </div>
     <Nuxt />
   </div>
 </template>
+
+<script>
+export default {
+  computed: {
+    crumbs () {
+      // assembly full path of current page, including the tag
+      const fullPath = ('/data-catalogue' + this.$route.fullPath)
+      // break full path into crumbs for breadcrumbs view
+      const crumbs = fullPath.substring(1).split('/')
+
+      return crumbs
+    }
+  }
+}
+</script>

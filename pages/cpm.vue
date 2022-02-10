@@ -1,9 +1,5 @@
 <template>
   <div>
-    <!-- breadcrumbs -->
-    <div class="m-4 ml-8 text-lg">
-      <Breadcrumbs :crumbs="crumbs" />
-    </div>
     <!-- brief summary -->
     <p class="m-2 ml-9 text-lg prose max-w-none">
       Building upon CORDEX FPS-Convection, EUCP has performed convection-permitting model runs for multiple domains covering Europe and the outermost regions. This page provides an overview of the most relevant data and results from our preliminary analysis. Select a region on the map to start exploring.
@@ -83,21 +79,13 @@ export default {
       storyboards: []
     }
   },
-  computed: {
-    crumbs () {
-      // assembly full path of current page, including the tag
-      const fullPath = ('/data-catalogue' + this.$route.fullPath)
-      // break full path into crumbs for breadcrumbs view
-      const crumbs = fullPath.substring(1).split('/')
-
-      return crumbs
-    }
-  },
   async mounted () {
     this.toggle(0)
 
     const storyboards = await this.$content('storyboards').sortBy('sort').fetch()
     this.storyboards = storyboards.stories
+    // add hash tab name to router
+    this.$router.push({ path: '/cpm', hash: this.tab.body.toLowerCase() })
   },
   methods: {
     toggle (i) {
@@ -105,6 +93,8 @@ export default {
       // eslint-disable-next-line no-return-assign
       this.tabs.map(obj => obj.isActive = false)
       this.tabs[i].isActive = true
+      // add hash tab name to router
+      this.$router.push({ path: '/cpm', hash: this.tab.body.toLowerCase() })
     }
   }
 }

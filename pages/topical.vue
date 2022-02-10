@@ -1,9 +1,5 @@
 <template>
   <div class="h-full w-full">
-    <!-- breadcrumbs -->
-    <div class="m-4 ml-9 text-lg">
-      <Breadcrumbs :crumbs="crumbs" />
-    </div>
     <!-- brief summary -->
     <p class="m-2 ml-9 text-lg prose max-w-none">
       This page provides an overview of datasets that have been produced in EUCP on a variety of applications.
@@ -60,16 +56,6 @@ export default {
     return {
       query: '',
       showModal: false
-    }
-  },
-  computed: {
-    crumbs () {
-      // assembly full path of current page, including the tag
-      const fullPath = ('/data-catalogue' + this.$route.fullPath)
-      // break full path into crumbs for breadcrumbs view
-      const crumbs = fullPath.substring(1).split('/')
-
-      return crumbs
     }
   },
   watch: {

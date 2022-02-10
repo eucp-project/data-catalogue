@@ -1,9 +1,5 @@
 <template>
   <div class="h-full w-full">
-    <!-- breadcrumbs -->
-    <div class="m-4 ml-9 text-lg">
-      <Breadcrumbs :crumbs="crumbs" />
-    </div>
     <!-- brief summary -->
     <p class="m-2 ml-9 text-lg prose">
       Select a tab and explore the available decadal predictions.
@@ -62,20 +58,12 @@ export default {
   data () {
     return {}
   },
-  computed: {
-    crumbs () {
-      // assembly full path of current page, including the tag
-      const fullPath = ('/data-catalogue' + this.$route.fullPath + '/' + this.tab.tag).toLowerCase()
-      // break full path into crumbs for breadcrumbs view
-      const crumbs = fullPath.substring(1).split('/')
-
-      return crumbs
-    }
-  },
   mounted () {
     this.tabs = this.tabs.map(obj => ({ ...obj, isActive: false }))
     // default tab
     this.tab.isActive = true
+    // add hash tab name to router
+    this.$router.push({ path: '/decadal', hash: this.tab.tag.toLowerCase() })
   },
   methods: {
     toggle (i) {
@@ -83,6 +71,8 @@ export default {
       // eslint-disable-next-line no-return-assign
       this.tabs.map(obj => obj.isActive = false)
       this.tabs[i].isActive = true
+      // add hash tab name to router
+      this.$router.push({ path: '/decadal', hash: this.tab.tag.toLowerCase() })
     }
   }
 }
