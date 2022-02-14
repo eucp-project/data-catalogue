@@ -8,7 +8,7 @@
         Data Catalogue
       </h1>
       <div class="m-4 ml-8 text-lg">
-        <Breadcrumbs :crumbs="crumbs" />
+        <Breadcrumbs v-if="crumbs[1] !== ``" :crumbs="crumbs" />
       </div>
     </div>
     <Nuxt />
