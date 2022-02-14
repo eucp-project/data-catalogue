@@ -10,11 +10,11 @@
       <div class="border-4 flex-grow">
         <div class="flex bg-gray-100">
           <button
-            v-for="(item, i) in tabs"
-            :key="i"
+            v-for="item in tabs"
+            :key="item.id"
             class="text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none"
             :class="item.isActive ? 'text-blue-500 border-b-2 font-medium border-blue-500' : ''"
-            @click="toggle(i)"
+            @click="toggle(item.id)"
           >
             {{ item.body }}
           </button>
@@ -70,31 +70,36 @@ export default {
       domain: 'default', // default value for domain to display all storyboards
       tab: {},
       tabs: [
-        { isActive: true, body: 'Overview' },
-        { isActive: true, body: 'Storyboards' },
-        { isActive: true, body: 'Lines of evidence' },
-        { isActive: true, body: 'Demonstrator' },
-        { isActive: true, body: 'TBA' }
+        { isActive: true, body: 'Overview', id: 0 },
+        { isActive: true, body: 'Storyboards', id: 1 },
+        { isActive: true, body: 'Lines of evidence', id: 2 },
+        { isActive: true, body: 'Demonstrator', id: 3 },
+        { isActive: true, body: 'TBA', id: 4 }
       ],
       storyboards: []
     }
   },
   async mounted () {
-    this.toggle(0)
+    let tabName = this.$route.hash.replace('#', '')
+
+    if (tabName !== '') {
+      tabName = tabName[0].toUpperCase() + tabName.substring(1)
+      this.toggle(this.tabs.find(tab => tab.body === tabName).id)
+    } else {
+      this.toggle(0)
+    }
 
     const storyboards = await this.$content('storyboards').sortBy('sort').fetch()
     this.storyboards = storyboards.stories
-    // add hash tab name to router
-    this.$router.push({ path: '/cpm', hash: this.tab.body.toLowerCase() })
   },
   methods: {
-    toggle (i) {
-      this.tab = this.tabs[i]
+    toggle (id) {
+      this.tab = this.tabs.find(tab => tab.id === id)
       // eslint-disable-next-line no-return-assign
       this.tabs.map(obj => obj.isActive = false)
-      this.tabs[i].isActive = true
+      this.tab.isActive = true
       // add hash tab name to router
-      this.$router.push({ path: '/cpm', hash: this.tab.body.toLowerCase() })
+      this.$router.push({ hash: this.tab.body.toLowerCase() })
     }
   }
 }

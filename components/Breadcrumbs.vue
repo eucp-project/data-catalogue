@@ -3,7 +3,7 @@
     <ul
       v-for="(crumb, i) in crumbs"
       :key="i"
-      class="inline-block "
+      class="inline-block"
     >
       <li v-if="i==0" class="underline">
         <nuxt-link :to="`/`">

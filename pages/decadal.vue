@@ -62,8 +62,8 @@ export default {
     this.tabs = this.tabs.map(obj => ({ ...obj, isActive: false }))
     // default tab
     this.tab.isActive = true
-    // add hash tab name to router
-    this.$router.push({ path: '/decadal', hash: this.tab.tag.toLowerCase() })
+    // add hash tab name to router -> display default tab
+    this.$router.push({ hash: this.tab.tag.toLowerCase() })
   },
   methods: {
     toggle (i) {
@@ -72,7 +72,7 @@ export default {
       this.tabs.map(obj => obj.isActive = false)
       this.tabs[i].isActive = true
       // add hash tab name to router
-      this.$router.push({ path: '/decadal', hash: this.tab.tag.toLowerCase() })
+      this.$router.push({ hash: this.tab.tag.toLowerCase() })
     }
   }
 }
