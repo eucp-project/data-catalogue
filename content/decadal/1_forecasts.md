@@ -1,5 +1,6 @@
 ---
 tag: Forecasts
+id: 0
 title: Decadal climate predictions in EUCP
 img: decadal_forecast.png
 caption: Predictions for 2021-2025 Temperature from 2020 (www.wmolc-adcp.org)
