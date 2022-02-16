@@ -42,7 +42,7 @@ export default {
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
-    // 
+    // https://www.npmjs.com/package/@nuxtjs/fontawesome
     '@nuxtjs/fontawesome'
   ],
 
@@ -70,9 +70,9 @@ export default {
 
   fontawesome: {
     component: 'fa',
-    icons:{
-     solid:["faHouse","faAngleRight"],
-     brands:true
+    icons: {
+      solid: ['faHouse', 'faAngleRight'],
+      brands: true
     }
-   }
+  }
 }
