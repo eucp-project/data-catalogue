@@ -8,7 +8,7 @@
         Data Catalogue
       </h1>
       <div class="m-4 ml-8 text-lg">
-        <Breadcrumbs v-if="crumbs[1] !== ``" :crumbs="crumbs" />
+        <Breadcrumbs v-if="crumbs[0] !== ``" :crumbs="crumbs" />
       </div>
     </div>
     <Nuxt />
@@ -23,7 +23,7 @@ export default {
       const fullPath = this.$route.fullPath
       // break full path into crumbs for breadcrumbs view
       const crumbs = fullPath.substring(1).split('#')
-      crumbs.unshift('data-catalogue')
+      // crumbs.unshift('data-catalogue')
 
       return crumbs
     }

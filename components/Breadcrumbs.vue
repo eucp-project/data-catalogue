@@ -5,13 +5,16 @@
       :key="i"
       class="inline-block"
     >
-      <li v-if="i==0" class="underline">
+      <li v-if="i==0">
         <nuxt-link :to="`/`">
-          {{ crumb }}&nbsp;
+          <fa icon="house"/>
         </nuxt-link>
+        &nbsp; <fa icon="angle-right" /> &nbsp;
+        {{ crumb }}
       </li>
       <li v-else>
-        > {{ crumb }}&nbsp;
+        &nbsp; <fa icon="angle-right" /> &nbsp;
+        {{ crumb }}
       </li>
     </ul>
   </div>
