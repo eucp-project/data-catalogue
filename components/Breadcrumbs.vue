@@ -1,32 +1,29 @@
 <template>
   <div>
-    <ul
+    <nuxt-link :to="`/`">
+      <fa icon="house" />
+    </nuxt-link>
+    <span
       v-for="(crumb, i) in crumbs"
       :key="i"
       class="inline-block prose"
     >
-      <li v-if="i==0">
-        <nuxt-link :to="`/`">
-          <fa icon="house"/>
-        </nuxt-link>
-        &nbsp; <fa icon="angle-right" /> &nbsp;
-        {{ crumb }}
-      </li>
-      <li v-else>
-        &nbsp; <fa icon="angle-right" /> &nbsp;
-        {{ crumb }}
-      </li>
-    </ul>
+      &nbsp; <fa icon="angle-right" /> &nbsp;
+      {{ crumb }}
+    </span>
   </div>
 </template>
 
 <script>
 export default {
-  props: {
-    crumbs: {
-      type: Array,
-      default: null,
-      required: true
+  computed: {
+    crumbs () {
+      // assembly full path of current page, including the tag
+      const fullPath = this.$route.fullPath
+      // break full path into crumbs for breadcrumbs view
+      const crumbs = fullPath.substring(1).split('#')
+      // crumbs.unshift('data-catalogue')
+      return crumbs
     }
   }
 }
