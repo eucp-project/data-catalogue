@@ -70,24 +70,21 @@ export default {
       domain: 'default', // default value for domain to display all storyboards
       tab: {},
       tabs: [
-        { isActive: true, body: 'Overview', id: 0 },
-        { isActive: true, body: 'Storyboards', id: 1 },
-        { isActive: true, body: 'Lines of evidence', id: 2 },
-        { isActive: true, body: 'Demonstrator', id: 3 },
-        { isActive: true, body: 'TBA', id: 4 }
+        { isActive: true, body: 'Overview', id: 'overview' },
+        { isActive: true, body: 'Storyboards', id: 'storyboards' },
+        { isActive: true, body: 'Lines of evidence', id: 'lines-of-evidence' },
+        { isActive: true, body: 'Demonstrator', id: 'demonstrator' },
+        { isActive: true, body: 'TBA', id: 'tba' }
       ],
       storyboards: []
     }
   },
   async mounted () {
-    let tabName = this.$route.hash.replace('#', '')
-
-    if (tabName !== '') {
-      tabName = tabName[0].toUpperCase() + tabName.substring(1)
-      this.toggle(this.tabs.find(tab => tab.body === tabName).id)
-    } else {
-      this.toggle(0)
+    let id = this.$route.hash.replace('#', '')
+    if (id === '') {
+      id = 'overview'
     }
+    this.toggle(id)
 
     const storyboards = await this.$content('storyboards').sortBy('sort').fetch()
     this.storyboards = storyboards.stories
@@ -99,7 +96,7 @@ export default {
       this.tabs.map(obj => obj.isActive = false)
       this.tab.isActive = true
       // add hash tab name to router
-      this.$router.push({ hash: this.tab.body.toLowerCase() })
+      this.$router.push({ hash: this.tab.id })
     }
   }
 }
