@@ -1,18 +1,20 @@
 <template>
   <div>
-    <h1 class="text-2xl m-4">
-      Disclaimer: This page is a work in progress and does not currently contain dependable climate information!
-    </h1>
-    <div class="flex gap-4 m-4">
+    <!-- brief summary -->
+    <p class="m-2 ml-9 text-lg prose max-w-none">
+      Building upon CORDEX FPS-Convection, EUCP has performed convection-permitting model runs for multiple domains covering Europe and the outermost regions. This page provides an overview of the most relevant data and results from our preliminary analysis. Select a region on the map to start exploring.
+    </p>
+    <!-- map and tabs -->
+    <div class="flex gap-4 m-8">
       <Map v-model="domain" />
       <div class="border-4 flex-grow">
         <div class="flex bg-gray-100">
           <button
-            v-for="(item, i) in tabs"
-            :key="i"
+            v-for="item in tabs"
+            :key="item.id"
             class="text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none"
             :class="item.isActive ? 'text-blue-500 border-b-2 font-medium border-blue-500' : ''"
-            @click="toggle(i)"
+            @click="toggle(item.id)"
           >
             {{ item.body }}
           </button>
@@ -68,27 +70,33 @@ export default {
       domain: 'default', // default value for domain to display all storyboards
       tab: {},
       tabs: [
-        { isActive: true, body: 'Overview' },
-        { isActive: true, body: 'Storyboards' },
-        { isActive: true, body: 'Lines of evidence' },
-        { isActive: true, body: 'Demonstrator' },
-        { isActive: true, body: 'TBA' }
+        { isActive: true, body: 'Overview', id: 'overview' },
+        { isActive: true, body: 'Storyboards', id: 'storyboards' },
+        { isActive: true, body: 'Lines of evidence', id: 'lines-of-evidence' },
+        { isActive: true, body: 'Demonstrator', id: 'demonstrator' },
+        { isActive: true, body: 'TBA', id: 'tba' }
       ],
       storyboards: []
     }
   },
   async mounted () {
-    this.toggle(0)
+    let id = this.$route.hash.replace('#', '')
+    if (id === '') {
+      id = 'overview'
+    }
+    this.toggle(id)
 
     const storyboards = await this.$content('storyboards').sortBy('sort').fetch()
     this.storyboards = storyboards.stories
   },
   methods: {
-    toggle (i) {
-      this.tab = this.tabs[i]
+    toggle (id) {
+      this.tab = this.tabs.find(tab => tab.id === id)
       // eslint-disable-next-line no-return-assign
       this.tabs.map(obj => obj.isActive = false)
-      this.tabs[i].isActive = true
+      this.tab.isActive = true
+      // add hash tab name to router
+      this.$router.push({ hash: this.tab.id })
     }
   }
 }

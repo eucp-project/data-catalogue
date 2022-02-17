@@ -1,5 +1,6 @@
 ---
 tag: Hindcasts
+id: 1
 title: Decadal hindcasts in EUCP
 img: decadal_hindcast.png
 caption: Timeseries for Global Mean Near Surface Temperature (www.wmolc-adcp.org)

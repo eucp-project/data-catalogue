@@ -1,12 +1,17 @@
 <template>
   <div class="h-full w-full">
-    <div class="flex bg-gray-100 m-8">
+    <!-- brief summary -->
+    <p class="m-2 ml-9 text-lg prose">
+      Select a tab and explore the available decadal predictions.
+    </p>
+    <!-- tab view -->
+    <div class="flex bg-gray-100 m-4 ml-8">
       <button
-        v-for="(tag, i) in tabs"
-        :key="i"
+        v-for="tag in tabs"
+        :key="tag.id"
         class="text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none"
         :class="tag.isActive ? 'text-blue-500 border-b-2 font-medium border-blue-500' : ''"
-        @click="toggle(i)"
+        @click="toggle(tag.id)"
       >
         {{ tag.tag }}
       </button>
@@ -57,13 +62,28 @@ export default {
     this.tabs = this.tabs.map(obj => ({ ...obj, isActive: false }))
     // default tab
     this.tab.isActive = true
+
+    // redirect to the tab based on given route
+    let tabName = this.$route.hash.replace('#', '')
+
+    if (tabName !== '') {
+      tabName = tabName[0].toUpperCase() + tabName.substring(1)
+      this.toggle(this.tabs.find(tab => tab.tag === tabName).id)
+    } else {
+      this.toggle(0)
+    }
+
+    // add hash tab name to router -> display default tab
+    this.$router.push({ hash: this.tab.tag.toLowerCase() })
   },
   methods: {
-    toggle (i) {
-      this.tab = this.tabs[i]
+    toggle (id) {
+      this.tab = this.tabs.find(tab => tab.id === id)
       // eslint-disable-next-line no-return-assign
       this.tabs.map(obj => obj.isActive = false)
-      this.tabs[i].isActive = true
+      this.tab.isActive = true
+      // add hash tab name to router
+      this.$router.push({ hash: this.tab.tag.toLowerCase() })
     }
   }
 }

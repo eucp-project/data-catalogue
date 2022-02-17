@@ -8,7 +8,9 @@
             CPM data
           </div>
         </NuxtLink>
-        <p class="p-4">Convection-permitting climate model output</p>
+        <p class="p-4">
+          Convection-permitting climate model output
+        </p>
         <img src="domains.jpg" alt="domains" class="object-contain">
       </div>
       <div class="border-4 rounded-lg w-1/3 min-h-2/3 p-8">
@@ -17,7 +19,10 @@
             Decadal
           </div>
         </NuxtLink>
-        <p class="p-4">Climate model output from decadal prediction runs</p>
+        <p class="p-4">
+          Climate model output from decadal prediction runs
+        </p>
+        <img src="decadal_forecast.png" alt="domains" class="object-contain">
       </div>
       <div class="border-4 rounded-lg w-1/3 min-h-2/3 p-8">
         <NuxtLink to="topical">
@@ -25,11 +30,12 @@
             Topical
           </div>
         </NuxtLink>
-        <p class="p-4">Processed data on a broad range of applications</p>
+        <p class="p-4">
+          Processed data on a broad range of applications
+        </p>
         <img src="shoreline_retreat.png" alt="shoreline retreat" class="object-contain">
       </div>
     </div>
-  </div>
   </div>
 </template>
 
