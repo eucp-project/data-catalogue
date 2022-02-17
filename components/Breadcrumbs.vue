@@ -4,12 +4,14 @@
       <fa icon="house" />
     </nuxt-link>
     <span
-      v-for="(crumb, i) in crumbs"
-      :key="i"
+      v-for="(link, crumb, index) in crumbs"
+      :key="index"
       class="inline-block prose"
     >
       &nbsp; <fa icon="angle-right" /> &nbsp;
-      {{ crumb }}
+      <nuxt-link :to="link">
+        {{ crumb }}
+      </nuxt-link>
     </span>
   </div>
 </template>
@@ -18,11 +20,19 @@
 export default {
   computed: {
     crumbs () {
-      // assembly full path of current page, including the tag
-      const fullPath = this.$route.fullPath
-      // break full path into crumbs for breadcrumbs view
-      const crumbs = fullPath.substring(1).split('#')
-      // crumbs.unshift('data-catalogue')
+      const crumbs = {} // { 'pagename' : 'pageurl' }
+
+      const path = this.$route.path.split('/').splice(1)
+      path.forEach((element, index) => {
+        crumbs[element] = path.slice(0, index + 1).join('/')
+      })
+
+      // Add hash to breadcrumbs if it exists
+      const hash = this.$route.hash.substring(1)
+      if (hash !== '') {
+        crumbs[hash] = path.join('/') + '#' + hash
+      }
+
       return crumbs
     }
   }
