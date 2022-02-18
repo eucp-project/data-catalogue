@@ -4,7 +4,7 @@
       <CpmMap v-model="domain" />
       <div class="border-4 flex-grow">
         <NavTabs :pages="pages" />
-        <NuxtChild />
+        <NuxtChild :domain="domain" />
       </div>
     </div>
   </div>
