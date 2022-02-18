@@ -29,12 +29,6 @@ export default {
         crumbs[element] = '/' + path.slice(0, index + 1).join('/')
       })
 
-      // Add hash to breadcrumbs if it exists
-      const hash = this.$route.hash.substring(1)
-      if (hash !== '') {
-        crumbs[hash] = path.join('/') + '#' + hash
-      }
-
       return crumbs
     }
   }
