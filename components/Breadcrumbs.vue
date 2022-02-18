@@ -1,14 +1,14 @@
 <template>
   <div>
     <nuxt-link :to="`/`">
-      <fa icon="house" />
+      <fa icon="house" class="fa-sm" />
     </nuxt-link>
     <span
       v-for="(link, crumb, index) in crumbs"
       :key="index"
       class="inline-block prose"
     >
-      &nbsp; <fa icon="angle-right" /> &nbsp;
+      &nbsp; <fa icon="angle-right" class="fa-sm" /> &nbsp;
       <nuxt-link :to="link">
         {{ crumb }}
       </nuxt-link>
