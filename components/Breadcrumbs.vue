@@ -1,19 +1,21 @@
 <template>
-  <div>
-    <nuxt-link :to="`/`">
-      <fa icon="house" />
-    </nuxt-link>
-    <span
+  <ul class="prose">
+    <li class="inline-block">
+      <nuxt-link :to="`/`">
+        <fa icon="house" />
+      </nuxt-link>
+    </li>
+    <li
       v-for="(link, crumb, index) in crumbs"
       :key="index"
-      class="inline-block prose"
+      class="inline-block"
     >
       &nbsp; <fa icon="angle-right" /> &nbsp;
       <nuxt-link :to="link">
         {{ crumb }}
       </nuxt-link>
-    </span>
-  </div>
+    </li>
+  </ul>
 </template>
 
 <script>
