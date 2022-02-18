@@ -74,5 +74,10 @@ export default {
       solid: ['faHouse', 'faAngleRight'],
       brands: true
     }
+  },
+
+  purgeCSS: {
+    // https://github.com/nuxt-community/fontawesome-module/issues/9
+    whitelistPatterns: [/-fa$/, /^fa-/]
   }
 }
