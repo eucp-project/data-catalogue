@@ -26,7 +26,7 @@ export default {
 
       const path = this.$route.path.split('/').splice(1)
       path.forEach((element, index) => {
-        crumbs[element] = path.slice(0, index + 1).join('/')
+        crumbs[element] = '/' + path.slice(0, index + 1).join('/')
       })
 
       // Add hash to breadcrumbs if it exists
@@ -35,6 +35,8 @@ export default {
         crumbs[hash] = path.join('/') + '#' + hash
       }
 
+      console.log(crumbs)
+      console.log(path)
       return crumbs
     }
   }
