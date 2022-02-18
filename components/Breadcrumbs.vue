@@ -35,8 +35,6 @@ export default {
         crumbs[hash] = path.join('/') + '#' + hash
       }
 
-      console.log(crumbs)
-      console.log(path)
       return crumbs
     }
   }

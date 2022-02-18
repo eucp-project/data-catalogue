@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="flex gap-4 m-8">
-      <Map v-model="domain" />
+      <CpmMap v-model="domain" />
       <div class="border-4 flex-grow">
         <div class="flex bg-gray-100">
           <nav>
