@@ -4,8 +4,8 @@
       v-for="(page, i) in pages"
       :key="i"
       class="space-y-0.5"
-      @mouseover="hover = true"
-      @mouseleave="hover = false"
+      @mouseover="page.hover = true"
+      @mouseleave="page.hover = false"
     >
       <!-- main button -->
       <NuxtLink :to="page.parent.url">
@@ -17,7 +17,7 @@
       </NuxtLink>
       <!-- dropdown pages -->
       <div
-        v-if="hover"
+        v-if="page.hover"
         class="absolute flex flex-col space-y-0.5"
       >
         <div
@@ -46,16 +46,19 @@ export default {
           children: [{ title: 'Explore', url: '/cpm/explore' },
             { title: 'Analyse', url: '/cpm/analyse' },
             { title: 'Download', url: '/cpm/download' },
-            { title: 'More info', url: '/cpm/references' }]
+            { title: 'More info', url: '/cpm/references' }],
+          hover: false
         },
         {
           parent: { title: 'Decadal', url: '/decadal' },
           children: [{ title: 'Forecasts', url: '/decadal/forecasts' },
             { title: 'Hindcasts', url: '/decadal/hindcasts' },
-            { title: 'Experiments', url: '/decadal/experiments' }]
+            { title: 'Experiments', url: '/decadal/experiments' }],
+          hover: false
         },
         {
-          parent: { title: 'Topical', url: '/topical' }
+          parent: { title: 'Topical', url: '/topical' },
+          hover: false
         }
       ]
     }
