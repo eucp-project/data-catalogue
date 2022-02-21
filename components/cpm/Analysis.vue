@@ -1,10 +1,10 @@
 <template>
   <div class="w-full h-full">
     <span class="space-x-3 p-3">
-      <Dropdown v-model="selectedVariable" :options="variables" alttext="Choose a variable." />
-      <Dropdown v-model="selectedResolution" :options="resolution" alttext="Select a resolution." />
-      <Dropdown v-model="selectedCategory" :options="categories" alttext="Choose a category" />
-      <Dropdown v-model="selectedDate" :options="dates" alttext="Select a date." />
+      <CpmDropdown v-model="selectedVariable" :options="variables" alttext="Choose a variable." />
+      <CpmDropdown v-model="selectedResolution" :options="resolution" alttext="Select a resolution." />
+      <CpmDropdown v-model="selectedCategory" :options="categories" alttext="Choose a category" />
+      <CpmDropdown v-model="selectedDate" :options="dates" alttext="Select a date." />
     </span>
     <div
       class="bg-no-repeat bg-left-top bg-contain w-full h-full"
