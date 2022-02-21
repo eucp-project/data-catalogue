@@ -49,7 +49,25 @@ export default {
   },
   data () {
     return {
-      hover: false
+      hover: false,
+      pages: [
+        {
+          parent: { title: 'CPM', url: '/cpm' },
+          children: [{ title: 'Explore', url: '/cpm/explore' },
+            { title: 'Analyse', url: '/cpm/analyse' },
+            { title: 'Download', url: '/cpm/download' },
+            { title: 'More info', url: '/cpm/references' }]
+        },
+        {
+          parent: { title: 'Decadal', url: '/decadal' },
+          children: [{ title: 'Forecasts', url: '/decadal/forecasts' },
+            { title: 'Hindcasts', url: '/decadal/hindcasts' },
+            { title: 'Experiments', url: '/decadal/experiments' }]
+        },
+        {
+          parent: { title: 'Topical', url: '/topical' }
+        }
+      ]
     }
   }
 }
