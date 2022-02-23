@@ -4,12 +4,13 @@
       <NuxtLink :to="`/`">
         <img src="eucp_logo.png" alt="EUCP Logo">
       </NuxtLink>
-      <div>
+      <div class="flex-l">
         <h1 class="text-4xl">
           Data Catalogue
         </h1>
         <Breadcrumbs class="mt-2" />
       </div>
+      <Navigation />
     </div>
     <Nuxt class="pt-4" />
   </div>
