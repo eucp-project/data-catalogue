@@ -8,11 +8,11 @@
       @mouseleave="page.hover = false"
     >
       <!-- main button -->
-      <NuxtLink :to="page.parent.url">
+      <NuxtLink :to="page.url">
         <button
           class="w-32 bg-blue-300 hover:bg-blue-500 text-white py-2 px-4 rounded"
         >
-          {{ page.parent.title }}
+          {{ page.title }}
         </button>
       </NuxtLink>
       <!-- dropdown pages -->
@@ -42,7 +42,8 @@ export default {
       hover: false,
       pages: [
         {
-          parent: { title: 'CPM', url: '/cpm' },
+          title: 'CPM',
+          url: '/cpm',
           children: [{ title: 'Explore', url: '/cpm/explore' },
             { title: 'Analyse', url: '/cpm/analyse' },
             { title: 'Download', url: '/cpm/download' },
@@ -50,14 +51,16 @@ export default {
           hover: false
         },
         {
-          parent: { title: 'Decadal', url: '/decadal' },
+          title: 'Decadal',
+          url: '/decadal',
           children: [{ title: 'Forecasts', url: '/decadal/forecasts' },
             { title: 'Hindcasts', url: '/decadal/hindcasts' },
             { title: 'Experiments', url: '/decadal/experiments' }],
           hover: false
         },
         {
-          parent: { title: 'Topical', url: '/topical' },
+          title: 'Topical',
+          url: '/topical',
           hover: false
         }
       ]
