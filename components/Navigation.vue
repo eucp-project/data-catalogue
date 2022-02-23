@@ -1,5 +1,5 @@
 <template>
-  <div class="flex ml-auto gap-10 m-2 mr-20 space-x-1 text-l">
+  <div class="flex ml-auto gap-2 m-2 mr-20 space-x-1 text-l">
     <div
       v-for="(page, i) in pages"
       :key="i"
@@ -39,7 +39,6 @@
 export default {
   data () {
     return {
-      hover: false,
       pages: [
         {
           title: 'CPM',
@@ -47,24 +46,24 @@ export default {
           children: [{ title: 'Explore', url: '/cpm/explore' },
             { title: 'Analyse', url: '/cpm/analyse' },
             { title: 'Download', url: '/cpm/download' },
-            { title: 'More info', url: '/cpm/references' }],
-          hover: false
+            { title: 'More info', url: '/cpm/references' }]
         },
         {
           title: 'Decadal',
           url: '/decadal',
           children: [{ title: 'Forecasts', url: '/decadal/forecasts' },
             { title: 'Hindcasts', url: '/decadal/hindcasts' },
-            { title: 'Experiments', url: '/decadal/experiments' }],
-          hover: false
+            { title: 'Experiments', url: '/decadal/experiments' }]
         },
         {
           title: 'Topical',
-          url: '/topical',
-          hover: false
+          url: '/topical'
         }
       ]
     }
+  },
+  mounted () {
+    this.pages = this.pages.map(page => ({ ...page, hover: false }))
   }
 }
 </script>
