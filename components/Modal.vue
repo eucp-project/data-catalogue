@@ -55,7 +55,7 @@ export default {
   },
   methods: {
     urlGitHub (path, extension) {
-      const url = 'https://github.com/eucp-project/data-catalogue/blob/main/content' + path + extension
+      const url = 'https://github.com/eucp-project/data-catalogue/edit/main/content' + path + extension
       return url
     }
   }
