@@ -5,7 +5,8 @@ export default {
   target: 'static',
   ssr: false,
   router: {
-    base: '/data-catalogue/'
+    base: '/data-catalogue/',
+    middleware: 'data-catalogue-dynamic-routes'
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
