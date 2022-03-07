@@ -31,8 +31,8 @@ export default {
         bounds: L.bounds([-10403632.820, 17760.815, 12417841.080, -13082466.960])
       })
 
-    const wmsBKLayer = L.tileLayer.wms('http://eumetview.eumetsat.int/geoserv/wms', {
-      layers: 'bkg-raster:bkg-raster',
+    const wmsBKLayer = L.tileLayer.wms('https://view.eumetsat.int/geoserver/ows', {
+      layers: 'backgrounds:ne_background',
       format: 'image/png',
       transparent: true
     })
