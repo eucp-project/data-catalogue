@@ -2,11 +2,11 @@
 # More than one affiliation:
 # https://github.com/citation-file-format/citation-file-format/issues/268
 ---
-title: EUCP Storyboard viewer
+title: EUCP Data Catalogue
 keywords:
   - climate
   - EUCP
-repository-code: "https://github.com/eucp-project/storyboards"
+repository-code: "https://github.com/eucp-project/data-catalogue"
 license: "Apache-2.0"
 message: "If you use this software, please cite it using these metadata."
 cff-version: "1.2.0"
