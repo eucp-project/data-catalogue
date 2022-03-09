@@ -5,6 +5,7 @@
       <CpmDropdown v-model="selectedResolution" :options="resolution" alttext="Select a resolution." />
       <CpmDropdown v-model="selectedCategory" :options="categories" alttext="Choose a category" />
       <CpmDropdown v-model="selectedDate" :options="dates" alttext="Select a date." />
+      <p>domain: {{ domain }}</p>
     </span>
     <div
       class="bg-no-repeat bg-left-top bg-contain w-full h-full"
@@ -15,6 +16,7 @@
 
 <script>
 export default {
+  props: ['domain'],
   data () {
     return {
       selectedVariable: 'pr',
