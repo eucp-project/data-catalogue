@@ -62,14 +62,14 @@ export default {
         'KNMI-HCLIM38h1-AROME': 'KNMI-HCLIM38h1-AROME'
       },
       modelsList: {
-        'CLMcom-CMCC-CCLM5-0-9': { RCM: 'CCLM4-8-17 ICHEC-EC-EARTH', GCM: 'EC-EARTH' },
-        'CNRM-AROME41t1': { RCM: 'ALADIN63 CNRM-CERFACS-CNRM-CM5', GCM: 'CNRM-CM5' },
-        'COSMO-pompa': { RCM: 'CCLM4-8-17 MPI-M-MPI-ESM-LR', GCM: 'MPI-ESM-LR' },
-        'GERICS-REMO2015': { RCM: 'REMO2015 MPI-M-MPI-ESM-LR', GCM: 'MPI-ESM-LR' },
-        'HadREM3-RA-UM10.1': { RCM: 'MOHC-HadGEM3-GC3.1-N512 MOHC-HadGEM2-ES', GCM: 'HadGEM2-ES' },
-        'HCLIMcom-HCLIM38-AROME': { RCM: 'HCLIMcom-HCLIM38-ALADIN ICHEC-EC-EARTH', GCM: 'EC-EARTH' },
-        'ICTP-RegCM4-7-0': { RCM: 'ICTP-RegCM4-7-0 MOHC-HadGEM2-ES', GCM: 'HadGEM2-ES' },
-        'KNMI-HCLIM38h1-AROME': { RCM: 'KNMI-RACMO23E KNMI-EC-EARTH', GCM: 'EC-EARTH' }
+        'CLMcom-CMCC-CCLM5-0-9': { RCM: 'CCLM4-8-17_ICHEC-EC-EARTH', GCM: 'EC-EARTH' },
+        'CNRM-AROME41t1': { RCM: 'ALADIN63_CNRM-CERFACS-CNRM-CM5', GCM: 'CNRM-CM5' },
+        'COSMO-pompa': { RCM: 'CCLM4-8-17_MPI-M-MPI-ESM-LR', GCM: 'MPI-ESM-LR' },
+        'GERICS-REMO2015': { RCM: 'REMO2015_MPI-M-MPI-ESM-LR', GCM: 'MPI-ESM-LR' },
+        'HadREM3-RA-UM10.1': { RCM: 'MOHC-HadGEM3-GC3.1-N512_MOHC-HadGEM2-ES', GCM: 'HadGEM2-ES' },
+        'HCLIMcom-HCLIM38-AROME': { RCM: 'HCLIMcom-HCLIM38-ALADIN_ICHEC-EC-EARTH', GCM: 'EC-EARTH' },
+        'ICTP-RegCM4-7-0': { RCM: 'ICTP-RegCM4-7-0_MOHC-HadGEM2-ES', GCM: 'HadGEM2-ES' },
+        'KNMI-HCLIM38h1-AROME': { RCM: 'KNMI-RACMO23E_KNMI-EC-EARTH', GCM: 'EC-EARTH' }
       }
     }
   },
@@ -83,7 +83,7 @@ export default {
       }
     },
     rcmImage () {
-      const fallback = '~/static/maps/AL/pr/CORDEX_CCLM4-8-17 ICHEC-EC-EARTH_DJF.png'
+      const fallback = '~/static/maps/AL/pr/CORDEX_CCLM4-8-17_ICHEC-EC-EARTH_DJF.png'
       try {
         return require('~/static/maps/' + this.domain + '/' + this.selectedVariable + '/' + 'CORDEX_' + this.modelsList[this.selectedModel].RCM + '_' + this.selectedSeason + '.png')
       } catch (err) {
@@ -91,7 +91,7 @@ export default {
       }
     },
     gcmImage () {
-      const fallback = '~/static/maps/AL/pr/cordex-cpm_CLMcom-CMCC-CCLM5-0-9_DJF.png'
+      const fallback = '~/static/maps/AL/pr/CMIP5_EC-EARTH_DJF.png'
       try {
         return require('~/static/maps/' + this.domain + '/' + this.selectedVariable + '/' + 'CMIP5_' + this.modelsList[this.selectedModel].GCM + '_' + this.selectedSeason + '.png')
       } catch (err) {
