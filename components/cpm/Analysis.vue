@@ -2,51 +2,98 @@
   <div class="w-full h-full">
     <span class="space-x-3 p-3">
       <CpmDropdown v-model="selectedVariable" :options="variables" alttext="Choose a variable." />
-      <CpmDropdown v-model="selectedResolution" :options="resolution" alttext="Select a resolution." />
-      <CpmDropdown v-model="selectedCategory" :options="categories" alttext="Choose a category" />
-      <CpmDropdown v-model="selectedDate" :options="dates" alttext="Select a date." />
-      <p>domain: {{ domain }}</p>
+      <CpmDropdown v-model="selectedSeason" :options="seasons" alttext="Select a season." />
+      <CpmDropdown v-model="selectedModel" :options="models" alttext="Choose a model/project" />
+      <!-- same style but not selectable option to display region -->
+      <select
+        class="border border-gray-300 rounded-full cursor-pointer
+      text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400
+      focus:outline-none appearance-none"
+      >
+        <option :value="domain">
+          {{ domain }}
+        </option>
+      </select>
     </span>
     <div
       class="bg-no-repeat bg-left-top bg-contain w-full h-full"
-      :style="{backgroundImage: `url(${bgImage})` }"
+      :style="{backgroundImage: `url(${cpmImage})` }"
+    />
+    <div
+      class="bg-no-repeat bg-left-top bg-contain w-full h-full"
+      :style="{backgroundImage: `url(${rcmImage})` }"
+    />
+    <div
+      class="bg-no-repeat bg-left-top bg-contain w-full h-full"
+      :style="{backgroundImage: `url(${gcmImage})` }"
     />
   </div>
 </template>
 
 <script>
 export default {
-  props: ['domain'],
+  props: {
+    domain: {
+      default: 'AL',
+      type: String
+    }
+  },
   data () {
     return {
       selectedVariable: 'pr',
-      selectedResolution: '3KM',
-      selectedCategory: 'FREQ',
-      selectedDate: '2005-05-30',
+      selectedSeason: 'DJF',
+      selectedModel: 'CLMcom-CMCC-CCLM5-0-9',
       variables: {
-        pr: 'Precipitation'
+        pr: 'Precipitation',
+        tas: 'Temperature'
       },
-      resolution: {
-        '3KM': '3KM',
-        '12KM': '12KM'
+      seasons: {
+        DJF: 'DJF',
+        JJA: 'JJA'
       },
-      categories: {
-        FREQ: 'FREQ',
-        INT: 'INT'
+      models: {
+        'CLMcom-CMCC-CCLM5-0-9': 'CLMcom-CMCC-CCLM5-0-9',
+        'CNRM-AROME41t1': 'CNRM-AROME41t1',
+        'COSMO-pompa': 'COSMO-pompa',
+        'GERICS-REMO2015': 'GERICS-REMO2015',
+        'HadREM3-RA-UM10.1': 'HadREM3-RA-UM10.1',
+        'HCLIMcom-HCLIM38-AROME': 'HCLIMcom-HCLIM38-AROME',
+        'ICTP-RegCM4-7-0': 'ICTP-RegCM4-7-0',
+        'KNMI-HCLIM38h1-AROME': 'KNMI-HCLIM38h1-AROME'
       },
-      dates: {
-        '2005-05-30': '2005-05-30',
-        '2005-08-30': '2005-08-30',
-        '2005-11-30': '2005-11-30',
-        '2006-01-01': '2006-01-01'
+      modelsList: {
+        'CLMcom-CMCC-CCLM5-0-9': { RCM: 'CCLM4-8-17 ICHEC-EC-EARTH', GCM: 'EC-EARTH' },
+        'CNRM-AROME41t1': { RCM: 'ALADIN63 CNRM-CERFACS-CNRM-CM5', GCM: 'CNRM-CM5' },
+        'COSMO-pompa': { RCM: 'CCLM4-8-17 MPI-M-MPI-ESM-LR', GCM: 'MPI-ESM-LR' },
+        'GERICS-REMO2015': { RCM: 'REMO2015 MPI-M-MPI-ESM-LR', GCM: 'MPI-ESM-LR' },
+        'HadREM3-RA-UM10.1': { RCM: 'MOHC-HadGEM3-GC3.1-N512 MOHC-HadGEM2-ES', GCM: 'HadGEM2-ES' },
+        'HCLIMcom-HCLIM38-AROME': { RCM: 'HCLIMcom-HCLIM38-ALADIN ICHEC-EC-EARTH', GCM: 'EC-EARTH' },
+        'ICTP-RegCM4-7-0': { RCM: 'ICTP-RegCM4-7-0 MOHC-HadGEM2-ES', GCM: 'HadGEM2-ES' },
+        'KNMI-HCLIM38h1-AROME': { RCM: 'KNMI-RACMO23E KNMI-EC-EARTH', GCM: 'EC-EARTH' }
       }
     }
   },
   computed: {
-    bgImage () {
-      const fallback = '~/static/cpm_analysis/cpm_prec.png'
+    cpmImage () {
+      const fallback = '~/static/maps/AL/pr/cordex-cpm_CLMcom-CMCC-CCLM5-0-9_DJF.png'
       try {
-        return require('~/static/cpm_analysis/ALP_' + this.selectedVariable + '_' + this.selectedResolution + '_' + this.selectedCategory + '_' + this.selectedDate + '.png')
+        return require('~/static/maps/' + this.domain + '/' + this.selectedVariable + '/' + 'cordex-cpm_' + this.selectedModel + '_' + this.selectedSeason + '.png')
+      } catch (err) {
+        return fallback
+      }
+    },
+    rcmImage () {
+      const fallback = '~/static/maps/AL/pr/CORDEX_CCLM4-8-17 ICHEC-EC-EARTH_DJF.png'
+      try {
+        return require('~/static/maps/' + this.domain + '/' + this.selectedVariable + '/' + 'CORDEX_' + this.modelsList[this.selectedModel].RCM + '_' + this.selectedSeason + '.png')
+      } catch (err) {
+        return fallback
+      }
+    },
+    gcmImage () {
+      const fallback = '~/static/maps/AL/pr/cordex-cpm_CLMcom-CMCC-CCLM5-0-9_DJF.png'
+      try {
+        return require('~/static/maps/' + this.domain + '/' + this.selectedVariable + '/' + 'CMIP5_' + this.modelsList[this.selectedModel].GCM + '_' + this.selectedSeason + '.png')
       } catch (err) {
         return fallback
       }

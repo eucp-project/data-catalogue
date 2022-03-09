@@ -14,7 +14,7 @@
 export default {
   data () {
     return {
-      domain: 'default', // default value for domain
+      domain: 'AL', // default value for domain
       pages: [
         { title: 'CPM home', url: '/cpm' },
         { title: 'Explore', url: '/cpm/explore' },
