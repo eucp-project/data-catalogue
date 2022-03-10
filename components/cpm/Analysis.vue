@@ -42,7 +42,6 @@
       </div>
     </div>
   </div>
-  </div>
 </template>
 
 <script>
@@ -85,31 +84,25 @@ export default {
         'HCLIMcom-HCLIM38-AROME': { RCM: 'HCLIMcom-HCLIM38-ALADIN_ICHEC-EC-EARTH', GCM: 'EC-EARTH' },
         'ICTP-RegCM4-7-0': { RCM: 'ICTP-RegCM4-7-0_MOHC-HadGEM2-ES', GCM: 'HadGEM2-ES' },
         'KNMI-HCLIM38h1-AROME': { RCM: 'KNMI-RACMO23E_KNMI-EC-EARTH', GCM: 'EC-EARTH' }
-      }
+      },
+      rcmImage: 'empty.png',
+      gcmImage: 'empty.png'
     }
   },
   computed: {
     cpmImage () {
-      const fallback = '~/static/maps/AL/pr/cordex-cpm_CLMcom-CMCC-CCLM5-0-9_DJF.png'
+      const fallback = 'empty.png'
       try {
+        // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+        this.rcmImage = require('~/static/maps/' + this.domain + '/' + this.selectedVariable + '/' + 'CORDEX_' + this.modelsList[this.selectedModel].RCM + '_' + this.selectedSeason + '.png')
+        // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+        this.gcmImage = require('~/static/maps/' + this.domain + '/' + this.selectedVariable + '/' + 'CMIP5_' + this.modelsList[this.selectedModel].GCM + '_' + this.selectedSeason + '.png')
         return require('~/static/maps/' + this.domain + '/' + this.selectedVariable + '/' + 'cordex-cpm_' + this.selectedModel + '_' + this.selectedSeason + '.png')
       } catch (err) {
-        return fallback
-      }
-    },
-    rcmImage () {
-      const fallback = '~/static/maps/AL/pr/CORDEX_CCLM4-8-17_ICHEC-EC-EARTH_DJF.png'
-      try {
-        return require('~/static/maps/' + this.domain + '/' + this.selectedVariable + '/' + 'CORDEX_' + this.modelsList[this.selectedModel].RCM + '_' + this.selectedSeason + '.png')
-      } catch (err) {
-        return fallback
-      }
-    },
-    gcmImage () {
-      const fallback = '~/static/maps/AL/pr/CMIP5_EC-EARTH_DJF.png'
-      try {
-        return require('~/static/maps/' + this.domain + '/' + this.selectedVariable + '/' + 'CMIP5_' + this.modelsList[this.selectedModel].GCM + '_' + this.selectedSeason + '.png')
-      } catch (err) {
+        // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+        this.rcmImage = 'empty.png'
+        // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+        this.gcmImage = 'empty.png'
         return fallback
       }
     }
