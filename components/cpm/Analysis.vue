@@ -15,18 +15,33 @@
         </option>
       </select>
     </span>
-    <div
-      class="bg-no-repeat bg-left-top bg-contain w-full h-full"
-      :style="{backgroundImage: `url(${cpmImage})` }"
-    />
-    <div
-      class="bg-no-repeat bg-left-top bg-contain w-full h-full"
-      :style="{backgroundImage: `url(${rcmImage})` }"
-    />
-    <div
-      class="bg-no-repeat bg-left-top bg-contain w-full h-full"
-      :style="{backgroundImage: `url(${gcmImage})` }"
-    />
+    <div class="w-full h-full flex flex-wrap">
+      <div
+        class="bg-no-repeat bg-left-top bg-contain w-1/3 h-full"
+        :style="{backgroundImage: `url(${cpmImage})` }"
+      >
+        <p class="p-3 text-lg prose">
+          CPM experiment
+        </p>
+      </div>
+      <div
+        class="bg-no-repeat bg-left-top bg-contain w-1/3 h-full"
+        :style="{backgroundImage: `url(${rcmImage})` }"
+      >
+        <p class="p-3 text-lg prose">
+          RCM experiment
+        </p>
+      </div>
+      <div
+        class="bg-no-repeat bg-left-top bg-contain w-1/3 h-full"
+        :style="{backgroundImage: `url(${gcmImage})` }"
+      >
+        <p class="p-3 text-lg prose">
+          GCM experiment
+        </p>
+      </div>
+    </div>
+  </div>
   </div>
 </template>
 
