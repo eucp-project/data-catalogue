@@ -3,7 +3,7 @@
     <span class="space-x-3 p-3">
       <CpmDropdown v-model="selectedVariable" :options="variables" alttext="Choose a variable." />
       <CpmDropdown v-model="selectedSeason" :options="seasons" alttext="Select a season." />
-      <CpmDropdown v-model="selectedModel" :options="models" alttext="Choose a model/project" />
+      <CpmDropdown v-model="selectedModel" :options="models" alttext="Choose a model/group" />
       <!-- same style but not selectable option to display region -->
       <select
         class="border border-gray-300 rounded-full cursor-pointer
@@ -16,29 +16,32 @@
       </select>
     </span>
     <div class="w-full h-full flex flex-wrap">
-      <div
-        class="bg-no-repeat bg-left-top bg-contain w-1/3 h-full"
-        :style="{backgroundImage: `url(${cpmImage})` }"
-      >
-        <p class="p-3 text-lg prose">
+      <div class="w-1/3 h-full">
+        <p class="pt-6 text-center text-lg prose">
           CPM experiment
         </p>
+        <div
+          class="bg-no-repeat bg-left-top bg-contain w-full h-full"
+          :style="{backgroundImage: `url(${cpmImage})` }"
+        />
       </div>
-      <div
-        class="bg-no-repeat bg-left-top bg-contain w-1/3 h-full"
-        :style="{backgroundImage: `url(${rcmImage})` }"
-      >
-        <p class="p-3 text-lg prose">
+      <div class="w-1/3 h-full">
+        <p class="pt-6 text-center text-lg prose">
           RCM experiment
         </p>
+        <div
+          class="bg-no-repeat bg-left-top bg-contain w-full h-full"
+          :style="{backgroundImage: `url(${rcmImage})` }"
+        />
       </div>
-      <div
-        class="bg-no-repeat bg-left-top bg-contain w-1/3 h-full"
-        :style="{backgroundImage: `url(${gcmImage})` }"
-      >
-        <p class="p-3 text-lg prose">
+      <div class="w-1/3 h-full">
+        <p class="pt-6 text-center text-lg prose">
           GCM experiment
         </p>
+        <div
+          class="bg-no-repeat bg-left-top bg-contain w-full h-full"
+          :style="{backgroundImage: `url(${gcmImage})` }"
+        />
       </div>
     </div>
   </div>
@@ -62,8 +65,8 @@ export default {
         tas: 'Temperature'
       },
       seasons: {
-        DJF: 'DJF',
-        JJA: 'JJA'
+        DJF: 'Winter',
+        JJA: 'Summer'
       },
       models: {
         'CLMcom-CMCC-CCLM5-0-9': 'CLMcom-CMCC-CCLM5-0-9',
