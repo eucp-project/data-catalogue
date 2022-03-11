@@ -59,7 +59,7 @@ export default {
     return {
       selectedVariable: 'pr',
       selectedSeason: 'DJF',
-      selectedModel: 'CLMcom-CMCC-CCLM5-0-9',
+      selectedModel: 'CMCC',
       variables: {
         pr: 'Precipitation',
         tas: 'Temperature'
@@ -69,43 +69,81 @@ export default {
         JJA: 'Summer'
       },
       models: {
-        'CLMcom-CMCC-CCLM5-0-9': 'CLMcom-CMCC-CCLM5-0-9',
-        'CNRM-AROME41t1': 'CNRM-AROME41t1',
-        'COSMO-pompa': 'COSMO-pompa',
-        'GERICS-REMO2015': 'GERICS-REMO2015',
-        'HadREM3-RA-UM10.1': 'HadREM3-RA-UM10.1',
-        'HCLIMcom-HCLIM38-AROME': 'HCLIMcom-HCLIM38-AROME',
-        'ICTP-RegCM4-7-0': 'ICTP-RegCM4-7-0',
-        'KNMI-HCLIM38h1-AROME': 'KNMI-HCLIM38h1-AROME'
+        CMCC: 'CMCC',
+        CNRM: 'CNRM',
+        ETHZ: 'ETHZ',
+        GERICS: 'GERICS',
+        UKMO: 'UKMO',
+        'DMI/SMHI': 'DMI/SMHI',
+        ICTP: 'ICTP',
+        KNMI: 'KNMI'
       },
       modelsList: {
-        'CLMcom-CMCC-CCLM5-0-9': { RCM: 'CCLM4-8-17_ICHEC-EC-EARTH', GCM: 'EC-EARTH' },
-        'CNRM-AROME41t1': { RCM: 'ALADIN63_CNRM-CERFACS-CNRM-CM5', GCM: 'CNRM-CM5' },
-        'COSMO-pompa': { RCM: 'CCLM4-8-17_MPI-M-MPI-ESM-LR', GCM: 'MPI-ESM-LR' },
-        'GERICS-REMO2015': { RCM: 'REMO2015_MPI-M-MPI-ESM-LR', GCM: 'MPI-ESM-LR' },
-        'HadREM3-RA-UM10.1': { RCM: 'MOHC-HadGEM3-GC3.1-N512_MOHC-HadGEM2-ES', GCM: 'HadGEM2-ES' },
-        'HCLIMcom-HCLIM38-AROME': { RCM: 'HCLIMcom-HCLIM38-ALADIN_ICHEC-EC-EARTH', GCM: 'EC-EARTH' },
-        'ICTP-RegCM4-7-0': { RCM: 'ICTP-RegCM4-7-0_MOHC-HadGEM2-ES', GCM: 'HadGEM2-ES' },
-        'KNMI-HCLIM38h1-AROME': { RCM: 'KNMI-RACMO23E_KNMI-EC-EARTH', GCM: 'EC-EARTH' }
-      },
-      rcmImage: 'empty.png',
-      gcmImage: 'empty.png'
+        CMCC: {
+          cpm: 'CLMcom-CMCC-CCLM5-0-9',
+          rcm: 'CCLM4-8-17_ICHEC-EC-EARTH',
+          gcm: 'EC-EARTH'
+        },
+        CNRM: {
+          cpm: 'CNRM-AROME41t1',
+          rcm: 'ALADIN63_CNRM-CERFACS-CNRM-CM5',
+          gcm: 'CNRM-CM5'
+        },
+        ETHZ: {
+          cpm: 'COSMO-pompa',
+          rcm: 'CCLM4-8-17_MPI-M-MPI-ESM-LR',
+          gcm: 'MPI-ESM-LR'
+        },
+        GERICS: {
+          cpm: 'GERICS-REMO2015',
+          rcm: 'REMO2015_MPI-M-MPI-ESM-LR',
+          gcm: 'MPI-ESM-LR'
+        },
+        UKMO: {
+          cpm: 'HadREM3-RA-UM10.1',
+          rcm: 'MOHC-HadGEM3-GC3.1-N512_MOHC-HadGEM2-ES',
+          gcm: 'HadGEM2-ES'
+        },
+        'DMI/SMHI': {
+          cpm: 'HCLIMcom-HCLIM38-AROME',
+          rcm: 'HCLIMcom-HCLIM38-ALADIN_ICHEC-EC-EARTH',
+          gcm: 'EC-EARTH'
+        },
+        ICTP: {
+          cpm: 'ICTP-RegCM4-7-0',
+          rcm: 'ICTP-RegCM4-7-0_MOHC-HadGEM2-ES',
+          gcm: 'HadGEM2-ES'
+        },
+        KNMI: {
+          cpm: 'KNMI-HCLIM38h1-AROME',
+          rcm: 'KNMI-RACMO23E_KNMI-EC-EARTH',
+          gcm: 'EC-EARTH'
+        }
+      }
     }
   },
   computed: {
     cpmImage () {
       const fallback = 'empty.png'
       try {
-        // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-        this.rcmImage = require('~/static/maps/' + this.domain + '/' + this.selectedVariable + '/' + 'CORDEX_' + this.modelsList[this.selectedModel].RCM + '_' + this.selectedSeason + '.png')
-        // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-        this.gcmImage = require('~/static/maps/' + this.domain + '/' + this.selectedVariable + '/' + 'CMIP5_' + this.modelsList[this.selectedModel].GCM + '_' + this.selectedSeason + '.png')
-        return require('~/static/maps/' + this.domain + '/' + this.selectedVariable + '/' + 'cordex-cpm_' + this.selectedModel + '_' + this.selectedSeason + '.png')
+        return require('~/static/maps/' + this.domain + '/' + this.selectedVariable + '/' + 'cordex-cpm_' + this.modelsList[this.selectedModel].cpm + '_' + this.selectedSeason + '.png')
       } catch (err) {
-        // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-        this.rcmImage = 'empty.png'
-        // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-        this.gcmImage = 'empty.png'
+        return fallback
+      }
+    },
+    rcmImage () {
+      const fallback = 'empty.png'
+      try {
+        return require('~/static/maps/' + this.domain + '/' + this.selectedVariable + '/' + 'CORDEX_' + this.modelsList[this.selectedModel].rcm + '_' + this.selectedSeason + '.png')
+      } catch (err) {
+        return fallback
+      }
+    },
+    gcmImage () {
+      const fallback = 'empty.png'
+      try {
+        return require('~/static/maps/' + this.domain + '/' + this.selectedVariable + '/' + 'CMIP5_' + this.modelsList[this.selectedModel].gcm + '_' + this.selectedSeason + '.png')
+      } catch (err) {
         return fallback
       }
     }
