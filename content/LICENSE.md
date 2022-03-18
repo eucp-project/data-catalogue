@@ -16,4 +16,4 @@ Attribution for the content of this Data Catalogue should be given to EUCP, the
 European Union Climate Project, funded by Horizon 2020.
 
 This license does not apply to the web page that hosts the Data Catalogue. Its
-license can be found in [`./LICENSE`](LICENSE).
+license can be found in [`./LICENSE`](../LICENSE).
