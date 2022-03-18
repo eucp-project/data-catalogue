@@ -2,14 +2,11 @@
 alt="Creative Commons Licence" style="border-width:0"
 src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><span
 xmlns:dct="http://purl.org/dc/terms/" property="dct:title">The content of the
-EUCP Data Catalogue</span> by the <span
-xmlns:cc="http://creativecommons.org/ns#"
-property="cc:attributionName">European Union Climate Project (EUCP)</span> is
-licensed under a <a rel="license"
+ Data Catalogue</span> by the <span xmlns:cc="http://creativecommons.org/ns#"
+property="cc:attributionName">Horizon 2020-funded European Union Climate
+Project (EUCP)</span> is licensed under a <a rel="license"
 href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution
 4.0 International License</a>.
-
-## Creative Commons Attribution 4.0 International License
 
 Creative Commons Corporation ("Creative Commons") is not a law firm and
 does not provide legal services or legal advice. Distribution of
@@ -21,7 +18,7 @@ terms and conditions, or any related information. Creative Commons
 disclaims all liability for damages resulting from their use to the
 fullest extent possible.
 
-Using Creative Commons Public Licenses
+### Using Creative Commons Public Licenses
 
 Creative Commons public licenses provide a standard set of terms and
 conditions that creators and other rights holders may use to share
@@ -63,7 +60,7 @@ exhaustive, and do not form part of our licenses.
 
 =======================================================================
 
-Creative Commons Attribution 4.0 International Public License
+## Creative Commons Attribution 4.0 International Public License
 
 By exercising the Licensed Rights (defined below), You accept and agree
 to be bound by the terms and conditions of this Creative Commons
