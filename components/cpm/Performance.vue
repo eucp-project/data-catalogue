@@ -76,53 +76,54 @@ export default {
         UKMO: 'UKMO',
         'DMI/SMHI': 'DMI/SMHI',
         ICTP: 'ICTP',
+        IPSL: 'IPSL',
         KNMI: 'KNMI'
       },
       modelsList: {
         CMCC: {
-          cpm: 'ethz-cclm_ecmwf-erai',
-          rcm: 'ethz-cclm_ecmwf-erai',
+          cpm: 'cclm_ec-earth',
+          rcm: 'cclm-ec-earth',
           gcm: 'ec-earth-cclm'
         },
         CNRM: {
           cpm: 'cnrm-arome_cnrm-cm5',
-          rcm: 'cnrm-arome_cnrm-cm5',
-          gcm: 'cnrm-cm5'
+          rcm: 'cnrm-cnrm-cm5',
+          gcm: 'cnrm-cnrm-cm5'
         },
         ETHZ: {
           cpm: 'ethz-cclm_mpi',
-          rcm: 'ethz-cclm_mpi',
+          rcm: 'ethz-cclm-mpi',
           gcm: 'ethz-mpi-esm-lr'
         },
         GERICS: {
           cpm: 'gerics_mpi-esm-lr',
-          rcm: 'gerics_mpi-esm-lr',
-          gcm: 'ethz-mpi-esm-lr'
+          rcm: 'gerics-mpi-esm-lr',
+          gcm: 'gerics-mpi-esm-lr'
         },
         UKMO: {
           cpm: 'mohc-um10.1_hadgem3-gc3.1',
-          rcm: 'mohc-um10.1_hadgem3-gc3.1',
-          gcm: 'mohc-hadgem3-gc3.1'
+          rcm: 'mohc-hadgem3-gc3.1',
+          gcm: 'hadgem2-es'
         },
         'DMI/SMHI': {
           cpm: 'hclim_ec-earth',
-          rcm: 'hclim_ec-earth',
+          rcm: 'hclim-ec-earth',
           gcm: 'ec-earth-smhi'
         },
         ICTP: {
           cpm: 'regcm4_hadgem2-es',
-          rcm: 'regcm4_hadgem2-es',
+          rcm: 'regcm4-hadgem2-es',
           gcm: 'hadgem2-es'
         },
         IPSL: {
           cpm: 'ipsl-wrf_ipsl-cm5-mr',
-          rcm: 'ipsl-wrf_ipsl-cm5-mr',
+          rcm: 'ipsl-wrf_ipsl-cm5a-mr',
           gcm: 'ipsl-cm5a-mr'
         },
         KNMI: {
           cpm: 'hclim-knmi_ec-earth',
-          rcm: 'hclim-knmi_ec-earth',
-          gcm: 'ec-earth'
+          rcm: 'knmi-racmo-ec-earth',
+          gcm: 'knmi-ec-earth'
         }
       }
     }
