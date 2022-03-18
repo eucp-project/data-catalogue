@@ -80,44 +80,49 @@ export default {
       },
       modelsList: {
         CMCC: {
-          cpm: 'CLMcom-CMCC-CCLM5-0-9',
-          rcm: 'CCLM4-8-17_ICHEC-EC-EARTH',
-          gcm: 'EC-EARTH'
+          cpm: 'ethz-cclm_ecmwf-erai',
+          rcm: 'ethz-cclm_ecmwf-erai',
+          gcm: 'ec-earth-cclm'
         },
         CNRM: {
-          cpm: 'CNRM-AROME41t1',
-          rcm: 'ALADIN63_CNRM-CERFACS-CNRM-CM5',
-          gcm: 'CNRM-CM5'
+          cpm: 'cnrm-arome_cnrm-cm5',
+          rcm: 'cnrm-arome_cnrm-cm5',
+          gcm: 'cnrm-cm5'
         },
         ETHZ: {
-          cpm: 'COSMO-pompa',
-          rcm: 'CCLM4-8-17_MPI-M-MPI-ESM-LR',
-          gcm: 'MPI-ESM-LR'
+          cpm: 'ethz-cclm_mpi',
+          rcm: 'ethz-cclm_mpi',
+          gcm: 'ethz-mpi-esm-lr'
         },
         GERICS: {
-          cpm: 'GERICS-REMO2015',
-          rcm: 'REMO2015_MPI-M-MPI-ESM-LR',
-          gcm: 'MPI-ESM-LR'
+          cpm: 'gerics_mpi-esm-lr',
+          rcm: 'gerics_mpi-esm-lr',
+          gcm: 'ethz-mpi-esm-lr'
         },
         UKMO: {
-          cpm: 'HadREM3-RA-UM10.1',
-          rcm: 'MOHC-HadGEM3-GC3.1-N512_MOHC-HadGEM2-ES',
-          gcm: 'HadGEM2-ES'
+          cpm: 'mohc-um10.1_hadgem3-gc3.1',
+          rcm: 'mohc-um10.1_hadgem3-gc3.1',
+          gcm: 'mohc-hadgem3-gc3.1'
         },
         'DMI/SMHI': {
-          cpm: 'HCLIMcom-HCLIM38-AROME',
-          rcm: 'HCLIMcom-HCLIM38-ALADIN_ICHEC-EC-EARTH',
-          gcm: 'EC-EARTH'
+          cpm: 'hclim_ec-earth',
+          rcm: 'hclim_ec-earth',
+          gcm: 'ec-earth-smhi'
         },
         ICTP: {
-          cpm: 'ICTP-RegCM4-7-0',
-          rcm: 'ICTP-RegCM4-7-0_MOHC-HadGEM2-ES',
-          gcm: 'HadGEM2-ES'
+          cpm: 'regcm4_hadgem2-es',
+          rcm: 'regcm4_hadgem2-es',
+          gcm: 'hadgem2-es'
+        },
+        IPSL: {
+          cpm: 'ipsl-wrf_ipsl-cm5-mr',
+          rcm: 'ipsl-wrf_ipsl-cm5-mr',
+          gcm: 'ipsl-cm5a-mr'
         },
         KNMI: {
-          cpm: 'KNMI-HCLIM38h1-AROME',
-          rcm: 'KNMI-RACMO23E_KNMI-EC-EARTH',
-          gcm: 'EC-EARTH'
+          cpm: 'hclim-knmi_ec-earth',
+          rcm: 'hclim-knmi_ec-earth',
+          gcm: 'ec-earth'
         }
       }
     }
