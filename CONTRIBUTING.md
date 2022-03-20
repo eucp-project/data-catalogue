@@ -1,3 +1,7 @@
+# Contributing guide
+
+The website can be generated locally as follows:
+
 ## Build Setup
 
 ```bash
