@@ -7,7 +7,7 @@ This repository contains the source code for the
 website](https://eucp-project.github.io/data-catalogue/).
 
 One of the important outcomes of EUCP (European Climate Prediction system) project is
-data. This includes
+data. This includes:
 
 - contributions to the CMIP6 decadal prediction project DCPP
 - extension of CORDEX-FPS convection permitting model (CPM) data
