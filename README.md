@@ -31,7 +31,7 @@ data is hosted on the catalogue itself – instead, it redirects to the original
 sources and provides additional context and documentation.
 
 The data catalogue makes it possible to explore pre-generated maps and other
-visualizations through intuitive controls. The underlying data is made
+visualizations through intuitive controls. The underlying data will be made
 available via Zenodo.
 
 The website has been built with [Nuxt](https://nuxtjs.org), using
