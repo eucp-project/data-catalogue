@@ -20,11 +20,6 @@ access to decadal prediction data through their climate data store.
 Convection permitting model (CPM) output is also in the process of being added
 to ESGF. However, unlike the decadal predictions, these datasets are less
 mature and therefore they have not yet found their way into a service like C3S.
-Additionally, there is a gap between user requirements and existing
-infrastructure solutions. We have run into many obstacles in uploading the data
-to ESGF, and even if it was uploaded there, it would still be cumbersome to
-download and work with, due to the sheer size and complexity of the data.
-Therefore, we started working on a small, preprocessed subset of the data.
 
 ‘Ad hoc’ datasets are published in standard open data repositories such as
 Zenodo. While this makes them available, they may be difficult to find and
