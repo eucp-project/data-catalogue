@@ -25,9 +25,8 @@ mature and therefore they have not yet found their way into a service like C3S.
 Zenodo. While this makes them available, they may be difficult to find and
 lacking in documentation.
 
-To overcome these limitations this data catalogue was developed. It is
-primarily an overview of all data outputs of the project. Hardly any actual
-data is hosted on the catalogue itself – instead, it redirects to the original
+This data catalogue was developed to provide an overview of all data outputs of the project. 
+Hardly any actual data is hosted on the catalogue itself – instead, it redirects to the original
 sources and provides additional context and documentation.
 
 The data catalogue makes it possible to explore pre-generated maps and other
