@@ -126,7 +126,7 @@ export default {
     cpmImage () {
       const fallback = 'empty.png'
       try {
-        return require('~/static/maps/' + this.domain + '/' + this.selectedVariable + '/' + 'cordex-cpm_' + this.modelsList[this.selectedModel].cpm + '_' + this.selectedSeason + '.png')
+        return require('~/static/cpm_analysis/analyse/' + this.domain + '/' + this.selectedVariable + '/' + 'cordex-cpm_' + this.modelsList[this.selectedModel].cpm + '_' + this.selectedSeason + '.png')
       } catch (err) {
         return fallback
       }
@@ -134,7 +134,7 @@ export default {
     rcmImage () {
       const fallback = 'empty.png'
       try {
-        return require('~/static/maps/' + this.domain + '/' + this.selectedVariable + '/' + 'CORDEX_' + this.modelsList[this.selectedModel].rcm + '_' + this.selectedSeason + '.png')
+        return require('~/static/cpm_analysis/analyse/' + this.domain + '/' + this.selectedVariable + '/' + 'CORDEX_' + this.modelsList[this.selectedModel].rcm + '_' + this.selectedSeason + '.png')
       } catch (err) {
         return fallback
       }
@@ -142,7 +142,7 @@ export default {
     gcmImage () {
       const fallback = 'empty.png'
       try {
-        return require('~/static/maps/' + this.domain + '/' + this.selectedVariable + '/' + 'CMIP5_' + this.modelsList[this.selectedModel].gcm + '_' + this.selectedSeason + '.png')
+        return require('~/static/cpm_analysis/analyse/' + this.domain + '/' + this.selectedVariable + '/' + 'CMIP5_' + this.modelsList[this.selectedModel].gcm + '_' + this.selectedSeason + '.png')
       } catch (err) {
         return fallback
       }
