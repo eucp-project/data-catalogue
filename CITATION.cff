@@ -17,11 +17,6 @@ authors:
     orcid: "https://orcid.org/0000-0002-5025-7862"
     affiliation: "Netherlands eScience Center"
   -
-    family-names: Alidoost
-    given-names: Fakhereh
-    orcid: "https://orcid.org/0000-0001-8407-6472"
-    affiliation: "Netherlands eScience Center"
-  -
     family-names: Liu
     given-names: Yang
     orcid: "https://orcid.org/0000-0002-1966-8460"
@@ -36,8 +31,4 @@ authors:
     given-names: Barbara
     orcid: "https://orcid.org/0000-0002-5023-4601"
     affiliation: "Netherlands eScience Center"
-identifiers:
-  - type: doi
-    value: '10.5281/zenodo.5905676'
-    description: The concept DOI of the work.
 ...
