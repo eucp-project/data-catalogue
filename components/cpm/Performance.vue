@@ -3,7 +3,7 @@
     <span class="space-x-3 p-3">
       <CpmDropdown v-model="selectedVariable" :options="variables" alttext="Choose a variable." />
       <CpmDropdown v-model="selectedSeason" :options="seasons" alttext="Select a season." />
-      <CpmDropdown v-model="selectedModel" :options="models" alttext="Choose a model/group" />
+      <CpmDropdown v-model="selectedModel" :options="filterModels(domain)" alttext="Choose a model/group" />
       <!-- same style but not selectable option to display region -->
       <select
         class="border border-gray-300 rounded-full cursor-pointer
@@ -55,6 +55,12 @@ export default {
       type: String
     }
   },
+  // async asyncData (context) {
+  //   let regionsModelsList = await context.$content('cpm/RegionsModels').fetch()
+  //   regionsModelsList = regionsModelsList.regions
+
+  //   return { regionsModelsList }
+  // },
   data () {
     return {
       selectedVariable: 'pr',
@@ -125,7 +131,8 @@ export default {
           rcm: 'knmi-racmo-ec-earth',
           gcm: 'knmi-ec-earth'
         }
-      }
+      },
+      regionsModelsList: {}
     }
   },
   computed: {
@@ -152,6 +159,25 @@ export default {
       } catch (err) {
         return fallback
       }
+    }
+  },
+  async mounted () {
+    const regionsModelsList = await this.$content('cpm/RegionsModels').fetch()
+    this.regionsModelsList = regionsModelsList.regions
+    console.log(this.regionsModelsList)
+    console.log(this.regionsModelsList[this.domain])
+    const element = this.regionsModelsList[this.domain]
+    const modelsMenu = element.reduce((obj, val) => ({ ...obj, [val]: val }), {})
+    console.log(modelsMenu)
+  },
+  methods: {
+    filterModels (region) {
+      const modelsOptions = this.regionsModelsList[region]
+      console.log(modelsOptions)
+      const modelsMenu = modelsOptions.reduce((obj, val) => ({ ...obj, [val]: val }), {})
+      console.log(modelsMenu)
+
+      return modelsOptions
     }
   }
 }
