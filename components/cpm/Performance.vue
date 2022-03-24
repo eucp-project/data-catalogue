@@ -3,7 +3,7 @@
     <span class="space-x-3 p-3">
       <CpmDropdown v-model="selectedVariable" :options="variables" alttext="Choose a variable." />
       <CpmDropdown v-model="selectedSeason" :options="seasons" alttext="Select a season." />
-      <CpmDropdown v-model="selectedModel" :options="filterModels(domain)" alttext="Choose a model/group" />
+      <CpmDropdown v-model="selectedModel" :options="filterModels" alttext="Choose a model/group" />
       <!-- same style but not selectable option to display region -->
       <select
         class="border border-gray-300 rounded-full cursor-pointer
@@ -55,12 +55,6 @@ export default {
       type: String
     }
   },
-  // async asyncData (context) {
-  //   let regionsModelsList = await context.$content('cpm/RegionsModels').fetch()
-  //   regionsModelsList = regionsModelsList.regions
-
-  //   return { regionsModelsList }
-  // },
   data () {
     return {
       selectedVariable: 'pr',
@@ -73,17 +67,6 @@ export default {
       seasons: {
         DJF: 'Winter',
         JJA: 'Summer'
-      },
-      models: {
-        CMCC: 'CMCC',
-        CNRM: 'CNRM',
-        ETHZ: 'ETHZ',
-        GERICS: 'GERICS',
-        UKMO: 'UKMO',
-        'DMI/SMHI': 'DMI/SMHI',
-        ICTP: 'ICTP',
-        IPSL: 'IPSL',
-        KNMI: 'KNMI'
       },
       modelsList: {
         CMCC: {
@@ -132,7 +115,15 @@ export default {
           gcm: 'knmi-ec-earth'
         }
       },
-      regionsModelsList: {}
+      regionsModels: {
+        NW: ['CNRM', 'KNMI', 'ETHZ', 'UKMO'],
+        SW: ['CMCC', 'IPSL', 'ETHZ', 'UKMO'],
+        SE: ['ICTP', 'ETHZ', 'UKMO'],
+        C: ['GERICS', 'ETHZ', 'UKMO'],
+        CE: ['DMI/SMHI', 'ICTP', 'ETHZ', 'UKMO'],
+        N: ['DMI/SMHI', 'GERICS'],
+        AL: ['CNRM', 'CMCC', 'IPSL', 'KNMI', 'GERICS', 'ETHZ', 'DMI/SMHI', 'ICTP', 'UKMO']
+      }
     }
   },
   computed: {
@@ -159,25 +150,13 @@ export default {
       } catch (err) {
         return fallback
       }
-    }
-  },
-  async mounted () {
-    const regionsModelsList = await this.$content('cpm/RegionsModels').fetch()
-    this.regionsModelsList = regionsModelsList.regions
-    console.log(this.regionsModelsList)
-    console.log(this.regionsModelsList[this.domain])
-    const element = this.regionsModelsList[this.domain]
-    const modelsMenu = element.reduce((obj, val) => ({ ...obj, [val]: val }), {})
-    console.log(modelsMenu)
-  },
-  methods: {
-    filterModels (region) {
-      const modelsOptions = this.regionsModelsList[region]
-      console.log(modelsOptions)
-      const modelsMenu = modelsOptions.reduce((obj, val) => ({ ...obj, [val]: val }), {})
-      console.log(modelsMenu)
-
-      return modelsOptions
+    },
+    filterModels () {
+      const filterList = {}
+      this.regionsModels[this.domain].forEach((model) => {
+        filterList[model] = model
+      })
+      return filterList
     }
   }
 }
