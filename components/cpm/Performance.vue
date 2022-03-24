@@ -59,7 +59,7 @@ export default {
     return {
       selectedVariable: 'pr',
       selectedSeason: 'DJF',
-      selectedModel: 'CMCC',
+      selectedModel: 'UKMO',
       variables: {
         pr: 'Precipitation',
         tas: 'Temperature'
