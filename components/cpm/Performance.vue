@@ -3,7 +3,7 @@
     <span class="space-x-3 p-3">
       <CpmDropdown v-model="selectedVariable" :options="variables" alttext="Choose a variable." />
       <CpmDropdown v-model="selectedSeason" :options="seasons" alttext="Select a season." />
-      <CpmDropdown v-model="selectedModel" :options="models" alttext="Choose a model/group" />
+      <CpmDropdown v-model="selectedModel" :options="filterModels" alttext="Choose a model/group" />
       <!-- same style but not selectable option to display region -->
       <select
         class="border border-gray-300 rounded-full cursor-pointer
@@ -59,7 +59,7 @@ export default {
     return {
       selectedVariable: 'pr',
       selectedSeason: 'DJF',
-      selectedModel: 'CMCC',
+      selectedModel: 'UKMO',
       variables: {
         pr: 'Precipitation',
         tas: 'Temperature'
@@ -67,17 +67,6 @@ export default {
       seasons: {
         DJF: 'Winter',
         JJA: 'Summer'
-      },
-      models: {
-        CMCC: 'CMCC',
-        CNRM: 'CNRM',
-        ETHZ: 'ETHZ',
-        GERICS: 'GERICS',
-        UKMO: 'UKMO',
-        'DMI/SMHI': 'DMI/SMHI',
-        ICTP: 'ICTP',
-        IPSL: 'IPSL',
-        KNMI: 'KNMI'
       },
       modelsList: {
         CMCC: {
@@ -125,6 +114,15 @@ export default {
           rcm: 'knmi-racmo-ec-earth',
           gcm: 'knmi-ec-earth'
         }
+      },
+      regionsModels: {
+        NW: ['CNRM', 'KNMI', 'ETHZ', 'UKMO'],
+        SW: ['CMCC', 'IPSL', 'ETHZ', 'UKMO'],
+        SE: ['ICTP', 'ETHZ', 'UKMO'],
+        C: ['GERICS', 'ETHZ', 'UKMO'],
+        CE: ['DMI/SMHI', 'ICTP', 'ETHZ', 'UKMO'],
+        N: ['DMI/SMHI', 'GERICS'],
+        AL: ['CNRM', 'CMCC', 'IPSL', 'KNMI', 'GERICS', 'ETHZ', 'DMI/SMHI', 'ICTP', 'UKMO']
       }
     }
   },
@@ -152,6 +150,13 @@ export default {
       } catch (err) {
         return fallback
       }
+    },
+    filterModels () {
+      const filterList = {}
+      this.regionsModels[this.domain].forEach((model) => {
+        filterList[model] = model
+      })
+      return filterList
     }
   }
 }

@@ -28,7 +28,7 @@ regions:
     NW: 'NW: 53.0 N, 1.0 E'
 
   CE:
-    model: 'SMHI, ICTP, ETH, UKMO'
+    model: 'DMI/SMHI, ICTP, ETH, UKMO'
     SW: 'SW : 41.5 N, 17.8 E'
     SE: 'SE: 41.5 N, 31.3 E'
     NE: 'NE: 51.6 N, 32.8 E'
