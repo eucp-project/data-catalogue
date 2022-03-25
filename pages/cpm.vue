@@ -18,6 +18,7 @@ export default {
       pages: [
         { title: 'CPM home', url: '/cpm' },
         { title: 'Past performance', url: '/cpm/performance' },
+        { title: 'Future change', url: '/cpm/future' },
         { title: 'Analyse', url: '/cpm/analyse' },
         { title: 'Explore', url: '/cpm/explore' },
         { title: 'Download', url: '/cpm/download' },
