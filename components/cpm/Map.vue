@@ -115,7 +115,6 @@ export default {
     },
     updateInfo (props) {
       // to do: loop through the json file after it is put in a geojson/yaml file
-      // this._div.innerHTML = '<h4>CPM model&data availability</h4>' + (this.regions.regions[props] ? (this.regions.regions[props].model + '<br>' + this.regions.regions[props].SW + '<br>' + this.regions.regions[props].SE + '<br>' + this.regions.regions[props].NE + '<br>' + this.regions.regions[props].NW) : 'Hover over a region')
       this._div.innerHTML = '<h4>CPM model&data availability</h4>' + (this.regions.regions[props] ? (this.regions.regions[props].model) : 'Hover over a region')
     }
   }
