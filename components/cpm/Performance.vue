@@ -1,7 +1,6 @@
 <template>
   <div class="w-full h-full">
     <span class="space-x-3 p-3">
-      <CpmDropdown v-model="selectedVariable" :options="variables" alttext="Choose a variable." />
       <CpmDropdown v-model="selectedSeason" :options="seasons" alttext="Select a season." />
       <CpmDropdown v-model="selectedModel" :options="filterModels" alttext="Choose a model/group" />
       <!-- same style but not selectable option to display region -->
@@ -16,16 +15,32 @@
       </select>
       <div>
         <multiselect
-          v-model="value"
-          tag-placeholder="Add this as new tag"
-          placeholder="Search or add a tag"
+          v-model="selectedVariable"
+          :options="variables"
+          :searchable="false"
+          :allow-empty="false"
+          :close-on-select="true"
+          :show-labels="true"
           label="name"
-          track-by="code"
-          :options="options"
-          :multiple="true"
-          :taggable="true"
-          @tag="addTag"
+          deselect-label=" "
+          placeholder="Choose a variable."
         />
+      </div>
+      <div>
+        <multiselect
+          v-model="selectedSystem"
+          :options="modellingSystems"
+          :multiple="true"
+          :close-on-select="false"
+          :clear-on-select="false"
+          :preserve-search="true"
+          placeholder="Choose modelling system(s)"
+          label="name"
+          track-by="name"
+          :preselect-first="true"
+        >
+          <template slot="selection" slot-scope="{ values, isOpen }"><span v-if="values.length &amp;&amp; !isOpen" class="multiselect__single">{{ values.length }} modelling system(s) selected</span></template>
+        </multiselect>
       </div>
     </span>
     <div class="w-full h-full flex flex-wrap">
@@ -72,13 +87,18 @@ export default {
   },
   data () {
     return {
-      selectedVariable: 'pr',
+      selectedVariable: { name: 'Precipitation', code: 'pr' },
       selectedSeason: 'DJF',
       selectedModel: 'UKMO',
-      variables: {
-        pr: 'Precipitation',
-        tas: 'Temperature'
-      },
+      selectedSystem: [
+        { name: 'CPM', code: 'cpm' },
+        { name: 'RCM', code: 'rcm' },
+        { name: 'GCM', code: 'gcm' }
+      ],
+      variables: [
+        { name: 'Precipitation', code: 'pr' },
+        { name: 'Temperature', code: 'tas' }
+      ],
       seasons: {
         DJF: 'Winter',
         JJA: 'Summer'
@@ -92,13 +112,10 @@ export default {
         N: ['SMHI', 'GERICS'],
         AL: ['CNRM', 'CMCC', 'IPSL', 'KNMI', 'GERICS', 'ETHZ', 'SMHI', 'ICTP', 'UKMO']
       },
-      value: [
-        { name: 'Javascript', code: 'js' }
-      ],
-      options: [
-        { name: 'Vue.js', code: 'vu' },
-        { name: 'Javascript', code: 'js' },
-        { name: 'Open Source', code: 'os' }
+      modellingSystems: [
+        { name: 'CPM', code: 'cpm' },
+        { name: 'RCM', code: 'rcm' },
+        { name: 'GCM', code: 'gcm' }
       ]
     }
   },
@@ -106,7 +123,7 @@ export default {
     cpmImage () {
       const fallback = 'empty.png'
       try {
-        return require('~/static/cpm_analysis/past_performance/' + this.domain + '/' + this.selectedVariable + '/' + 'cpm_' + this.selectedModel.toLowerCase() + '_' + this.selectedSeason + '.png')
+        return require('~/static/cpm_analysis/past_performance/' + this.domain + '/' + this.selectedVariable.code + '/' + 'cpm_' + this.selectedModel.toLowerCase() + '_' + this.selectedSeason + '.png')
       } catch (err) {
         return fallback
       }
@@ -114,7 +131,7 @@ export default {
     rcmImage () {
       const fallback = 'empty.png'
       try {
-        return require('~/static/cpm_analysis/past_performance/' + this.domain + '/' + this.selectedVariable + '/' + 'rcm_' + this.selectedModel.toLowerCase() + '_' + this.selectedSeason + '.png')
+        return require('~/static/cpm_analysis/past_performance/' + this.domain + '/' + this.selectedVariable.code + '/' + 'rcm_' + this.selectedModel.toLowerCase() + '_' + this.selectedSeason + '.png')
       } catch (err) {
         return fallback
       }
@@ -122,7 +139,7 @@ export default {
     gcmImage () {
       const fallback = 'empty.png'
       try {
-        return require('~/static/cpm_analysis/past_performance/' + this.domain + '/' + this.selectedVariable + '/' + 'gcm_' + this.selectedModel.toLowerCase() + '_' + this.selectedSeason + '.png')
+        return require('~/static/cpm_analysis/past_performance/' + this.domain + '/' + this.selectedVariable.code + '/' + 'gcm_' + this.selectedModel.toLowerCase() + '_' + this.selectedSeason + '.png')
       } catch (err) {
         return fallback
       }
@@ -137,16 +154,6 @@ export default {
         }
       })
       return filterList
-    }
-  },
-  methods: {
-    addTag (newTag) {
-      const tag = {
-        name: newTag,
-        code: newTag.substring(0, 2) + Math.floor((Math.random() * 10000000))
-      }
-      this.options.push(tag)
-      this.value.push(tag)
     }
   }
 }
