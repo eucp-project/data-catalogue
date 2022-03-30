@@ -18,7 +18,7 @@
     <div class="w-full h-full flex flex-wrap">
       <div class="w-1/3 h-full">
         <p class="pt-6 text-center text-lg prose">
-          High-resolution models
+          High-resolution models (CPM)
         </p>
         <div
           class="bg-no-repeat bg-left-top bg-contain w-full h-full"
@@ -27,7 +27,7 @@
       </div>
       <div class="w-1/3 h-full">
         <p class="pt-6 text-center text-lg prose">
-          Regional models
+          Regional models (RCM)
         </p>
         <div
           class="bg-no-repeat bg-left-top bg-contain w-full h-full"
@@ -36,7 +36,7 @@
       </div>
       <div class="w-1/3 h-full">
         <p class="pt-6 text-center text-lg prose">
-          Global models
+          Global models (GCM)
         </p>
         <div
           class="bg-no-repeat bg-left-top bg-contain w-full h-full"
