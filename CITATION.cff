@@ -8,7 +8,10 @@ keywords:
   - EUCP
 repository-code: "https://github.com/eucp-project/data-catalogue"
 license: "Apache-2.0"
-message: "If you use this software, please cite it using these metadata."
+message: >
+  This citation information applies to the data catalogue source code.
+  The content in `/content/` is licensed and authored separately.
+  If you use this software, please cite it using these metadata.
 cff-version: "1.2.0"
 authors:
   -
