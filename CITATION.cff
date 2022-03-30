@@ -11,6 +11,7 @@ license: "Apache-2.0"
 message: >
   This citation information applies to the data catalogue source code.
   The content in `/content/` is licensed and authored separately.
+  See `/content/LICENSE.md` for more information. 
   If you use this software, please cite it using these metadata.
 cff-version: "1.2.0"
 authors:
