@@ -57,6 +57,23 @@
           <template slot="selection" slot-scope="{ values, isOpen }"><span v-if="values.length &amp;&amp; !isOpen" class="multiselect__single">{{ values.length }} modelling system(s) selected</span></template>
         </multiselect>
       </div>
+      <div>
+        <multiselect
+          v-model="selectedCategory"
+          :options="categories"
+          :multiple="true"
+          :close-on-select="false"
+          :clear-on-select="false"
+          :preserve-search="true"
+          :show-labels="true"
+          placeholder="Choose experiment(s)"
+          label="name"
+          track-by="name"
+          :preselect-first="true"
+        >
+          <template slot="selection" slot-scope="{ values, isOpen }"><span v-if="values.length &amp;&amp; !isOpen" class="multiselect__single">{{ values.length }} experiment(s) selected</span></template>
+        </multiselect>
+      </div>
       <!-- same style but not selectable option to display region -->
       <select
         class="border border-gray-300 rounded cursor-pointer
@@ -68,19 +85,26 @@
         </option>
       </select>
     </span>
-    <div class="w-full h-full flex flex-wrap">
-      <div
-        v-for="system in selectedSystem"
-        :key="system.code"
-        class="w-1/3 h-full"
-      >
-        <p class="pt-6 text-center text-lg prose">
-          {{ system.title }}
-        </p>
+    <div
+      v-for="experiment in selectedCategory"
+      :key="experiment.path"
+      class="w-full h-full"
+    >
+      <p>{{ experiment.name }}</p>
+      <div class="flex flex-wrap w-full h-full">
         <div
-          class="bg-no-repeat bg-left-top bg-contain w-full h-full"
-          :style="{backgroundImage: `url(${getMap(system.code)})` }"
-        />
+          v-for="system in selectedSystem"
+          :key="system.code"
+          class="w-1/3 h-full"
+        >
+          <p class="pt-6 text-center text-lg prose">
+            {{ system.title }}
+          </p>
+          <div
+            class="bg-no-repeat bg-left-top bg-contain w-full h-full"
+            :style="{backgroundImage: `url(${getMap(system.code, experiment.path)})` }"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -106,6 +130,10 @@ export default {
         { name: 'RCM', code: 'rcm', title: 'Regional models (RCM)' },
         { name: 'GCM', code: 'gcm', title: 'Global models (GCM)' }
       ],
+      selectedCategory: [
+        { name: 'Past performance', path: 'past_performance' },
+        { name: 'Future change', path: 'future_change' }
+      ],
       variables: [
         { name: 'Precipitation', code: 'pr' },
         { name: 'Temperature', code: 'tas' }
@@ -127,6 +155,10 @@ export default {
         { name: 'CPM', code: 'cpm', title: 'High-resolution models (CPM)' },
         { name: 'RCM', code: 'rcm', title: 'Regional models (RCM)' },
         { name: 'GCM', code: 'gcm', title: 'Global models (GCM)' }
+      ],
+      categories: [
+        { name: 'Past performance', path: 'past_performance' },
+        { name: 'Future change', path: 'future_change' }
       ]
     }
   },
@@ -146,10 +178,10 @@ export default {
     }
   },
   methods: {
-    getMap (system) {
+    getMap (system, experiment) {
       const fallback = 'empty.png'
       try {
-        return require('~/static/cpm_analysis/past_performance/' + this.domain + '/' + this.selectedVariable.code + '/' + system + '_' + this.selectedModel.code + '_' + this.selectedSeason.code + '.png')
+        return require('~/static/cpm_analysis/' + experiment + '/' + this.domain + '/' + this.selectedVariable.code + '/' + system + '_' + this.selectedModel.code + '_' + this.selectedSeason.code + '.png')
       } catch (err) {
         return fallback
       }
