@@ -31,7 +31,7 @@
         <multiselect
           v-model="selectedModel"
           :options="filterModels"
-          :searchable="false"
+          :searchable="true"
           :allow-empty="false"
           :close-on-select="true"
           :show-labels="false"

@@ -17,8 +17,7 @@ export default {
       domain: 'AL', // default value for domain
       pages: [
         { title: 'CPM home', url: '/cpm' },
-        { title: 'Past performance', url: '/cpm/performance' },
-        { title: 'Future change', url: '/cpm/future' },
+        { title: 'Performance', url: '/cpm/performance' },
         { title: 'Analyse', url: '/cpm/analyse' },
         { title: 'Explore', url: '/cpm/explore' },
         { title: 'Download', url: '/cpm/download' },

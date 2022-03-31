@@ -44,7 +44,7 @@ export default {
           title: 'CPM',
           url: '/cpm',
           children: [{ title: 'Explore', url: '/cpm/explore' },
-            { title: 'Past performance', url: '/cpm/performance' },
+            { title: 'Performance', url: '/cpm/performance' },
             { title: 'Analyse', url: '/cpm/analyse' },
             { title: 'Download', url: '/cpm/download' },
             { title: 'More info', url: '/cpm/references' }]
