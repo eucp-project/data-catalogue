@@ -1,32 +1,46 @@
 <template>
   <div class="w-full h-full">
-    <span class="space-x-3 p-3">
-      <CpmDropdown v-model="selectedSeason" :options="seasons" alttext="Select a season." />
-      <CpmDropdown v-model="selectedModel" :options="filterModels" alttext="Choose a model/group" />
-      <!-- same style but not selectable option to display region -->
-      <select
-        class="border border-gray-300 rounded-full cursor-pointer
-      text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400
-      focus:outline-none appearance-none"
-      >
-        <option :value="domain">
-          {{ domain }}
-        </option>
-      </select>
-      <div class="w-1/5">
+    <span class="flex flex-wrap space-x-3 p-3">
+      <div>
         <multiselect
           v-model="selectedVariable"
           :options="variables"
           :searchable="false"
           :allow-empty="false"
           :close-on-select="true"
-          :show-labels="true"
+          :show-labels="false"
           label="name"
           deselect-label=" "
           placeholder="Choose a variable."
         />
       </div>
-      <div class="w-1/5">
+      <div>
+        <multiselect
+          v-model="selectedSeason"
+          :options="seasons"
+          :searchable="false"
+          :allow-empty="false"
+          :close-on-select="true"
+          :show-labels="false"
+          label="name"
+          deselect-label=" "
+          placeholder="Select a season."
+        />
+      </div>
+      <div>
+        <multiselect
+          v-model="selectedModel"
+          :options="filterModels"
+          :searchable="false"
+          :allow-empty="false"
+          :close-on-select="true"
+          :show-labels="false"
+          label="name"
+          deselect-label=" "
+          placeholder="Choose a model/group."
+        />
+      </div>
+      <div>
         <multiselect
           v-model="selectedSystem"
           :options="modellingSystems"
@@ -34,6 +48,7 @@
           :close-on-select="false"
           :clear-on-select="false"
           :preserve-search="true"
+          :show-labels="true"
           placeholder="Choose modelling system(s)"
           label="name"
           track-by="name"
@@ -42,6 +57,16 @@
           <template slot="selection" slot-scope="{ values, isOpen }"><span v-if="values.length &amp;&amp; !isOpen" class="multiselect__single">{{ values.length }} modelling system(s) selected</span></template>
         </multiselect>
       </div>
+      <!-- same style but not selectable option to display region -->
+      <select
+        class="border border-gray-300 rounded cursor-pointer
+            text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-300
+            focus:outline-none appearance-none"
+      >
+        <option :value="domain">
+          {{ domain }}
+        </option>
+      </select>
     </span>
     <div class="w-full h-full flex flex-wrap">
       <div
@@ -74,8 +99,8 @@ export default {
   data () {
     return {
       selectedVariable: { name: 'Precipitation', code: 'pr' },
-      selectedSeason: 'DJF',
-      selectedModel: 'UKMO',
+      selectedSeason: { name: 'Winter', code: 'DJF' },
+      selectedModel: { name: 'UKMO', code: 'ukmo' },
       selectedSystem: [
         { name: 'CPM', code: 'cpm', title: 'High-resolution models (CPM)' },
         { name: 'RCM', code: 'rcm', title: 'Regional models (RCM)' },
@@ -85,10 +110,10 @@ export default {
         { name: 'Precipitation', code: 'pr' },
         { name: 'Temperature', code: 'tas' }
       ],
-      seasons: {
-        DJF: 'Winter',
-        JJA: 'Summer'
-      },
+      seasons: [
+        { name: 'Winter', code: 'DJF' },
+        { name: 'Summer', code: 'JJA' }
+      ],
       regionsModels: {
         NW: ['CNRM', 'KNMI', 'ETHZ', 'UKMO'],
         SW: ['CMCC', 'IPSL', 'ETHZ', 'UKMO'],
@@ -106,37 +131,15 @@ export default {
     }
   },
   computed: {
-    cpmImage () {
-      const fallback = 'empty.png'
-      try {
-        return require('~/static/cpm_analysis/past_performance/' + this.domain + '/' + this.selectedVariable.code + '/' + 'cpm_' + this.selectedModel.toLowerCase() + '_' + this.selectedSeason + '.png')
-      } catch (err) {
-        return fallback
-      }
-    },
-    rcmImage () {
-      const fallback = 'empty.png'
-      try {
-        return require('~/static/cpm_analysis/past_performance/' + this.domain + '/' + this.selectedVariable.code + '/' + 'rcm_' + this.selectedModel.toLowerCase() + '_' + this.selectedSeason + '.png')
-      } catch (err) {
-        return fallback
-      }
-    },
-    gcmImage () {
-      const fallback = 'empty.png'
-      try {
-        return require('~/static/cpm_analysis/past_performance/' + this.domain + '/' + this.selectedVariable.code + '/' + 'gcm_' + this.selectedModel.toLowerCase() + '_' + this.selectedSeason + '.png')
-      } catch (err) {
-        return fallback
-      }
-    },
     filterModels () {
-      const filterList = {}
+      const filterList = []
       this.regionsModels[this.domain].forEach((model) => {
         if (model === 'SMHI') {
-          filterList[model] = 'DMI/SMHI'
+          const modelObject = { name: 'DMI/SMHI', code: 'smhi' }
+          filterList.push(modelObject)
         } else {
-          filterList[model] = model
+          const modelObject = { name: model, code: model.toLowerCase() }
+          filterList.push(modelObject)
         }
       })
       return filterList
@@ -146,7 +149,7 @@ export default {
     getMap (system) {
       const fallback = 'empty.png'
       try {
-        return require('~/static/cpm_analysis/past_performance/' + this.domain + '/' + this.selectedVariable.code + '/' + system + '_' + this.selectedModel.toLowerCase() + '_' + this.selectedSeason + '.png')
+        return require('~/static/cpm_analysis/past_performance/' + this.domain + '/' + this.selectedVariable.code + '/' + system + '_' + this.selectedModel.code + '_' + this.selectedSeason.code + '.png')
       } catch (err) {
         return fallback
       }
