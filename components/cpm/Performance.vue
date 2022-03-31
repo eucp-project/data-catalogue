@@ -13,7 +13,7 @@
           {{ domain }}
         </option>
       </select>
-      <div>
+      <div class="w-1/5">
         <multiselect
           v-model="selectedVariable"
           :options="variables"
@@ -26,7 +26,7 @@
           placeholder="Choose a variable."
         />
       </div>
-      <div>
+      <div class="w-1/5">
         <multiselect
           v-model="selectedSystem"
           :options="modellingSystems"
@@ -44,31 +44,17 @@
       </div>
     </span>
     <div class="w-full h-full flex flex-wrap">
-      <div class="w-1/3 h-full">
+      <div
+        v-for="system in selectedSystem"
+        :key="system.code"
+        class="w-1/3 h-full"
+      >
         <p class="pt-6 text-center text-lg prose">
-          High-resolution models (CPM)
+          {{ system.title }}
         </p>
         <div
           class="bg-no-repeat bg-left-top bg-contain w-full h-full"
-          :style="{backgroundImage: `url(${cpmImage})` }"
-        />
-      </div>
-      <div class="w-1/3 h-full">
-        <p class="pt-6 text-center text-lg prose">
-          Regional models (RCM)
-        </p>
-        <div
-          class="bg-no-repeat bg-left-top bg-contain w-full h-full"
-          :style="{backgroundImage: `url(${rcmImage})` }"
-        />
-      </div>
-      <div class="w-1/3 h-full">
-        <p class="pt-6 text-center text-lg prose">
-          Global models (GCM)
-        </p>
-        <div
-          class="bg-no-repeat bg-left-top bg-contain w-full h-full"
-          :style="{backgroundImage: `url(${gcmImage})` }"
+          :style="{backgroundImage: `url(${getMap(system.code)})` }"
         />
       </div>
     </div>
@@ -91,9 +77,9 @@ export default {
       selectedSeason: 'DJF',
       selectedModel: 'UKMO',
       selectedSystem: [
-        { name: 'CPM', code: 'cpm' },
-        { name: 'RCM', code: 'rcm' },
-        { name: 'GCM', code: 'gcm' }
+        { name: 'CPM', code: 'cpm', title: 'High-resolution models (CPM)' },
+        { name: 'RCM', code: 'rcm', title: 'Regional models (RCM)' },
+        { name: 'GCM', code: 'gcm', title: 'Global models (GCM)' }
       ],
       variables: [
         { name: 'Precipitation', code: 'pr' },
@@ -113,9 +99,9 @@ export default {
         AL: ['CNRM', 'CMCC', 'IPSL', 'KNMI', 'GERICS', 'ETHZ', 'SMHI', 'ICTP', 'UKMO']
       },
       modellingSystems: [
-        { name: 'CPM', code: 'cpm' },
-        { name: 'RCM', code: 'rcm' },
-        { name: 'GCM', code: 'gcm' }
+        { name: 'CPM', code: 'cpm', title: 'High-resolution models (CPM)' },
+        { name: 'RCM', code: 'rcm', title: 'Regional models (RCM)' },
+        { name: 'GCM', code: 'gcm', title: 'Global models (GCM)' }
       ]
     }
   },
@@ -154,6 +140,16 @@ export default {
         }
       })
       return filterList
+    }
+  },
+  methods: {
+    getMap (system) {
+      const fallback = 'empty.png'
+      try {
+        return require('~/static/cpm_analysis/past_performance/' + this.domain + '/' + this.selectedVariable.code + '/' + system + '_' + this.selectedModel.toLowerCase() + '_' + this.selectedSeason + '.png')
+      } catch (err) {
+        return fallback
+      }
     }
   }
 }
