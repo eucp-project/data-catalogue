@@ -43,11 +43,13 @@ export default {
         {
           title: 'CPM',
           url: '/cpm',
-          children: [{ title: 'Explore', url: '/cpm/explore' },
-            { title: 'Performance', url: '/cpm/performance' },
+          children: [
+            { title: 'Explore', url: '/cpm/explore' },
             { title: 'Analyse', url: '/cpm/analyse' },
+            { title: 'Lines of evidence', url: '/cpm/lines' },
             { title: 'Download', url: '/cpm/download' },
-            { title: 'More info', url: '/cpm/references' }]
+            { title: 'More info', url: '/cpm/references' }
+          ]
         },
         {
           title: 'Decadal',
