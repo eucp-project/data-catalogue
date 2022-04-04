@@ -42,19 +42,19 @@
       </div>
       <div>
         <multiselect
-          v-model="selectedSystem"
-          :options="modellingSystems"
+          v-model="selectedProject"
+          :options="projects"
           :multiple="true"
           :close-on-select="false"
           :clear-on-select="false"
           :preserve-search="true"
           :show-labels="true"
-          placeholder="Choose modelling system(s)"
+          placeholder="Choose project(s)"
           label="name"
           track-by="name"
           :preselect-first="true"
         >
-          <template slot="selection" slot-scope="{ values, isOpen }"><span v-if="values.length &amp;&amp; !isOpen" class="multiselect__single">{{ values.length }} modelling system(s) selected</span></template>
+          <template slot="selection" slot-scope="{ values, isOpen }"><span v-if="values.length &amp;&amp; !isOpen" class="multiselect__single">{{ values.length }} project(s) selected</span></template>
         </multiselect>
       </div>
       <div>
@@ -93,16 +93,16 @@
       <p>{{ experiment.name }}</p>
       <div class="flex flex-wrap w-full h-full">
         <div
-          v-for="system in selectedSystem"
-          :key="system.code"
+          v-for="project in selectedProject"
+          :key="project.code"
           class="w-1/3 h-full"
         >
           <p class="pt-6 text-center text-lg prose">
-            {{ system.title }}
+            {{ project.title }}
           </p>
           <div
             class="bg-no-repeat bg-left-top bg-contain w-full h-full"
-            :style="{backgroundImage: `url(${getMap(system.code, experiment.path)})` }"
+            :style="{backgroundImage: `url(${getMap(project.code, experiment.path)})` }"
           />
         </div>
       </div>
@@ -125,10 +125,10 @@ export default {
       selectedVariable: { name: 'Precipitation', code: 'pr' },
       selectedSeason: { name: 'Winter', code: 'DJF' },
       selectedModel: { name: 'UKMO', code: 'ukmo' },
-      selectedSystem: [
+      selectedProject: [
         { name: 'CPM', code: 'cpm', title: 'High-resolution models (CPM)' },
-        { name: 'RCM', code: 'rcm', title: 'Regional models (RCM)' },
-        { name: 'GCM', code: 'gcm', title: 'Global models (GCM)' }
+        { name: 'CORDEX', code: 'rcm', title: 'Regional models (RCM)' },
+        { name: 'CMIP', code: 'gcm', title: 'Global models (GCM)' }
       ],
       selectedCategory: [
         { name: 'Past performance', path: 'past_performance' },
@@ -151,10 +151,10 @@ export default {
         N: ['SMHI', 'GERICS'],
         AL: ['CNRM', 'CMCC', 'IPSL', 'KNMI', 'GERICS', 'ETHZ', 'SMHI', 'ICTP', 'UKMO']
       },
-      modellingSystems: [
+      projects: [
         { name: 'CPM', code: 'cpm', title: 'High-resolution models (CPM)' },
-        { name: 'RCM', code: 'rcm', title: 'Regional models (RCM)' },
-        { name: 'GCM', code: 'gcm', title: 'Global models (GCM)' }
+        { name: 'CORDEX', code: 'rcm', title: 'Regional models (RCM)' },
+        { name: 'CMIP', code: 'gcm', title: 'Global models (GCM)' }
       ],
       categories: [
         { name: 'Past performance', path: 'past_performance' },
@@ -178,10 +178,10 @@ export default {
     }
   },
   methods: {
-    getMap (system, experiment) {
+    getMap (project, experiment) {
       const fallback = 'empty.png'
       try {
-        return require('~/static/cpm_analysis/' + experiment + '/' + this.domain + '/' + this.selectedVariable.code + '/' + system + '_' + this.selectedModel.code + '_' + this.selectedSeason.code + '.png')
+        return require('~/static/cpm_analysis/' + experiment + '/' + this.domain + '/' + this.selectedVariable.code + '/' + project + '_' + this.selectedModel.code + '_' + this.selectedSeason.code + '.png')
       } catch (err) {
         return fallback
       }
