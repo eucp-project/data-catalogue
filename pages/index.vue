@@ -1,37 +1,51 @@
 <template>
-  <!-- Buttons -->
-  <div class="flex flex-col place-content-center p-24">
+  <div class="flex flex-col p-24">
+      <div class="w-2/3 text-gray-700 font-extralight leading-7 pb-8">
+      <p>
+        One of the important outcomes of EUCP (European Climate Prediction system) project is data. This data catalogue was developed to provide an overview of all data outputs of the project, specifically:
+      <ul class="list-disc pl-6">
+        <li>extension of CORDEX-FPS <b>convection permitting model</b> (CPM) data;</li>
+        <li>contributions to the CMIP6 <b>decadal prediction</b> project DCPP;</li>
+        <li>various smaller <b>topical datasets</b> resulting from multiple research activities.</li>
+      </ul>
+      </p>
+      <p>
+        This catalogue does not host data, but redirects to the original
+        sources and provides additional context and documentation.
+      </p>
+    </div>
+    <!-- Buttons -->
     <div class="flex gap-12">
-      <div class="flex flex-col shadow-xl w-1/3 rounded-bl-lg rounded-br-lg py-7">
+      <div class="flex flex-col shadow-xl w-1/3 rounded-bl-lg rounded-br-lg pb-7">
         <NuxtLink to="cpm">
-          <div class="rounded-tl-lg rounded-tr-lg py-6 text-center text-4xl text-white bg-blue-900 hover:bg-gray-500">
+          <div class="rounded-tl-lg rounded-tr-lg py-6 text-center text-4xl text-white font-extralight tracking-wide bg-blue-900 hover:bg-gray-500">
             CPM data
           </div>
         </NuxtLink>
-        <p class="p-4">
-          Convection-permitting climate model output
+        <p class="p-4 font-extralight">
+          <strong>Convection-permitting climate model output.</strong> Convection permitting model (CPM) output is also in the process of being added to ESGF. However, unlike the decadal predictions, these datasets are less mature and therefore they have not yet found their way into a service like C3S.
         </p>
-        <img src="domains.jpg" alt="domains" class="object-contain">
+        <img src="domains.jpg" alt="domains" class="object-contain object-top">
       </div>
-      <div class="flex flex-col shadow-xl w-1/3 rounded-bl-lg rounded-br-lg py-7">
+      <div class="flex flex-col shadow-xl w-1/3 rounded-bl-lg rounded-br-lg pb-7">
         <NuxtLink to="decadal">
-          <div class="rounded-tl-lg rounded-tr-lg py-6 text-center text-4xl text-white bg-blue-900 hover:bg-gray-500">
+          <div class="rounded-tl-lg rounded-tr-lg py-6 text-center text-4xl text-white font-extralight tracking-wide bg-blue-900 hover:bg-gray-500">
             Decadal
           </div>
         </NuxtLink>
-        <p class="p-4">
-          Climate model output from decadal prediction runs
+        <p class="p-4 font-extralight">
+          <b>Climate model output from decadal prediction runs.</b> Decadal prediction data is available through ESGF and, more or less in parallel with EUCP, C3S has developed a decadal predictions service, offering convenient access to decadal prediction data through their climate data store.
         </p>
         <img src="decadal_forecast.png" alt="domains" class="object-contain">
       </div>
-      <div class="flex flex-col shadow-xl w-1/3 rounded-bl-lg rounded-br-lg py-7">
+      <div class="flex flex-col shadow-xl w-1/3 rounded-bl-lg rounded-br-lg pb-7">
         <NuxtLink to="topical">
-          <div class="rounded-tl-lg rounded-tr-lg py-6 text-center text-4xl text-white bg-blue-900 hover:bg-gray-500">
+          <div class="rounded-tl-lg rounded-tr-lg py-6 text-center text-4xl text-white font-extralight tracking-wide bg-blue-900 hover:bg-gray-500">
             Topical
           </div>
         </NuxtLink>
-        <p class="p-4">
-          Processed data on a broad range of applications
+        <p class="p-4 font-extralight">
+          <strong>Processed data on a broad range of applications.</strong> ‘Ad hoc’ datasets are published in standard open data repositories such as Zenodo. While this makes them available, they may be difficult to find and lacking in documentation.
         </p>
         <img src="shoreline_retreat.png" alt="shoreline retreat" class="object-contain">
       </div>
