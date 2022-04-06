@@ -179,7 +179,9 @@ export default {
   },
   watch: {
     domain () {
-      this.selectedModel = this.filterModels[0]
+      if (!this.regionsModels[this.domain].includes(this.selectedModel.name)) {
+        this.selectedModel = this.filterModels[0]
+      }
     }
   },
   methods: {
