@@ -1,10 +1,10 @@
 <template>
   <!-- Buttons -->
-  <div class="flex flex-col place-content-evenly h-full p-24">
-    <div class="flex gap-48 place-content-center h-full">
-      <div class="border-4 rounded-lg w-1/3 min-h-2/3 p-8">
+  <div class="flex flex-col place-content-center p-24">
+    <div class="flex gap-12">
+      <div class="flex flex-col shadow-xl w-1/3 rounded-bl-lg rounded-br-lg">
         <NuxtLink to="cpm">
-          <div class="border-2 p-8 rounded-lg text-3xl bg-red-400">
+          <div class="rounded-tl-lg rounded-tr-lg py-6 text-center text-4xl text-white bg-blue-900 hover:bg-gray-500">
             CPM data
           </div>
         </NuxtLink>
@@ -13,9 +13,9 @@
         </p>
         <img src="domains.jpg" alt="domains" class="object-contain">
       </div>
-      <div class="border-4 rounded-lg w-1/3 min-h-2/3 p-8">
+      <div class="flex flex-col shadow-xl w-1/3 rounded-bl-lg rounded-br-lg">
         <NuxtLink to="decadal">
-          <div class="border-2 p-8 rounded-lg text-3xl bg-green-400">
+          <div class="rounded-tl-lg rounded-tr-lg py-6 text-center text-4xl text-white bg-blue-900 hover:bg-gray-500">
             Decadal
           </div>
         </NuxtLink>
@@ -24,9 +24,9 @@
         </p>
         <img src="decadal_forecast.png" alt="domains" class="object-contain">
       </div>
-      <div class="border-4 rounded-lg w-1/3 min-h-2/3 p-8">
+      <div class="flex flex-col shadow-xl w-1/3 rounded-bl-lg rounded-br-lg">
         <NuxtLink to="topical">
-          <div class="border-2 p-8 rounded-lg text-3xl bg-blue-400">
+          <div class="rounded-tl-lg rounded-tr-lg py-6 text-center text-4xl text-white bg-blue-900 hover:bg-gray-500">
             Topical
           </div>
         </NuxtLink>
