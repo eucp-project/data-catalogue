@@ -1,12 +1,13 @@
 <template>
   <div class="flex flex-col p-24">
-      <div class="w-2/3 text-gray-700 font-extralight leading-7 pb-8">
+      <div class="prose max-w-none w-2/3 text-gray-700 font-extralight leading-7 pb-8">
       <p>
-        One of the important outcomes of EUCP (European Climate Prediction system) project is data. This data catalogue was developed to provide an overview of all data outputs of the project, specifically:
+        One of the important outcomes of EUCP (European Climate Prediction system) project is data.
+        This data catalogue was developed to provide an overview of all data outputs of the project, specifically:
       <ul class="list-disc pl-6">
-        <li>extension of CORDEX-FPS <b>convection permitting model</b> (CPM) data;</li>
-        <li>contributions to the CMIP6 <b>decadal prediction</b> project DCPP;</li>
-        <li>various smaller <b>topical datasets</b> resulting from multiple research activities.</li>
+        <li>extension of CORDEX-FPS <strong>convection permitting model</strong> (CPM) data;</li>
+        <li>contributions to the CMIP6 <strong>decadal prediction</strong> project DCPP;</li>
+        <li>various smaller <strong>topical datasets</strong> resulting from multiple research activities.</li>
       </ul>
       </p>
       <p>
@@ -34,7 +35,7 @@
           </div>
         </NuxtLink>
         <p class="p-4 font-extralight">
-          <b>Climate model output from decadal prediction runs.</b> Decadal prediction data is available through ESGF and, more or less in parallel with EUCP, C3S has developed a decadal predictions service, offering convenient access to decadal prediction data through their climate data store.
+          <strong>Climate model output from decadal prediction runs.</strong> Decadal prediction data is available through ESGF and, more or less in parallel with EUCP, C3S has developed a decadal predictions service, offering convenient access to decadal prediction data through their climate data store.
         </p>
         <img src="decadal_forecast.png" alt="domains" class="object-contain">
       </div>
