@@ -2,7 +2,7 @@
   <!-- Buttons -->
   <div class="flex flex-col place-content-center p-24">
     <div class="flex gap-12">
-      <div class="flex flex-col shadow-xl w-1/3 rounded-bl-lg rounded-br-lg">
+      <div class="flex flex-col shadow-xl w-1/3 rounded-bl-lg rounded-br-lg py-7">
         <NuxtLink to="cpm">
           <div class="rounded-tl-lg rounded-tr-lg py-6 text-center text-4xl text-white bg-blue-900 hover:bg-gray-500">
             CPM data
@@ -13,7 +13,7 @@
         </p>
         <img src="domains.jpg" alt="domains" class="object-contain">
       </div>
-      <div class="flex flex-col shadow-xl w-1/3 rounded-bl-lg rounded-br-lg">
+      <div class="flex flex-col shadow-xl w-1/3 rounded-bl-lg rounded-br-lg py-7">
         <NuxtLink to="decadal">
           <div class="rounded-tl-lg rounded-tr-lg py-6 text-center text-4xl text-white bg-blue-900 hover:bg-gray-500">
             Decadal
@@ -24,7 +24,7 @@
         </p>
         <img src="decadal_forecast.png" alt="domains" class="object-contain">
       </div>
-      <div class="flex flex-col shadow-xl w-1/3 rounded-bl-lg rounded-br-lg">
+      <div class="flex flex-col shadow-xl w-1/3 rounded-bl-lg rounded-br-lg py-7">
         <NuxtLink to="topical">
           <div class="rounded-tl-lg rounded-tr-lg py-6 text-center text-4xl text-white bg-blue-900 hover:bg-gray-500">
             Topical
