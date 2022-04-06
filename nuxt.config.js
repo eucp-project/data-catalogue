@@ -67,7 +67,19 @@ export default {
 
   tailwindcss: {
     config: {
-      plugins: [tailwindTypography]
+      plugins: [tailwindTypography],
+      theme: {
+        typography: {
+          DEFAULT: { // this is for prose class
+            css: {
+              p: {
+                fontSize: '14px', // key can be in camelCase...
+                'text-align': 'center', // or as it is in css (but in quotes).
+              }
+            }
+          }
+        }
+      }
     }
   },
 
