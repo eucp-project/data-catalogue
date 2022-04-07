@@ -72,9 +72,16 @@ export default {
         typography: {
           DEFAULT: { // this is for prose class
             css: {
+              'font-weight': '100',
               p: {
-                fontSize: '14px', // key can be in camelCase...
-                'text-align': 'center', // or as it is in css (but in quotes).
+                'text-align': 'justify',
+                'font-weight': '300',
+                'max-width': '200'
+              },
+              a: {
+                'hover': {
+                  'color': '#a0a0a0'
+                }
               }
             }
           }

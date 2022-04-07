@@ -1,19 +1,15 @@
 <template>
   <div class="flex flex-col p-24">
-      <div class="prose max-w-none w-2/3 text-gray-700 font-extralight leading-7 pb-8">
-      <p>
-        One of the important outcomes of EUCP (European Climate Prediction system) project is data.
-        This data catalogue was developed to provide an overview of all data outputs of the project, specifically:
-      <ul class="list-disc pl-6">
-        <li>extension of CORDEX-FPS <strong>convection permitting model</strong> (CPM) data;</li>
-        <li>contributions to the CMIP6 <strong>decadal prediction</strong> project DCPP;</li>
-        <li>various smaller <strong>topical datasets</strong> resulting from multiple research activities.</li>
-      </ul>
-      </p>
-      <p>
-        This catalogue does not host data, but redirects to the original
-        sources and provides additional context and documentation.
-      </p>
+    <div class="prose w-2/3 text-gray-700 leading-7 pb-8">
+    One of the important outcomes of EUCP (European Climate Prediction system) project is data.
+    This data catalogue was developed to provide an overview of all data outputs of the project, specifically:
+    <ul class="list-disc pl-6">
+      <li>extension of CORDEX-FPS <strong>convection permitting model</strong> (CPM) data;</li>
+      <li>contributions to the CMIP6 <strong>decadal prediction</strong> project DCPP;</li>
+      <li>various smaller <strong>topical datasets</strong> resulting from multiple research activities.</li>
+    </ul>
+    This catalogue does not host data, but redirects to the original
+    sources and provides additional context and documentation.
     </div>
     <!-- Buttons -->
     <div class="flex gap-12">
@@ -23,7 +19,7 @@
             CPM data
           </div>
         </NuxtLink>
-        <p class="p-4 font-extralight">
+        <p class="prose p-4">
           <strong>Convection-permitting climate model output.</strong> Convection permitting model (CPM) output is also in the process of being added to ESGF. However, unlike the decadal predictions, these datasets are less mature and therefore they have not yet found their way into a service like C3S.
         </p>
         <img src="domains.jpg" alt="domains" class="object-contain object-top">
@@ -34,7 +30,7 @@
             Decadal
           </div>
         </NuxtLink>
-        <p class="p-4 font-extralight">
+        <p class="prose p-4">
           <strong>Climate model output from decadal prediction runs.</strong> Decadal prediction data is available through ESGF and, more or less in parallel with EUCP, C3S has developed a decadal predictions service, offering convenient access to decadal prediction data through their climate data store.
         </p>
         <img src="decadal_forecast.png" alt="domains" class="object-contain">
