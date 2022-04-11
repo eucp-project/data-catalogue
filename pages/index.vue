@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col p-24">
     <div class="prose w-2/3 text-gray-700 leading-7 pb-8">
-      One of the important outcomes of EUCP (European Climate Prediction system) project is data.
+      One of the important outcomes of the EUCP (European Climate Prediction system) project is data.
       This data catalogue was developed to provide an overview of all data outputs of the project.
       No data is hosted here, but the catalogue redirects to the original
       sources and provides additional context and documentation.
@@ -37,7 +37,7 @@
           </div>
         </NuxtLink>
         <p class="prose p-4">
-          This page contains information on smaller topical datasets, resulting from multiple research activities.
+          This page contains information on smaller topical datasets that resulted from multiple research activities.
         </p>
         <img src="shoreline_retreat.png" alt="shoreline retreat" class="object-contain">
       </div>
