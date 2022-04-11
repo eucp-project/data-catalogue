@@ -36,11 +36,14 @@
             Topical
           </div>
         </NuxtLink>
-        <p class="p-4 font-extralight">
-          <strong>Processed data on a broad range of applications.</strong> ‘Ad hoc’ datasets are published in standard open data repositories such as Zenodo. While this makes them available, they may be difficult to find and lacking in documentation.
+        <p class="prose p-4">
+          This page contains information on smaller topical datasets, resulting from multiple research activities.
         </p>
         <img src="shoreline_retreat.png" alt="shoreline retreat" class="object-contain">
       </div>
+    </div>
+    <div class="prose p-8 text-center text-xs">
+      This page is open source. <a href="https://github.com/eucp-project/data-catalogue">Edit on github</a>.
     </div>
   </div>
 </template>
