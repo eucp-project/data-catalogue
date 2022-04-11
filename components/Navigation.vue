@@ -10,7 +10,7 @@
       <!-- main button -->
       <NuxtLink :to="page.url">
         <button
-          class="w-32 p-4 bg-gray-200 hover:bg-gray-400 hover:text-white text-left tracking-wider"
+          class="w-40 p-4 bg-gray-200 hover:bg-gray-400 hover:text-white text-left font-extralight text-lg tracking-wider"
         >
           {{ page.title }}
         </button>
@@ -25,7 +25,7 @@
           :key="subPage"
         >
           <NuxtLink :to="subPage.url">
-            <button class="w-32 p-2 bg-gray-400 hover:bg-gray-200 text-white hover:text-black text-right">
+            <button class="w-40 p-2 bg-gray-400 hover:bg-gray-200 text-white hover:text-black text-right">
               {{ subPage.title }}
             </button>
           </NuxtLink>
