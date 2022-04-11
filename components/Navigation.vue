@@ -1,16 +1,16 @@
 <template>
-  <div class="flex ml-auto gap-2 m-2 mr-20 space-x-1 text-l">
+  <div class="flex ml-auto mr-20">
     <div
       v-for="(page, i) in pages"
       :key="i"
-      class="space-y-0.5"
+      class=""
       @mouseover="page.hover = true"
       @mouseleave="page.hover = false"
     >
       <!-- main button -->
       <NuxtLink :to="page.url">
         <button
-          class="w-32 bg-blue-300 hover:bg-blue-500 text-white py-2 px-4 rounded"
+          class="w-32 p-4 bg-gray-200 hover:bg-gray-400 hover:text-white text-left tracking-wider"
         >
           {{ page.title }}
         </button>
@@ -18,14 +18,14 @@
       <!-- dropdown pages -->
       <div
         v-if="page.hover"
-        class="absolute flex flex-col space-y-0.5"
+        class="absolute flex flex-col"
       >
         <div
           v-for="subPage in page.children"
           :key="subPage"
         >
           <NuxtLink :to="subPage.url">
-            <button class="w-32 bg-blue-300 hover:bg-blue-500 text-white py-2 px-4 rounded">
+            <button class="w-32 p-2 bg-gray-400 hover:bg-gray-200 text-white hover:text-black text-right">
               {{ subPage.title }}
             </button>
           </NuxtLink>
