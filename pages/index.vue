@@ -1,10 +1,10 @@
 <template>
   <div class="flex flex-col p-24">
     <div class="prose w-2/3 text-gray-700 leading-7 pb-8">
-    One of the important outcomes of EUCP (European Climate Prediction system) project is data.
-    This data catalogue was developed to provide an overview of all data outputs of the project.
-    No data is hosted here, but the catalogue redirects to the original
-    sources and provides additional context and documentation.
+      One of the important outcomes of EUCP (European Climate Prediction system) project is data.
+      This data catalogue was developed to provide an overview of all data outputs of the project.
+      No data is hosted here, but the catalogue redirects to the original
+      sources and provides additional context and documentation.
     </div>
     <!-- Buttons -->
     <div class="flex gap-12">
