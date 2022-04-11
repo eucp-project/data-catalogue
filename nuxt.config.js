@@ -70,16 +70,16 @@ export default {
       plugins: [tailwindTypography],
       theme: {
         typography: {
-          DEFAULT: { // this is for prose class
+          DEFAULT: { // edit the prose class
             css: {
               'font-weight': '100',
               p: {
-                'text-align': 'justify',
-                'font-weight': '300',
-                'max-width': '200'
+                'font-weight': '100',
+                'color': '#2b32a4'
               },
               a: {
-                'hover': {
+                'font-weight': '300',
+                '&:hover': {
                   'color': '#a0a0a0'
                 }
               }
