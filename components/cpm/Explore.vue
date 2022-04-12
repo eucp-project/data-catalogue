@@ -124,7 +124,7 @@ export default {
     return {
       selectedVariable: { name: 'Precipitation', code: 'pr' },
       selectedSeason: { name: 'Winter', code: 'DJF' },
-      selectedModel: { name: 'UKMO', code: 'ukmo' },
+      selectedModel: { name: 'CNRM', code: 'cnrm' },
       selectedProject: [
         { name: 'CPM', code: 'cpm', title: 'High-resolution models (CPM)' },
         { name: 'CORDEX', code: 'rcm', title: 'Regional models (RCM)' },
@@ -175,6 +175,13 @@ export default {
         }
       })
       return filterList
+    }
+  },
+  watch: {
+    domain () {
+      if (!this.regionsModels[this.domain].includes(this.selectedModel.name)) {
+        this.selectedModel = this.filterModels[0]
+      }
     }
   },
   methods: {
