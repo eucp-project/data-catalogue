@@ -76,12 +76,12 @@ export default {
                 'font-weight': '100',
                 p: {
                   'font-weight': '100',
-                  color: '#2b32a4'
                 },
                 a: {
                   'font-weight': '300',
                   '&:hover': {
-                    color: '#a0a0a0'
+                    color: '#2b32a4',
+                    'text-decoration': 'none'
                   }
                 }
               }

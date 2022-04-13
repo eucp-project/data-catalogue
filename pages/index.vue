@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col p-24">
-    <div class="prose w-2/3 text-gray-700 leading-7 pb-8">
+    <div class="prose max-w-none w-2/3 text-gray-700 leading-7 pb-8">
       One of the important outcomes of the EUCP (European Climate Prediction system) project is data.
       This data catalogue was developed to provide an overview of all data outputs of the project.
       No data is hosted here, but the catalogue redirects to the original
