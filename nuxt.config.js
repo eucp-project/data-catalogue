@@ -69,18 +69,20 @@ export default {
     config: {
       plugins: [tailwindTypography],
       theme: {
-        typography: {
-          DEFAULT: { // edit the prose class
-            css: {
-              'font-weight': '100',
-              p: {
+        extend: {
+          typography: {
+            DEFAULT: { // edit the prose class
+              css: {
                 'font-weight': '100',
-                color: '#2b32a4'
-              },
-              a: {
-                'font-weight': '300',
-                '&:hover': {
-                  color: '#a0a0a0'
+                p: {
+                  'font-weight': '100',
+                  color: '#2b32a4'
+                },
+                a: {
+                  'font-weight': '300',
+                  '&:hover': {
+                    color: '#a0a0a0'
+                  }
                 }
               }
             }
