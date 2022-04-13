@@ -43,7 +43,7 @@
       </div>
     </div>
     <div class="prose p-8 text-center text-xs">
-      This page is open source. <a href="https://github.com/eucp-project/data-catalogue">Edit on github</a>.
+      This page is open source. <a href="https://github.com/eucp-project/data-catalogue" target="_blank">Edit on github</a>.
     </div>
   </div>
 </template>
