@@ -67,9 +67,17 @@ export default {
 
   tailwindcss: {
     config: {
+      variants: {
+        extend: {
+          grayscale: ['hover']
+        }
+      },
       plugins: [tailwindTypography],
       theme: {
         extend: {
+          grayscale: {
+            80: '80%',
+          },
           typography: {
             DEFAULT: { // edit the prose class
               css: {
