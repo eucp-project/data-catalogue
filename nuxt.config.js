@@ -75,7 +75,7 @@ export default {
               css: {
                 'font-weight': '100',
                 p: {
-                  'font-weight': '100',
+                  'font-weight': '100'
                 },
                 a: {
                   'font-weight': '300',
