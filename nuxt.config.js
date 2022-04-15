@@ -81,6 +81,7 @@ export default {
           typography: {
             DEFAULT: { // edit the prose class
               css: {
+                maxWidth: 'none',
                 'font-weight': '100',
                 p: {
                   'font-weight': '100'
