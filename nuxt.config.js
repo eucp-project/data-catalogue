@@ -67,20 +67,31 @@ export default {
 
   tailwindcss: {
     config: {
+      variants: {
+        extend: {
+          grayscale: ['hover']
+        }
+      },
       plugins: [tailwindTypography],
       theme: {
-        typography: {
-          DEFAULT: { // edit the prose class
-            css: {
-              'font-weight': '100',
-              p: {
+        extend: {
+          grayscale: {
+            80: '80%'
+          },
+          typography: {
+            DEFAULT: { // edit the prose class
+              css: {
+                maxWidth: 'none',
                 'font-weight': '100',
-                color: '#2b32a4'
-              },
-              a: {
-                'font-weight': '300',
-                '&:hover': {
-                  color: '#a0a0a0'
+                p: {
+                  'font-weight': '100'
+                },
+                a: {
+                  'font-weight': '300',
+                  '&:hover': {
+                    color: '#2b32a4',
+                    'text-decoration': 'none'
+                  }
                 }
               }
             }
