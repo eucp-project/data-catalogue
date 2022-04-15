@@ -76,7 +76,7 @@ export default {
       theme: {
         extend: {
           grayscale: {
-            80: '80%',
+            80: '80%'
           },
           typography: {
             DEFAULT: { // edit the prose class
