@@ -1,5 +1,5 @@
 <template>
-  <div class="flex ml-auto mr-20">
+  <div class="flex ml-auto mr-8">
     <div
       v-for="(page, i) in pages"
       :key="i"
@@ -7,25 +7,37 @@
       @mouseover="page.hover = true"
       @mouseleave="page.hover = false"
     >
-      <!-- main button -->
+      <!-- first menu row -->
       <NuxtLink :to="page.url">
         <button
-          class="w-40 p-4 bg-gray-200 hover:bg-gray-400 hover:text-white text-left font-extralight text-lg tracking-wider"
+          class="
+            w-40 mx-1 mt-12 px-3 py-2
+            rounded-t-lg
+            bg-gray-100 hover:bg-gray-200
+            text-center
+            text-gray-700 font-light hover:font-normal
+            text-lg"
         >
           {{ page.title }}
         </button>
       </NuxtLink>
-      <!-- dropdown pages -->
+      <!-- second menu row -->
       <div
         v-if="page.hover"
-        class="absolute flex flex-col"
+        class="absolute flex flex-row inset-y-30 right-0 mr-8 pr-6"
       >
         <div
           v-for="subPage in page.children"
           :key="subPage"
         >
           <NuxtLink :to="subPage.url">
-            <button class="w-40 p-2 bg-gray-400 hover:bg-gray-200 text-white hover:text-black text-right">
+            <button
+              class="
+                px-8 py-2
+                bg-gray-200
+                text-center
+                font-light text-gray-700 hover:text-blue-500 tracking-wider
+                hover:border-b-4 hover:border-blue-400">
               {{ subPage.title }}
             </button>
           </NuxtLink>

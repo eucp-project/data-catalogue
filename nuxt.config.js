@@ -69,7 +69,9 @@ export default {
     config: {
       variants: {
         extend: {
-          grayscale: ['hover']
+          grayscale: ['hover'],
+          fontWeight: ['hover'],
+          borderWidth: ['hover']
         }
       },
       plugins: [tailwindTypography],
