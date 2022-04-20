@@ -13,7 +13,7 @@
       <Navigation />
     </div>
     <!-- grey background bar for menu -->
-    <div class="bg-gray-200 w-screen h-11">
+    <div class="bg-gradient-to-r from-transparent via-gray-200 to-gray-200 w-screen h-11">
     </div>
     <Nuxt class="pt-4" />
   </div>

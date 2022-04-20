@@ -34,7 +34,6 @@
             <button
               class="
                 px-8 py-2
-                bg-gray-200
                 text-center
                 font-light text-gray-700 hover:text-blue-500 tracking-wider
                 hover:border-b-4 hover:border-blue-400">
