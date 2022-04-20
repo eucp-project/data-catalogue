@@ -8,9 +8,9 @@
     </div>
     <!-- Buttons -->
     <div class="flex gap-12">
-      <div class="flex flex-col shadow-xl w-1/3 rounded-bl-lg rounded-br-lg filter hover:grayscale-80">
+      <div class="group flex flex-col shadow-xl w-1/3 rounded-bl-lg rounded-br-lg filter hover:grayscale-80">
         <NuxtLink to="cpm">
-          <div class="rounded-tl-lg rounded-tr-lg py-6 text-center text-4xl text-white font-extralight tracking-wide bg-blue-900">
+          <div class="rounded-tl-lg rounded-tr-lg py-6 text-center text-4xl text-white font-extralight tracking-wide bg-blue-900 group-hover:bg-gray-500">
             CPM data
           </div>
           <p class="prose p-4 max-w-none">
@@ -19,9 +19,9 @@
           <img src="domains.jpg" alt="domains" class="object-contain px-6 mx-auto">
         </NuxtLink>
       </div>
-      <div class="flex flex-col shadow-xl w-1/3 rounded-bl-lg rounded-br-lg pb-7 filter hover:grayscale-80">
+      <div class="group flex flex-col shadow-xl w-1/3 rounded-bl-lg rounded-br-lg pb-7 filter hover:grayscale-80">
         <NuxtLink to="decadal">
-          <div class="rounded-tl-lg rounded-tr-lg py-6 text-center text-4xl text-white font-extralight tracking-wide bg-blue-900">
+          <div class="rounded-tl-lg rounded-tr-lg py-6 text-center text-4xl text-white font-extralight tracking-wide bg-blue-900 group-hover:bg-gray-500">
             Decadal
           </div>
           <p class="prose p-4 max-w-none">
@@ -30,9 +30,9 @@
           <img src="decadal_forecast.png" alt="decadal forecast" class="object-contain px-6 mx-auto">
         </NuxtLink>
       </div>
-      <div class="flex flex-col shadow-xl w-1/3 rounded-bl-lg rounded-br-lg pb-7 filter hover:grayscale-80">
+      <div class="group flex flex-col shadow-xl w-1/3 rounded-bl-lg rounded-br-lg pb-7 filter hover:grayscale-80">
         <NuxtLink to="topical">
-          <div class="rounded-tl-lg rounded-tr-lg py-6 text-center text-4xl text-white font-extralight tracking-wide bg-blue-900">
+          <div class="rounded-tl-lg rounded-tr-lg py-6 text-center text-4xl text-white font-extralight tracking-wide bg-blue-900 group-hover:bg-gray-500">
             Topical
           </div>
           <p class="prose p-4 max-w-none">
