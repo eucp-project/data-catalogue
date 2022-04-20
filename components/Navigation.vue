@@ -4,7 +4,7 @@
       v-for="(page, i) in pages"
       :key="i"
       class=""
-      @mouseover="page.hover = true"
+      @mouseenter="page.hover = true"
       @mouseleave="page.hover = false"
     >
       <!-- first menu row -->
@@ -13,10 +13,13 @@
           class="
             w-40 mx-1 mt-12 px-3 py-2
             rounded-t-lg
-            bg-gray-100 hover:bg-gray-200
+            bg-gray-100
             text-center
-            text-gray-700 font-light hover:font-normal
-            text-lg"
+            font-light text-gray-700 text-lg"
+            v-bind:class="{
+              'bg-gray-200': page.hover,
+              'font-normal': page.hover
+               }"
         >
           {{ page.title }}
         </button>
@@ -35,7 +38,8 @@
               class="
                 px-8 py-2
                 text-center
-                font-light text-gray-700 hover:text-blue-500 tracking-wider
+                font-light tracking-wider
+                text-gray-700 hover:text-blue-500
                 hover:border-b-4 hover:border-blue-400">
               {{ subPage.title }}
             </button>
