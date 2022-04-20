@@ -16,7 +16,7 @@
           <p class="prose p-4 max-w-none">
             Output data from convection permitting model (CPM) runs.
           </p>
-          <img src="domains.jpg" alt="domains" class="object-contain w-full px-6">
+          <img src="domains.jpg" alt="domains" class="object-contain px-6 mx-auto">
         </NuxtLink>
       </div>
       <div class="flex flex-col shadow-xl w-1/3 rounded-bl-lg rounded-br-lg pb-7 filter hover:grayscale-80">
@@ -27,7 +27,7 @@
           <p class="prose p-4 max-w-none">
             Climate model output from decadal prediction runs, contributing to the CMIP6 project DCPP.
           </p>
-          <img src="decadal_forecast.png" alt="domains" class="object-contain w-full px-6">
+          <img src="decadal_forecast.png" alt="decadal forecast" class="object-contain px-6 mx-auto">
         </NuxtLink>
       </div>
       <div class="flex flex-col shadow-xl w-1/3 rounded-bl-lg rounded-br-lg pb-7 filter hover:grayscale-80">
@@ -38,7 +38,7 @@
           <p class="prose p-4 max-w-none">
             This page contains information on smaller topical datasets that resulted from multiple research activities.
           </p>
-          <img src="shoreline_retreat.png" alt="shoreline retreat" class="object-contain w-full px-6">
+          <img src="shoreline_retreat.png" alt="shoreline retreat" class="object-contain px-6 mx-auto">
         </NuxtLink>
       </div>
     </div>
