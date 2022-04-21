@@ -94,11 +94,11 @@ export default {
       return this.$route.path.includes(url)
     },
     checkHover (page, pages) {
-      let hc = false
+      let hovercheck = false
       pages.forEach((p) => {
-        if (p !== page & p.hover) { hc = true }
+        if (p !== page & p.hover) { hovercheck = true }
       })
-      return hc
+      return hovercheck
     }
   }
 }
