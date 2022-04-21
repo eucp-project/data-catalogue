@@ -82,6 +82,16 @@ export default {
   },
   mounted () {
     this.pages = this.pages.map(page => ({ ...page, hover: false }))
+  },
+  computed: {
+    isCurrent () {
+      const crumbs = {} // { 'pagename' : 'pageurl' }
+
+      // this.$route.path
+
+      return crumbs
+    }
   }
 }
+
 </script>
