@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full">
+  <div class="w-full h-full flex flex-wrap">
     <p class="m-2 ml-9 text-lg prose">
       Diurnal cycles of precipitation in summer for the future climate.
     </p>
@@ -7,7 +7,7 @@
       The selected domain is: {{ domain }}
     </p>
     <div
-      class="bg-no-repeat bg-left-top bg-contain w-2/3 h-full"
+      class="bg-no-repeat bg-left-top bg-contain w-full h-full"
       :style="{backgroundImage: `url(${diurnalCycleImage})` }"
     />
   </div>
