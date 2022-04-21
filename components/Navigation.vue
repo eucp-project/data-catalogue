@@ -4,8 +4,8 @@
       v-for="(page, i) in pages"
       :key="i"
       class=""
-      @mouseenter="page.hover = true"
-      @mouseleave="page.hover = false"
+      @mouseenter="toggleHover(page)"
+      @mouseleave="toggleHover(page)"
     >
       <!-- first menu row -->
       <NuxtLink :to="page.url">
@@ -16,10 +16,10 @@
             bg-gray-100
             text-center
             font-light text-gray-700 text-lg"
-            v-bind:class="{
-              'bg-gray-200': page.hover,
-              'font-normal': page.hover
-               }"
+          :class="{
+            'bg-gray-200': page.hover | inActiveRoute(page.url),
+            'font-normal': page.hover | inActiveRoute(page.url)
+          }"
         >
           {{ page.title }}
         </button>
@@ -40,7 +40,8 @@
                 text-center
                 font-light tracking-wider
                 text-gray-700 hover:text-blue-500
-                hover:border-b-4 hover:border-blue-400">
+                hover:border-b-4 hover:border-blue-400"
+            >
               {{ subPage.title }}
             </button>
           </NuxtLink>
@@ -83,13 +84,12 @@ export default {
   mounted () {
     this.pages = this.pages.map(page => ({ ...page, hover: false }))
   },
-  computed: {
-    isCurrent () {
-      const crumbs = {} // { 'pagename' : 'pageurl' }
-
-      // this.$route.path
-
-      return crumbs
+  methods: {
+    toggleHover (page) {
+      page.hover = !page.hover
+    },
+    inActiveRoute (url) {
+      return this.$route.path.includes(url)
     }
   }
 }
