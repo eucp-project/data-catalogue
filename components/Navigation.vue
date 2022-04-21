@@ -15,10 +15,10 @@
             rounded-t-lg
             bg-gray-100
             text-center
-            font-light text-gray-700 text-lg"
+            text-gray-700 text-lg
+            hover:underline"
           :class="{
             'bg-gray-200': page.hover | inActiveRoute(page.url),
-            'font-normal': page.hover | inActiveRoute(page.url),
             'text-blue-500': inActiveRoute(page.url)
           }"
         >
@@ -37,11 +37,9 @@
           <NuxtLink :to="subPage.url">
             <button
               class="
-                px-8 py-2
+                px-8 py-3
                 text-center
-                font-light tracking-wider
-                text-gray-700 hover:text-blue-500
-                hover:border-b-4 hover:border-blue-400"
+                text-gray-700 hover:underline"
               :class="{
                 'text-blue-500': inActiveRoute(subPage.url)
               }"
