@@ -27,7 +27,7 @@
       </NuxtLink>
       <!-- second menu row -->
       <div
-        v-if="page.hover"
+        v-if="page.hover | (inActiveRoute(page.url) & !checkHover(page, pages))"
         class="absolute flex flex-row inset-y-30 right-0 mr-8 pr-6"
       >
         <div
@@ -94,8 +94,14 @@ export default {
     },
     inActiveRoute (url) {
       return this.$route.path.includes(url)
+    },
+    checkHover (page, pages) {
+      let hc = false
+      pages.forEach((p) => {
+        if (p !== page & p.hover) { hc = true }
+      })
+      return hc
     }
   }
 }
-
 </script>
