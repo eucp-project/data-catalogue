@@ -18,7 +18,8 @@
             font-light text-gray-700 text-lg"
           :class="{
             'bg-gray-200': page.hover | inActiveRoute(page.url),
-            'font-normal': page.hover | inActiveRoute(page.url)
+            'font-normal': page.hover | inActiveRoute(page.url),
+            'text-blue-500': inActiveRoute(page.url)
           }"
         >
           {{ page.title }}
@@ -41,6 +42,9 @@
                 font-light tracking-wider
                 text-gray-700 hover:text-blue-500
                 hover:border-b-4 hover:border-blue-400"
+              :class="{
+                'text-blue-500': inActiveRoute(subPage.url)
+              }"
             >
               {{ subPage.title }}
             </button>
