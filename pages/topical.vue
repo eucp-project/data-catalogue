@@ -15,7 +15,7 @@
     </input>
     <!-- eslint-enable -->
     <!-- flashcard -->
-    <div class="w-full flex flex-wrap gap-4 m-8">
+    <div class="grid grid-cols-3 gap-4 p-8 w-full">
       <div
         v-for="dataset in datasets"
         :key="dataset.title"
