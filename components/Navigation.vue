@@ -1,31 +1,49 @@
 <template>
-  <div class="flex ml-auto gap-2 m-2 mr-20 space-x-1 text-l">
+  <div class="flex ml-auto mr-8">
     <div
       v-for="(page, i) in pages"
       :key="i"
-      class="space-y-0.5"
-      @mouseover="page.hover = true"
-      @mouseleave="page.hover = false"
+      class=""
+      @mouseenter="toggleHover(page)"
+      @mouseleave="toggleHover(page)"
     >
-      <!-- main button -->
+      <!-- first menu row -->
       <NuxtLink :to="page.url">
         <button
-          class="w-32 bg-blue-300 hover:bg-blue-500 text-white py-2 px-4 rounded"
+          class="
+            w-40 mx-1 mt-12 px-3 py-2
+            rounded-t-lg
+            bg-gray-100
+            text-center
+            text-gray-700 text-lg
+            hover:underline"
+          :class="{
+            'bg-gray-200': page.hover | inActiveRoute(page.url),
+            'text-blue-500': inActiveRoute(page.url)
+          }"
         >
           {{ page.title }}
         </button>
       </NuxtLink>
-      <!-- dropdown pages -->
+      <!-- second menu row -->
       <div
-        v-if="page.hover"
-        class="absolute flex flex-col space-y-0.5"
+        v-if="page.hover | (inActiveRoute(page.url) && !checkHover(page, pages))"
+        class="absolute flex flex-row inset-y-30 right-0 mr-8 pr-6"
       >
         <div
           v-for="subPage in page.children"
           :key="subPage"
         >
           <NuxtLink :to="subPage.url">
-            <button class="w-32 bg-blue-300 hover:bg-blue-500 text-white py-2 px-4 rounded">
+            <button
+              class="
+                px-8 py-3
+                text-center
+                text-gray-700 hover:underline"
+              :class="{
+                'text-blue-500': inActiveRoute(subPage.url)
+              }"
+            >
               {{ subPage.title }}
             </button>
           </NuxtLink>
@@ -67,6 +85,21 @@ export default {
   },
   mounted () {
     this.pages = this.pages.map(page => ({ ...page, hover: false }))
+  },
+  methods: {
+    toggleHover (page) {
+      page.hover = !page.hover
+    },
+    inActiveRoute (url) {
+      return this.$route.path.includes(url)
+    },
+    checkHover (page, pages) {
+      let hovercheck = false
+      pages.forEach((p) => {
+        if (p !== page && p.hover) { hovercheck = true }
+      })
+      return hovercheck
+    }
   }
 }
 </script>

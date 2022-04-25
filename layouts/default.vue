@@ -1,6 +1,6 @@
 <template>
   <div class="h-screen w-screen p-4">
-    <div class="flex gap-10 m-2 items-center">
+    <div class="flex gap-10 items-center">
       <NuxtLink :to="`/`">
         <img src="eucp_logo.png" alt="EUCP Logo">
       </NuxtLink>
@@ -12,6 +12,8 @@
       </div>
       <Navigation />
     </div>
+    <!-- grey background bar for menu -->
+    <div class="bg-gradient-to-r from-transparent via-gray-200 to-gray-200 w-screen h-12" />
     <Nuxt class="pt-4" />
   </div>
 </template>
