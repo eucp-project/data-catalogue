@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full p-2">
+  <div class="w-full h-full">
     <CpmExplore :domain="domain" />
   </div>
 </template>

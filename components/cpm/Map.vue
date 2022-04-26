@@ -1,5 +1,5 @@
 <template>
-  <div id="mapid" style="height: 600px; width:500px" class="border-4" />
+  <div id="mapid" style="height: 600px; width:500px" class="shadow-inner" />
 </template>
 
 <script>

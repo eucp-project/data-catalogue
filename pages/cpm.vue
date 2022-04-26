@@ -1,11 +1,7 @@
 <template>
-  <div>
-    <div class="flex gap-4 m-8">
-      <CpmMap v-model="domain" />
-      <div class="border-4 flex-grow">
-        <NuxtChild :domain="domain" />
-      </div>
-    </div>
+  <div class="flex gap-4 p-2">
+    <CpmMap class="flex-none" v-model="domain" />
+    <NuxtChild class="self-stretch" :domain="domain" />
   </div>
 </template>
 

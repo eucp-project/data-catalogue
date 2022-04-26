@@ -1,6 +1,6 @@
 <template>
-  <div class="w-full h-full">
-    <span class="flex flex-wrap space-x-3 p-3">
+  <div class="flex flex-col w-full h-full">
+    <span class="flex space-x-3 p-3">
       <div>
         <multiselect
           v-model="selectedVariable"
@@ -90,20 +90,23 @@
       :key="experiment.path"
       class="w-full h-full"
     >
-      <p>{{ experiment.name }}</p>
-      <div class="flex flex-wrap w-full h-full">
+      <div class="flex w-full h-full">
+        <p class="text-lg prose">
+          {{ experiment.name }}:
+        </p>
         <div
           v-for="project in selectedProject"
           :key="project.code"
           class="w-1/3 h-full"
         >
-          <p class="pt-6 text-center text-lg prose">
+          <p class="text-center text-lg prose">
             {{ project.title }}
           </p>
           <div
-            class="bg-no-repeat bg-left-top bg-contain w-full h-full"
+            class="bg-no-repeat bg-contain w-auto h-full"
             :style="{backgroundImage: `url(${getMap(project.code, experiment.path)})` }"
           />
+          <!-- <img :src="getMap(project.code, experiment.path)" class="object-contain w-full h-full"> -->
         </div>
       </div>
     </div>
