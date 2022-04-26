@@ -1,10 +1,10 @@
 <template>
-  <div class="h-screen w-screen p-4">
-    <div class="flex gap-10 items-center">
+  <div class="flex flex-col h-screen w-screen p-4 overflow-auto">
+    <div class="flex-none flex gap-10 items-center">
       <NuxtLink :to="`/`">
         <img src="eucp_logo.png" alt="EUCP Logo">
       </NuxtLink>
-      <div class="flex-l">
+      <div class="flex-none">
         <h1 class="text-4xl">
           Data Catalogue
         </h1>
@@ -13,7 +13,7 @@
       <Navigation />
     </div>
     <!-- grey background bar for menu -->
-    <div class="bg-gradient-to-r from-transparent via-gray-200 to-gray-200 w-screen h-12" />
-    <Nuxt class="pt-4" />
+    <div class="flex-none bg-gradient-to-r from-transparent via-gray-200 to-gray-200 w-full h-12 rounded" />
+    <Nuxt class="flex-1" />
   </div>
 </template>

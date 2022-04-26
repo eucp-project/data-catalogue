@@ -1,5 +1,5 @@
 <template>
-  <div class="flex ml-auto mr-8">
+  <div class="relative flex ml-auto mr-8">
     <div
       v-for="(page, i) in pages"
       :key="i"
