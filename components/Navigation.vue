@@ -1,5 +1,5 @@
 <template>
-  <div class="relative flex ml-auto mr-8">
+  <div class="relative flex gap-2 justify-end w-full mr-8">
     <div
       v-for="(page, i) in pages"
       :key="i"
@@ -11,7 +11,7 @@
       <NuxtLink :to="page.url">
         <button
           class="
-            w-40 mx-1 mt-12 px-3 py-2
+            w-40 mt-12 px-3 py-2
             rounded-t-lg
             bg-gray-100
             text-center
@@ -28,28 +28,27 @@
       <!-- second menu row -->
       <div
         v-if="page.hover | (inActiveRoute(page.url) && !checkHover(page, pages))"
-        class="absolute flex flex-row inset-y-30 right-0 mr-8 pr-6"
+        class="absolute right-0 flex flex-row justify-end h-12 w-full"
       >
-        <div
+        <NuxtLink
           v-for="subPage in page.children"
           :key="subPage"
-        >
-          <NuxtLink :to="subPage.url">
-            <button
-              class="
+          role="button"
+          :to="subPage.url"
+          class="
+                h-full
                 px-8 py-3
                 text-center
                 text-gray-700 hover:underline"
-              :class="{
-                'text-blue-500': inActiveRoute(subPage.url)
-              }"
-            >
-              {{ subPage.title }}
-            </button>
-          </NuxtLink>
-        </div>
+          :class="{
+            'text-blue-500': inActiveRoute(subPage.url)
+          }"
+        >
+          {{ subPage.title }}
+        </NuxtLink>
       </div>
     </div>
+  </div>
   </div>
 </template>
 
