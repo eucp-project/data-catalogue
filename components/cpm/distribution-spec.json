@@ -24,7 +24,7 @@
       "y": {
         "field": "value",
         "type": "quantitative",
-        "title": "Temperature change (K)"
+        "title": "Temperature change (K) / Precipitation change (%)"
       },
       "fill": {"field": "project", "legend": null},
       "tooltip": [{"field": "model"}, {"field": "value"}],
