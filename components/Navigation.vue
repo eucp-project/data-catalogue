@@ -2,7 +2,7 @@
   <div class="relative flex gap-2 justify-end w-full mr-8">
     <div
       v-for="(page, i) in pages"
-      :key="i"
+      :key="`parent_${i}`"
       class=""
       @mouseenter="toggleHover(page)"
       @mouseleave="toggleHover(page)"
@@ -31,8 +31,8 @@
         class="absolute right-0 flex flex-row justify-end h-12 w-full"
       >
         <NuxtLink
-          v-for="subPage in page.children"
-          :key="subPage"
+          v-for="(subPage, i) in page.children"
+          :key="`child_${i}`"
           role="button"
           :to="subPage.url"
           class="
