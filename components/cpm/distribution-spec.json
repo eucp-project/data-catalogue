@@ -1,0 +1,38 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/eucp-project/data-catalogue/main/static/cpm_context_data.json"
+  },
+  "spacing": {"column": 30},
+  "facet": {
+    "column": {"field": "project", "sort": ["CPM", "CORDEX", "CMIP5", "CMIP6", "UKCP_gcm", "UKCP_rcm"]}
+  },
+  "spec": {
+    "width": 80,
+    "height": 300,
+    "view": {"stroke": null},
+    "mark": {
+      "type": "point"
+    },
+    "encoding": {
+      "x": {
+        "field": "jitter",
+        "type": "quantitative",
+        "title": null,
+        "axis": {"grid": false, "labels": false, "ticks": false}
+      },
+      "y": {
+        "field": "value",
+        "type": "quantitative",
+        "title": "Temperature change (K)"
+      },
+      "fill": {"field": "project", "legend": null},
+      "tooltip": [{"field": "model"}, {"field": "value"}],
+      "size": {"condition": {"param": "selected_models", "value": 150, "empty": false}, "value": 100 },
+      "opacity": {"condition": {"param": "selected_models", "value": 0.9, "empty": false}, "value": 0.3 },
+      "strokeWidth": {"condition": {"param": "selected_models", "value": 2, "empty": false}, "value": 0 }
+    }
+  },
+  "params": [{"name": "selected_models", "select": {"type": "point", "fields": ["ancestor"] }}],
+  "transform": [{"calculate": "sampleNormal()", "as": "jitter"}]
+}
