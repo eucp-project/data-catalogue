@@ -22,6 +22,7 @@
         storyboard on <a
           href="https://eucp-project.github.io/storyboards/evidence"
           target="_blank"
+          rel="noopener"
         >Multiple lines of evidence</a>.
       </p>
     </div>
