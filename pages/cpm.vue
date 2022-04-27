@@ -1,5 +1,5 @@
 <template>
-  <div class="flex gap-4 p-2">
+  <div class="flex h-full w-full gap-4 p-2">
     <NuxtChild class="self-stretch" :domain="domain" />
   </div>
 </template>

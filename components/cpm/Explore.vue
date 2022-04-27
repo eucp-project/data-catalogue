@@ -1,11 +1,10 @@
 <template>
-  <div class="flex flex-col w-full h-full">
+  <div class="flex flex-col gap-8 items-center w-full h-full">
     <span class="flex space-x-3 p-3">
       <div>
         <multiselect
           v-model="selectedDomain"
           :options="domains"
-          :searchable="false"
           :allow-empty="false"
           :close-on-select="true"
           :show-labels="false"
@@ -62,12 +61,12 @@
           :clear-on-select="false"
           :preserve-search="true"
           :show-labels="true"
-          placeholder="Choose project(s)"
-          label="name"
+          placeholder="Choose resolution(s)"
+          label="title"
           track-by="name"
           :preselect-first="true"
         >
-          <template slot="selection" slot-scope="{ values, isOpen }"><span v-if="values.length &amp;&amp; !isOpen" class="multiselect__single">{{ values.length }} project(s) selected</span></template>
+          <!-- <template slot="selection" slot-scope="{ values, isOpen }"><span v-if="values.length &amp;&amp; !isOpen" class="multiselect__single">{{ values.length }} project(s) selected</span></template> -->
         </multiselect>
       </div>
       <div>
@@ -79,12 +78,12 @@
           :clear-on-select="false"
           :preserve-search="true"
           :show-labels="true"
-          placeholder="Choose experiment(s)"
+          placeholder="Choose historical or future"
           label="name"
           track-by="name"
           :preselect-first="true"
         >
-          <template slot="selection" slot-scope="{ values, isOpen }"><span v-if="values.length &amp;&amp; !isOpen" class="multiselect__single">{{ values.length }} experiment(s) selected</span></template>
+          <!-- <template slot="selection" slot-scope="{ values, isOpen }"><span v-if="values.length &amp;&amp; !isOpen" class="multiselect__single">{{ values.length }} experiment(s) selected</span></template> -->
         </multiselect>
       </div>
     </span>
@@ -93,24 +92,22 @@
       :key="experiment.path"
       class="w-full h-full"
     >
-      <div class="flex w-full h-full">
-        <p class="text-lg prose">
+      <div class="flex h-full w-full">
+        <p class="flex-none text-lg prose">
           {{ experiment.name }}:
         </p>
         <div
           v-for="project in selectedProject"
           :key="project.code"
-          class="w-1/3 h-full"
-        >
-          <p class="text-center text-lg prose">
-            {{ project.title }}
-          </p>
-          <!-- <div
-            class="bg-no-repeat bg-contain w-auto h-full"
-            :style="{backgroundImage: `url(${getMap(project.code, experiment.path)})` }"
-          /> -->
-          <img :src="getMap(project.code, experiment.path)" class="object-contain w-full h-full">
-        </div>
+          class="bg-no-repeat bg-contain w-full h-full"
+          :style="{backgroundImage: `url(${getMap(project.code, experiment.path)})` }"
+        />
+        <!-- <img
+          v-for="project in selectedProject"
+          :key="project.code"
+          :src="getMap(project.code, experiment.path)"
+          class="object-contain h-full w-full"
+        > -->
       </div>
     </div>
   </div>
