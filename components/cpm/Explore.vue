@@ -3,6 +3,19 @@
     <span class="flex space-x-3 p-3">
       <div>
         <multiselect
+          v-model="selectedDomain"
+          :options="domains"
+          :searchable="false"
+          :allow-empty="false"
+          :close-on-select="true"
+          :show-labels="false"
+          label="name"
+          deselect-label=" "
+          placeholder="Select a domain."
+        />
+      </div>
+      <div>
+        <multiselect
           v-model="selectedVariable"
           :options="variables"
           :searchable="false"
@@ -74,16 +87,6 @@
           <template slot="selection" slot-scope="{ values, isOpen }"><span v-if="values.length &amp;&amp; !isOpen" class="multiselect__single">{{ values.length }} experiment(s) selected</span></template>
         </multiselect>
       </div>
-      <!-- same style but not selectable option to display region -->
-      <select
-        class="border border-gray-300 rounded cursor-pointer
-            text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-300
-            focus:outline-none appearance-none"
-      >
-        <option :value="domain">
-          {{ domain }}
-        </option>
-      </select>
     </span>
     <div
       v-for="experiment in selectedCategory"
@@ -102,11 +105,11 @@
           <p class="text-center text-lg prose">
             {{ project.title }}
           </p>
-          <div
+          <!-- <div
             class="bg-no-repeat bg-contain w-auto h-full"
             :style="{backgroundImage: `url(${getMap(project.code, experiment.path)})` }"
-          />
-          <!-- <img :src="getMap(project.code, experiment.path)" class="object-contain w-full h-full"> -->
+          /> -->
+          <img :src="getMap(project.code, experiment.path)" class="object-contain w-full h-full">
         </div>
       </div>
     </div>
@@ -117,14 +120,9 @@
 import Multiselect from 'vue-multiselect'
 export default {
   components: { Multiselect },
-  props: {
-    domain: {
-      default: 'AL',
-      type: String
-    }
-  },
   data () {
     return {
+      selectedDomain: { name: 'Alps', code: 'AL' },
       selectedVariable: { name: 'Precipitation', code: 'pr' },
       selectedSeason: { name: 'Winter', code: 'DJF' },
       selectedModel: { name: 'CNRM', code: 'cnrm' },
@@ -136,6 +134,15 @@ export default {
       selectedCategory: [
         { name: 'Past performance', path: 'past_performance' },
         { name: 'Future change', path: 'future_change' }
+      ],
+      domains: [
+        { name: 'Alps', code: 'AL' },
+        { name: 'Northern Europe', code: 'N' },
+        { name: 'Northwest Europe', code: 'NW' },
+        { name: 'Central Europe', code: 'C' },
+        { name: 'Central Eastern Europe', code: 'CE' },
+        { name: 'Southwest Europe', code: 'SW' },
+        { name: 'Southeast Europe', code: 'SE' }
       ],
       variables: [
         { name: 'Precipitation', code: 'pr' },
@@ -168,7 +175,7 @@ export default {
   computed: {
     filterModels () {
       const filterList = []
-      this.regionsModels[this.domain].forEach((model) => {
+      this.regionsModels[this.selectedDomain.code].forEach((model) => {
         if (model === 'SMHI') {
           const modelObject = { name: 'DMI/SMHI', code: 'smhi' }
           filterList.push(modelObject)
@@ -181,8 +188,8 @@ export default {
     }
   },
   watch: {
-    domain () {
-      if (!this.regionsModels[this.domain].includes(this.selectedModel.name)) {
+    selectedDomain () {
+      if (!this.regionsModels[this.selectedDomain.code].includes(this.selectedModel.name)) {
         this.selectedModel = this.filterModels[0]
       }
     }
@@ -191,7 +198,7 @@ export default {
     getMap (project, experiment) {
       const fallback = 'empty.png'
       try {
-        return require('~/static/cpm_analysis/' + experiment + '/' + this.domain + '/' + this.selectedVariable.code + '/' + project + '_' + this.selectedModel.code + '_' + this.selectedSeason.code + '.png')
+        return require('~/static/cpm_analysis/' + experiment + '/' + this.selectedDomain.code + '/' + this.selectedVariable.code + '/' + project + '_' + this.selectedModel.code + '_' + this.selectedSeason.code + '.png')
       } catch (err) {
         return fallback
       }
