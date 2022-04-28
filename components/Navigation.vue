@@ -31,8 +31,8 @@
         class="absolute right-0 flex flex-row justify-end h-12 w-full"
       >
         <NuxtLink
-          v-for="(subPage, i) in page.children"
-          :key="`child_${i}`"
+          v-for="(subPage, idx) in page.children"
+          :key="`child_${idx}`"
           role="button"
           :to="subPage.url"
           class="
@@ -63,7 +63,7 @@ export default {
           children: [
             { title: 'Explore', url: '/cpm/explore' },
             { title: 'Analyse', url: '/cpm/analyse' },
-            { title: 'Lines of evidence', url: '/cpm/lines' },
+            { title: 'Context', url: '/cpm/distribution' },
             { title: 'Download', url: '/cpm/download' },
             { title: 'More info', url: '/cpm/references' }
           ]
