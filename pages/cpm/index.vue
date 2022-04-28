@@ -1,18 +1,52 @@
 <template>
-  <div class="m-2 ml-9 prose">
-    <p>
-      Building upon CORDEX FPS-Convection, EUCP has performed
-      convection-permitting model runs for multiple domains covering Europe and
-      the outermost regions. This page provides an overview of the most relevant
-      data and results from our preliminary analysis. Select a region on the map
-      to start exploring.
-    </p>
-    <p> You selected the following domain: {{ domain }}</p>
+  <div class="flex w-full gap-4 p-2">
+    <CpmMap v-model="domain" class="flex-none" />
+    <div class="flex-grow p-4 prose max-w-none" :domain="domain">
+      <h1>EUCP convection permitting model simulations</h1>
+      <p>
+        Building upon CORDEX FPS-Convection, EUCP has performed
+        convection-permitting model runs for multiple domains covering Europe
+        and the outermost regions. This page provides an overview of the most
+        relevant data and results from our preliminary analysis. Select a region
+        on the map to start exploring.
+      </p>
+      <p>
+        The selected domain is: <strong>{{ domainNames[domain] }}</strong>.
+        For this domain, data from the following groups/models is available:
+        <ul>
+          <li v-for="(group, i) in groups[domain]" :key="i">
+            {{ group }}
+          </li>
+        </ul>
+      </p>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['domain']
+  data () {
+    return {
+      domain: 'AL', // default value for domain
+      domainNames: {
+        N: 'Northern Europe',
+        NW: 'Northwest Europe',
+        C: 'Central Europe',
+        SW: 'Southwest Europe',
+        SE: 'Southeast Europe',
+        CE: 'Central Eastern Europe',
+        AL: 'Alps'
+      },
+      groups: {
+        NW: ['CNRM', 'KNMI', 'ETHZ', 'UKMO'],
+        SW: ['CMCC', 'IPSL', 'ETHZ', 'UKMO'],
+        SE: ['ICTP', 'ETHZ', 'UKMO'],
+        C: ['GERICS', 'ETHZ', 'UKMO'],
+        CE: ['SMHI', 'ICTP', 'ETHZ', 'UKMO'],
+        N: ['SMHI', 'GERICS'],
+        AL: ['CNRM', 'CMCC', 'IPSL', 'KNMI', 'GERICS', 'ETHZ', 'SMHI', 'ICTP', 'UKMO']
+      }
+    }
+  }
 }
 </script>

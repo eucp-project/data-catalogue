@@ -1,11 +1,3 @@
 <template>
-  <div class="w-full h-full p-2">
-    <CpmExplore :domain="domain" />
-  </div>
+  <CpmExplore :domain="domain" class="w-full h-full" />
 </template>
-
-<script>
-export default {
-  props: ['domain']
-}
-</script>

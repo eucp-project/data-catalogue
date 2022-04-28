@@ -1,7 +1,7 @@
 <template>
-  <div class="h-full w-full">
+  <div class="flex flex-col gap-8 p-8">
     <!-- brief summary -->
-    <p class="m-2 ml-9 text-lg prose max-w-none">
+    <p class="text-lg prose max-w-none">
       This page provides an overview of datasets that have been produced in EUCP on a variety of applications.
     </p>
     <!-- search -->
@@ -9,32 +9,34 @@
     <input
       v-model="query"
       type="search"
-      class="border-2 border-gray-400 rounded-l w-1/3 m-3 ml-8 p-2"
+      class="border-2 border-gray-400 rounded-l w-1/3"
       placeholder="search"
     >
     </input>
     <!-- eslint-enable -->
     <!-- flashcard -->
-    <div class="grid grid-cols-3 gap-4 p-8 w-full">
+    <div class="grid grid-cols-3 2xl:grid-cols-4 justify-items-stretch gap-4">
       <div
         v-for="dataset in datasets"
         :key="dataset.title"
-        class="border-4 p-4 prose space-y-0.5"
+        class="shadow-lg rounded prose"
         role="button"
         @click="updateModal(dataset)"
       >
-        <h2>
+        <h2 class="bg-blue-200 rounded-tl-lg rounded-tr-lg p-4">
           {{ dataset.title }}
         </h2>
-        <p>
-          {{ dataset.description }}
-        </p>
-        <ul class="space-y-0.5">
-          <li>Contact: {{ dataset.contact[0].name }}</li>
-          <li class="break-words">
-            Data access: <a :href="dataset.doi" target="blank">{{ dataset.doi }}</a>
-          </li>
-        </ul>
+        <div class="prose px-6 pb-2">
+          <p>
+            {{ dataset.description }}
+          </p>
+          <ul class="">
+            <li>Contact: {{ dataset.contact[0].name }}</li>
+            <li class="break-words">
+              Data access: <a :href="dataset.doi" target="blank">{{ dataset.doi }}</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
     <Modal

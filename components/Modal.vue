@@ -1,10 +1,10 @@
 <template>
   <div
-    class="fixed top-0 right-0 bottom-0 left-0 flex justify-center bg-gray-900 bg-opacity-80"
+    class="fixed inset-0 h-screen w-screen bg-gray-900 bg-opacity-80"
     @click="$emit('close-modal')"
   >
     <div
-      class="justify-center text-left overflow-auto m-10 p-10 rounded-xl mt-10 bg-white prose max-w-none"
+      class="fixed inset-10 overflow-auto p-10 rounded-xl bg-white prose max-w-none"
       @click.stop
     >
       <button
@@ -13,7 +13,7 @@
       >
         Close
       </button>
-      <h2>{{ dataset.title }}</h2>
+      <h1>{{ dataset.title }}</h1>
       <ul>
         <li>Contact: {{ dataset.contact[0].name }}</li>
         <li>License: {{ dataset.license }}</li>
