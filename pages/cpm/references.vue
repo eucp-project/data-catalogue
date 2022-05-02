@@ -14,7 +14,7 @@
       point to the EUCP project site which features nice summaries.
     </p>
     <ul>
-      <li v-for="(publication, i) in stories" :key="`paper_${i}`">
+      <li v-for="(publication, i) in publications" :key="`paper_${i}`">
         <a :href="publication.link" target="_blank">{{ publication.title }}</a>
       </li>
     </ul>
