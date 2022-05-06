@@ -71,9 +71,12 @@ export default {
         {
           title: 'Decadal',
           url: '/decadal',
-          children: [{ title: 'Forecasts', url: '/decadal/forecasts' },
+          children: [
+            { title: 'Forecasts', url: '/decadal/forecasts' },
             { title: 'Hindcasts', url: '/decadal/hindcasts' },
-            { title: 'Experiments', url: '/decadal/experiments' }]
+            { title: 'Experiments', url: '/decadal/experiments' },
+            { title: 'C3S_34C', url: '/decadal/c3s_34c' }
+          ]
         },
         {
           title: 'Topical',
