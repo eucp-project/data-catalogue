@@ -5,15 +5,19 @@ caption: Timeseries for Global Mean Near Surface Temperature (www.wmolc-adcp.org
 
 ## Decadal hindcasts
 
-The EUCP project contributed several decadal hindcasts to the [Decadal Climate Prediction Project](https://www.wcrp-climate.org/modelling-wgcm-mip-catalogue/cmip6-endorsed-mips-article/1065-modelling-cmip6-dcpp) (DCPP). Most of these hindcasts belong to the component A of DCPP, which designs and organizes a coordinated decadal hindcast experiment, in conjunction with the seasonal prediction and climate modelling communities, and the production of a comprehensive archive of results for research and applications.
+Hindcasts are forecasts for the past performed with the same forecast system.
+They can be compared with observations, and thus identify systematic errors
+(i.e. biases) and estimate their magnitude, as well as the performance of the
+forecast system, from a variety of perspectives.
 
-Hindcasts are forecasts for the past performed with the same forecast system. They can be compared with observations, and thus identify systematic errors (i.e. biases) and estimate their magnitude, as well as the performance of the forecast system, from a variety of perspectives.
+Decadal hindcast have been produced in the CMIP6 [Decadal Climate Prediction
+Project](https://www.wcrp-climate.org/modelling-wgcm-mip-catalogue/cmip6-endorsed-mips-article/1065-modelling-cmip6-dcpp)
+(DCPP), component DCPP-A.
 
-## Data access
+On top of the 'standard' DCPP data, EUCP has produced a number of
+higher-resolution decadal hindcasts:
 
-The following datasets have been contributed by EUCP:
-
-- [BSC Increased resolution hindcasts](https://doi.org/0): Increased resolution
+- [BSC Increased resolution hindcasts](): Increased resolution
   decadal hindcasts with EC-Earth3 at T551/ORCA025. Initialized every 2 years
   (November 1st) from 1960 to present. 10 members, 5-years +2 month long
   simulations. Output as described in CMIP6 DCPP-A.
@@ -21,7 +25,7 @@ The following datasets have been contributed by EUCP:
   Contact: [Pablo Ortega](https://orcid.org/0000-0002-4135-9621)
 
 - [CNRS/IPSL-EPOC Increased resolution
-  hindcasts](https://doi.org/10.22033/ESGF/CMIP6.5137):
+  hindcasts]():
   Decadal hindcasts with improved initialization strategy and increased
   resolution using IPSL-CM6A-LR at about 1° resolution. Initialized every year
   from 1960 to present. 10 members, 10-year-long simulations.
@@ -44,4 +48,4 @@ The following datasets have been contributed by EUCP:
   Initialized 1 Nov 1990-2004, 10 members each, integrated for 5 years + 2
   months. Output as described in CMIP6 DCPP-A (Tier 1).
 
-  Contact: [Tim Kruschke](https://orcid.org/0000-0002-1205-3754)
+  Contact: [Pasha Karami](https://orcid.org/0000-0003-0390-2889)
