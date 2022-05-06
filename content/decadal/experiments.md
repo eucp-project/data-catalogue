@@ -12,7 +12,8 @@ Project](https://www.wcrp-climate.org/modelling-wgcm-mip-catalogue/cmip6-endorse
 
 Four DCPP-C experiments run by Barcelona Supercomputing Center (contact:
   [Roberto Bilbao](https://orcid.org/0000-0003-0729-4980)) and CMCC (contact:
-  [Dario Nicolì](https://orcid.org/0000-0001-5890-9346)):
+  [Dario Nicolì](https://orcid.org/0000-0001-5890-9346) and [Panos
+  Athanasiadis](https://orcid.org/0000-0003-1249-6624)):
 
 1. Repeat 1991 hindcast without Pinatubo forcing (10 years x 10 members).
    **Data access**:
@@ -23,10 +24,12 @@ Four DCPP-C experiments run by Barcelona Supercomputing Center (contact:
    **Data access**:
    [BSC](https://doi.org/10.22033/ESGF/CMIP6.4588) and
    [CMCC](https://doi.org/10.22033/ESGF/CMIP6.3768).
+
 3. Repeat 1963 hindcast without Agung forcing (10 years x 10 members).
    **Data access**:
    [BSC](https://doi.org/10.22033/ESGF/CMIP6.3767) and
    [CMCC](https://doi.org/10.22033/ESGF/CMIP6.3767).
+
 4. Repeat 2015 hindcast with Pinatubo forcing (10 years x 10 members)
 
   Output as described in the [DCPP experiment

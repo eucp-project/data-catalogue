@@ -17,15 +17,20 @@ Project](https://www.wcrp-climate.org/modelling-wgcm-mip-catalogue/cmip6-endorse
 On top of the 'standard' DCPP data, EUCP has produced a number of
 higher-resolution decadal hindcasts:
 
-- [BSC Increased resolution hindcasts](): Increased resolution
-  decadal hindcasts with EC-Earth3 at T551/ORCA025. Initialized every 2 years
-  (November 1st) from 1960 to present. 10 members, 5-years +2 month long
-  simulations. Output as described in CMIP6 DCPP-A.
+- **BSC Increased resolution hindcasts**:
+
+  Data access: []()
+
+  Increased resolution decadal hindcasts with EC-Earth3 at T551/ORCA025.
+  Initialized every 2 years (November 1st) from 1960 to present. 10 members,
+  5-years +2 month long simulations. Output as described in CMIP6 DCPP-A.
 
   Contact: [Pablo Ortega](https://orcid.org/0000-0002-4135-9621)
 
-- [CNRS/IPSL-EPOC Increased resolution
-  hindcasts]():
+- **CNRS/IPSL-EPOC Increased resolution hindcasts**:
+
+  Data access: []()
+
   Decadal hindcasts with improved initialization strategy and increased
   resolution using IPSL-CM6A-LR at about 1° resolution. Initialized every year
   from 1960 to present. 10 members, 10-year-long simulations.
@@ -33,8 +38,10 @@ higher-resolution decadal hindcasts:
   Contact: [Didier Swingedouw](https://orcid.org/0000-0002-0583-0850) and
   [Juliette Mignot](https://orcid.org/0000-0002-4894-898X)
 
-- [IPSL DCPP-A data for CMIP5 and
-  CMIP6](https://doi.org/10.22033/ESGF/CMIP6.5137):
+- **IPSL DCPP-A data for CMIP5 and CMIP6**:
+
+  Data access: [doi.org/10.22033/ESGF/CMIP6.5137](https://doi.org/10.22033/ESGF/CMIP6.5137)
+
   DCPP-A from CMIP5, using IPSL-CM5A-LR, initialized from nudged simulation
   using SST nudging only. Start dates every year from 1960 to 2015, 3 members.
   De-biased data from CMIP5. Using CDFt technique (quantile-quantile approach),
@@ -43,7 +50,10 @@ higher-resolution decadal hindcasts:
   Contact: [Didier Swingedouw](https://orcid.org/0000-0002-0583-0850) and
   [Juliette Mignot](https://orcid.org/0000-0002-4894-898X)
 
-- [SMHI Increased resolution hindcasts]()
+- **SMHI Increased resolution hindcasts**
+
+  Data access: []()
+
   Increased resolution decadal hindcasts with EC-Earth3 at T511/ORCA025.
   Initialized 1 Nov 1990-2004, 10 members each, integrated for 5 years + 2
   months. Output as described in CMIP6 DCPP-A (Tier 1).
