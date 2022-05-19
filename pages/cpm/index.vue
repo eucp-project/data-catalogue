@@ -19,6 +19,14 @@
           </li>
         </ul>
       </p>
+      <p>
+        More details about the simulations that have been performed may be
+        found in <a
+          href="CPM_simulation_details.docx"
+          target="_blank"
+          rel="noopener noreferrer"
+        >this document</a>.
+      </p>
     </div>
   </div>
 </template>
