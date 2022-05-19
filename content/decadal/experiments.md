@@ -45,5 +45,7 @@ Initialization: November 1981-2014; - Hindcast length: 28 months; - Ensemble
 size: 25 (first 7 months); 10 (8-28 months). - Specific settings: - Experiment
 #1: with SPPT; - Experiment #2: without SPPT
 
+Data access through ECMWF MARS archive. Please reach out to our contact persons.
+
 Contact persons: [Daniel Befort](https://orcid.org/0000-0003-0729-4980) and
 [Antje Weisheimer](https://orcid.org/0000-0002-7231-6974)
