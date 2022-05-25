@@ -1,4 +1,5 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=eucp-project_data-catalogue&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=eucp-project_data-catalogue)
+[![DOI](https://zenodo.org/badge/429464715.svg)](https://zenodo.org/badge/latestdoi/429464715)
 
 # EUCP Data Catalogue
 
