@@ -30,11 +30,6 @@ Four DCPP-C experiments run by Barcelona Supercomputing Center (contact:
    [BSC](https://doi.org/10.22033/ESGF/CMIP6.3767) and
    [CMCC](https://doi.org/10.22033/ESGF/CMIP6.3767).
 
-4. Repeat 2015 hindcast with Pinatubo forcing (10 years x 10 members)
-
-  Output as described in the [DCPP experiment
-  protocol](https://www.wcrp-climate.org/experimental-protocol).
-
 ### Stochastic physics experiments
 
 2 experiments targeting to assess the impact of stochastic physics (SPPT) on

@@ -21,7 +21,7 @@ higher-resolution decadal hindcasts:
 
   Data access: []()
 
-  Increased resolution decadal hindcasts with EC-Earth3 at T551/ORCA025.
+  Increased resolution decadal hindcasts with EC-Earth3 at T511/ORCA025.
   Initialized every 2 years (November 1st) from 1960 to present. 10 members,
   5-years +2 month long simulations. Output as described in CMIP6 DCPP-A.
 

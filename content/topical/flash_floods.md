@@ -1,5 +1,5 @@
 ---
-title: Flash flood simulations for Alpine domain
+title: Flash flood simulations for Alpine domain (in preparation)
 contact:
   - name: Frederiek Sperna Weiland
     orcid:
@@ -12,9 +12,11 @@ doi:
 
 Ensembles of hydrological simulations.
 <!--more-->
-Model: Wflow. Forcing: CP-RCM simulations
-from WP3 for current and future periods Variables: discharge. Resolution: 1 km,
-monthly Domain: Alpine part of the Rhone, Rhine, Dan-ube, Po and Adige.
+- Model: Wflow.
+- Forcing: CP-RCM simulations from WP3 for current and future periods
+- Variables: discharge.
+- Resolution: 1 km, monthly
+- Domain: Alpine part of the Rhone, Rhine, Dan-ube, Po and Adige.
 
 For more information, see: ....
 
