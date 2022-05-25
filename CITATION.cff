@@ -35,4 +35,8 @@ authors:
     given-names: Barbara
     orcid: "https://orcid.org/0000-0002-5023-4601"
     affiliation: "Netherlands eScience Center"
+identifiers:
+  - type: doi
+    value: '10.5281/zenodo.6579851'
+    description: The concept DOI of the work.
 ...
